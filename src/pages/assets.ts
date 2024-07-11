@@ -1,0 +1,1 @@
+export const underConstructionGifPath = '/img/images/under-construction.gif';

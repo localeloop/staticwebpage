@@ -1,0 +1,30 @@
+BACKEND
+
+    - CMS to manage new menu uploads, poster uploads
+
+HOME
+
+    - Booking widget/Link to booking
+    - Link to JustEat, Deliveroo & Uber Eats
+    - TripAdivsor & Google Reviews
+
+WHATSON
+
+    - Pull through instagram feed
+    - Calender Sunday nights
+    - WHATSON every night
+    - Events (ST. Paddys etc)
+
+Music page
+
+    - Band Form for potential gigs
+    - Band merch
+    - Special event tickets
+
+Vegan Destination
+
+    - Owners Story
+    - Showcasing Vegan Food
+    - Gallery   
+
+ 
