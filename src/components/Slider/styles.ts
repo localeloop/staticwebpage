@@ -19,7 +19,7 @@ export const LeftCol = styled.div`
   position: relative;
 `;
 
-export const slideAnimation = keyframes`
+export const slideInAnimation = keyframes`
   0% {
     transform: translateY(-100%);
     opacity: 0;
@@ -28,6 +28,10 @@ export const slideAnimation = keyframes`
     transform: translateY(0);
     opacity: 1;
   }
+`;
+
+export const AnimatedContainer = styled.div`
+  animation: ${slideInAnimation} 0.5s ease-in-o
 `;
 
 export const Slide = styled.div<{ isCurrentSlide: boolean, isNextSlide: boolean, isPreviousSlide: boolean }>`
@@ -60,7 +64,7 @@ export const Slide = styled.div<{ isCurrentSlide: boolean, isNextSlide: boolean,
       : isPreviousSlide
       ? '3s ease transform'
       : 'none'};
-    animation: ${isPreviousSlide ? slideAnimation : 'none'} 1s forwards;
+    animation: ${isPreviousSlide ? slideInAnimation : 'none'} 1s forwards;
     will-change: ${isPreviousSlide ? 'transform' : 'none'};
   `}
 `;

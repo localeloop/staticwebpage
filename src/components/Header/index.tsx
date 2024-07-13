@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, lazy } from "react";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
@@ -19,8 +19,15 @@ import {
   Span,
 } from "./styles";
 
+const BookingWidget = lazy(() => import("../../common/BookingWidget"));
+
 const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
+  const [isWidgetVisible, setWidgetVisibility] = useState(false);
+
+  const handleWidgetClick = () => {
+    setWidgetVisibility(!isWidgetVisible);
+  };
 
   const toggleButton = () => {
     setVisibility(!visible);
@@ -52,15 +59,9 @@ const Header = ({ t }: { t: TFunction }) => {
         </Link>
       </CustomNavLinkSmall>
         <CustomNavLinkSmall style={{ width: '180px' }}>
-          <a 
-            href="https://tableagent.com/surrey/the-queens-head/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
             <Span>
-              <Button>{t('Reserve Table')}</Button>
+              <Button onClick={handleWidgetClick}>{t('Reserve Table')}</Button>
             </Span>
-          </a>
         </CustomNavLinkSmall>
       </MenuItems>
     );
@@ -69,6 +70,7 @@ const Header = ({ t }: { t: TFunction }) => {
   return (
     <HeaderSection>
       <Container maxWidth="1700px">
+        <BookingWidget isVisible={isWidgetVisible}/>
         <Row justify="space-between">
           <LogoContainer to="/" aria-label="homepage">
             <Logo>The Queen's Head</Logo>

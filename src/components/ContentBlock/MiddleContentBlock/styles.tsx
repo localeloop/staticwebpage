@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 interface ContentWrapperProps {
   fontSize?: string;
+  flexStyle?: string;
 }
 
-export const MiddleBlockContainer = styled.div`
+export const MiddleBlockContainer = styled.div<ContentWrapperProps>`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: ${( props ) => props.flexStyle || 'center'};
   justify-content: center;
   height: 100vh;
   width: 100%;
@@ -18,6 +19,7 @@ export const MiddleBlockContainer = styled.div`
 `;
 
 export const ContentWrapper = styled.div<ContentWrapperProps>`
+  font-size: ${props => props.fontSize || '1.5rem'};
   padding: 2rem;
   text-align: center;
   width: 80%;

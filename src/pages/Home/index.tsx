@@ -1,10 +1,12 @@
+import { Spin } from "antd";
 import { Col, Row } from "antd";
 import { lazy, Suspense  } from "react";
+import Carousel from '../../components/Carousel';
+import { BackgroundImageContainer } from "../../common/BackgroundImage/styles";
+import { AnimatedContainer } from "../../components/Slider/styles";
+
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
-import { BackgroundImageContainer } from "../../common/BackgroundImage/styles";
-import Carousel from '../../components/Carousel';
-import { Spin } from "antd";
 
 // import AboutContent from "../../content/AboutContent.json";
 // import MissionContent from "../../content/MissionContent.json";
@@ -18,12 +20,10 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const ScrollDown = lazy(() => import("../../common/ScrollDown"));
-const BookingWidget = lazy(() => import("../../common/BookingWidget"));
 
 
 const images = [
   { src: 'carousel-1.jpg', alt: 'Image 1', title: 'Item No. 1' },
-  { src: 'carousel-2.jpg', alt: 'Image 2', title: 'Item No. 2' },
   { src: 'carousel-3.jpg', alt: 'Image 2', title: 'Item No. 2' },
   { src: 'carousel-4.jpg', alt: 'Image 2', title: 'Item No. 2' },
   { src: 'carousel-6.jpg', alt: 'Image 2', title: 'Item No. 2' },
@@ -38,17 +38,22 @@ const Home = () => {
     <>
       <ScrollToTop />
         <Carousel images={images} isGrayscale={false}>
+          
           <Row justify="space-between" align="middle">
-            <Col xs={24} md={12}>
-              <MiddleContentBlock
-                title={IntroContent.title}
-                content={IntroContent.content}
-                button={IntroContent.button}
-                fontSize="5rem"
-              />
-            </Col>
+            <AnimatedContainer>
+
+              <Col xs={24} md={12}>
+                <MiddleContentBlock
+                  title={IntroContent.title}
+                  content={IntroContent.content}
+                  button={IntroContent.button}
+                  href={IntroContent.href}
+                  fontSize="5rem"
+                  flexStyle="flex-end"
+                  />
+              </Col>
+            </AnimatedContainer>
             <Col xs={24} md={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: "2%"}}>
-              <BookingWidget />
             </Col>
           </Row>
           <ScrollDown targetId={"about"} />
@@ -56,17 +61,16 @@ const Home = () => {
       <Container padding="10% 0" maxWidth="1700px">
         <BackgroundImageContainer 
           fixed={true}
-          backgroundImage="/images/couch-area.jpg" >
+          height="20%"
+          backgroundImage="/images/background.jpg" >
         <MiddleContentBlock
           id="about"
           title={MiddleBlockContent.title}
           content={MiddleBlockContent.text}
-          button={MiddleBlockContent.button}
+          fontSize='1rem'
         />
         </BackgroundImageContainer>
       </Container>
-
-      <BackgroundImageContainer backgroundImage="/images/background.jpg" fixed={true}></BackgroundImageContainer>
       
       <Container padding="10% 0" maxWidth="2000px">
       </Container>
