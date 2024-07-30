@@ -23,14 +23,13 @@ const ScrollDown = lazy(() => import("../../common/ScrollDown"));
 
 
 const images = [
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-1.jpg', alt: 'carousel image one', title: 'Item No. 1' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-3.jpg', alt: 'carousel image two', title: 'Item No. 2' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-4.jpg', alt: 'carousel image three', title: 'Item No. 2' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-6.jpg', alt: 'carousel image four', title: 'Item No. 2' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-7.jpg', alt: 'carousel image five', title: 'Item No. 2' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-8.jpg', alt: 'carousel image six', title: 'Item No. 2' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-9.jpg', alt: 'carousel image seven', title: 'Item No. 2' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-10.jpg', alt: 'carousel image eight', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-1.JPG', alt: 'farnham queens head right side bar', title: 'right side bar' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-3.JPG', alt: 'farnham queens head nook area fullers', title: 'nook area' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-5.JPG', alt: 'farnham queens head public house statue head plantlife', title: 'public house farnham' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-6.JPG', alt: 'farnham queens head public house guinness amstel stowford press', title: 'tap house' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-7.JPG', alt: 'queens head farnham ale taps hsb london pride', title: 'ale taps' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-8.JPG', alt: 'queens head farnham entrance welcome', title: 'entrance' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-9.JPG', alt: 'queens head farnham outside area plant life outside seating', title: 'outside area' },
 ];
 
 const Home = () => {
@@ -62,7 +61,7 @@ const Home = () => {
         <BackgroundImageContainer 
           fixed={true}
           height="10%"
-          backgroundImage="/images/background.jpg" 
+          backgroundImage="https://assets.thequeensheadfarnham.co.uk/images/background.jpg" 
         >
           <MiddleContentBlock
             id="about"
