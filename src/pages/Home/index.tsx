@@ -23,14 +23,14 @@ const ScrollDown = lazy(() => import("../../common/ScrollDown"));
 
 
 const images = [
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/piano-background.jpg', alt: 'Image 1', title: 'Item No. 1' },
-  // { src: 'carousel-3.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  // { src: 'carousel-4.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  // { src: 'carousel-6.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  // { src: 'carousel-7.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  // { src: 'carousel-8.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  // { src: 'carousel-9.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  // { src: 'carousel-10.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-1.jpg', alt: 'carousel image one', title: 'Item No. 1' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-3.jpg', alt: 'carousel image two', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-4.jpg', alt: 'carousel image three', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-6.jpg', alt: 'carousel image four', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-7.jpg', alt: 'carousel image five', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-8.jpg', alt: 'carousel image six', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-9.jpg', alt: 'carousel image seven', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-10.jpg', alt: 'carousel image eight', title: 'Item No. 2' },
 ];
 
 const Home = () => {
