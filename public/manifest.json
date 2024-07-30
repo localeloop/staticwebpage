@@ -1,6 +1,6 @@
 {
-  "short_name": "Landy",
-  "name": "Landy - React Template",
+  "short_name": "TQH",
+  "name": "The Queen's Head",
   "icons": [
     {
       "src": "img/icons/logo192.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#161616",
   "background_color": "#ffffff"
 }

@@ -1,71 +1,40 @@
-import React, { useState, lazy } from "react";
-import { Row, Col, Drawer } from "antd";
+import { useState, lazy, useMemo, Suspense } from "react";
 import { withTranslation, TFunction } from "react-i18next";
-import Container from "../../common/Container";
-import { Image } from "../../common/Image";
-import { Button } from "../../common/Button";
-import Logo from '../../common/Logo';
-import { Link } from "react-router-dom";
-import {
-  HeaderSection,
-  LogoContainer,
-  Burger,
-  NotHidden,
-  Menu,
-  MenuItems,
-  CustomNavLinkSmall,
-  Label,
-  Outline,
-  Span,
+import { Row, Col, Drawer } from "antd";
+import { HeaderSection, LogoContainer, Burger,
+  NotHidden, Label, Outline,
 } from "./styles";
 
+import useWindowSize from '../../hooks/useWindowSize';
+import Container from "../../common/Container";
+import Logo from '../../common/Logo';
+
+const LazyDrawer = lazy(() => import("antd").then(module => ({ default: module.Drawer })));
 const BookingWidget = lazy(() => import("../../common/BookingWidget"));
+const MenuItem = lazy(() => import("./MenuItem"));
 
 const Header = ({ t }: { t: TFunction }) => {
-  const [visible, setVisibility] = useState(false);
+  const [isDrawerVisible, setDrawerVisibility] = useState(false);
   const [isWidgetVisible, setWidgetVisibility] = useState(false);
+  // window inner width
+  const { width } = useWindowSize();
 
   const handleWidgetClick = () => {
     setWidgetVisibility(!isWidgetVisible);
+    burgerMenuButton();
   };
 
-  const toggleButton = () => {
-    setVisibility(!visible);
+  const burgerMenuButton = () => {
+    setDrawerVisibility(!isDrawerVisible);
+
+    if (isWidgetVisible && width <= 768) {
+      setWidgetVisibility(false);
+    }
   };
 
-  const MenuItem = () => {
-    const scrollTo = (id: string) => {
-      const element = document.getElementById(id) as HTMLDivElement;
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
-      setVisibility(false);
-    };
-    return (
-      <MenuItems>
-      <CustomNavLinkSmall>
-        <Link to="food">
-          <Span>{t("Food")}</Span>
-        </Link>
-      </CustomNavLinkSmall>
-      <CustomNavLinkSmall>
-        <Link to="whatson">
-          <Span>{t("What's On")}</Span>
-        </Link>
-      </CustomNavLinkSmall>
-      <CustomNavLinkSmall>
-        <Link to="livemusic">
-          <Span>{t("Live Music")}</Span>
-        </Link>
-      </CustomNavLinkSmall>
-        <CustomNavLinkSmall style={{ width: '180px' }}>
-            <Span>
-              <Button onClick={handleWidgetClick}>{t('Reserve Table')}</Button>
-            </Span>
-        </CustomNavLinkSmall>
-      </MenuItems>
-    );
-  };
+  const memoizedMenuItem = useMemo(() => 
+    <MenuItem handleWidgetClick={handleWidgetClick} t={t} />, [t, handleWidgetClick]
+  );
 
   return (
     <HeaderSection>
@@ -76,25 +45,32 @@ const Header = ({ t }: { t: TFunction }) => {
             <Logo>The Queen's Head</Logo>
           </LogoContainer>
           <NotHidden>
-            <MenuItem />
+            {memoizedMenuItem}
           </NotHidden>
-          <Burger onClick={toggleButton}>
+          <Burger onClick={burgerMenuButton}>
             <Outline />
           </Burger>
         </Row>
-        <Drawer closable={false} open={visible} onClose={toggleButton}>
-          <Col style={{ marginBottom: "2.5rem" }}>
-            <Label onClick={toggleButton}>
-              <Col span={12}>
-                <Menu>Menu</Menu>
+        {width <= 768 && ( 
+          <LazyDrawer 
+            closable={false} 
+            open={isDrawerVisible} 
+            onClose={burgerMenuButton}
+            onClick={burgerMenuButton}
+            bodyStyle={{ background: "#161616" }}
+          >
+            <div>
+              <Col style={{ marginBottom: "2.5rem"}}>
+                <Label onClick={burgerMenuButton}>
+                  <Col span={12} style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <Outline style={{padding: "0 0 0 2px", width: '2rem', height: '100%' }} />
+                  </Col>
+                </Label>
               </Col>
-              <Col span={12}>
-                <Outline />
-              </Col>
-            </Label>
-          </Col>
-          <MenuItem />
-        </Drawer>
+              {memoizedMenuItem}
+            </div>
+          </LazyDrawer>
+        )}
       </Container>
     </HeaderSection>
   );

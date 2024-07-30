@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 interface BookingWidgetProps {
@@ -25,7 +25,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({
 }) => {
 
   return (
-    <WidgetContainer isOpen={isVisible}>
+    <WidgetContainer isOpen={isVisible} className="booking-widget">
       <iframe
         src="https://tableagent.com/iframe/the-queens-head/"
         style={{ borderRadius:'0 0 0 20px', border:'none', minWidth: '375px', minHeight: '690px', zIndex: 10000 }}

@@ -13,7 +13,7 @@ export const BackgroundImageContainer = styled("div")<{
   max-width: ${(props) => (props.maxWidth ? "1200px" : "")};
 
   background: #161616;
-  background-image: ${(props) => props.backgroundImage ? `url(img/${props.backgroundImage})` : "rgba(22,22,22,1)"};
+  background-image: ${(props) => props.backgroundImage ? `url(${props.backgroundImage})` : "rgba(22,22,22,1)"};
   background-attachment: ${(props) => props.fixed? "fixed" : "scroll"};
   background-size: cover;
   background-repeat: no-repeat;

@@ -10,31 +10,37 @@ export const MiddleBlockContainer = styled.div<ContentWrapperProps>`
   flex-direction: row;
   align-items: ${( props ) => props.flexStyle || 'center'};
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;
 
 export const ContentWrapper = styled.div<ContentWrapperProps>`
-  font-size: ${props => props.fontSize || '1.5rem'};
-  padding: 2rem;
+  font-size: ${props => props.fontSize || '1rem'};
+  padding: 1.5rem;
   text-align: center;
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
   color: #161616;
 
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
-    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
   }
 
   button {
     color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
 
   h2, p {
@@ -42,11 +48,18 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   }
 
   h2 {
-    font-size: ${props => props.fontSize || '1.5rem'}; // Use the received fontSize prop or default to 1.5rem
+    font-size: ${props => props.fontSize || '1.25rem'};
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
 `;

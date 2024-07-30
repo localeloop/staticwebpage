@@ -23,14 +23,14 @@ const ScrollDown = lazy(() => import("../../common/ScrollDown"));
 
 
 const images = [
-  { src: 'carousel-1.jpg', alt: 'Image 1', title: 'Item No. 1' },
-  { src: 'carousel-3.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  { src: 'carousel-4.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  { src: 'carousel-6.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  { src: 'carousel-7.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  { src: 'carousel-8.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  { src: 'carousel-9.jpg', alt: 'Image 2', title: 'Item No. 2' },
-  { src: 'carousel-10.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  { src: 'https://assets.thequeensheadfarnham.co.uk/images/piano-background.jpg', alt: 'Image 1', title: 'Item No. 1' },
+  // { src: 'carousel-3.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  // { src: 'carousel-4.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  // { src: 'carousel-6.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  // { src: 'carousel-7.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  // { src: 'carousel-8.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  // { src: 'carousel-9.jpg', alt: 'Image 2', title: 'Item No. 2' },
+  // { src: 'carousel-10.jpg', alt: 'Image 2', title: 'Item No. 2' },
 ];
 
 const Home = () => {
@@ -61,18 +61,16 @@ const Home = () => {
       <Container padding="10% 0" maxWidth="1700px">
         <BackgroundImageContainer 
           fixed={true}
-          height="20%"
-          backgroundImage="/images/background.jpg" >
-        <MiddleContentBlock
-          id="about"
-          title={MiddleBlockContent.title}
-          content={MiddleBlockContent.text}
-          fontSize='1rem'
-        />
+          height="10%"
+          backgroundImage="/images/background.jpg" 
+        >
+          <MiddleContentBlock
+            id="about"
+            title={MiddleBlockContent.title}
+            content={MiddleBlockContent.text}
+            fontSize='1rem'
+          />
         </BackgroundImageContainer>
-      </Container>
-      
-      <Container padding="10% 0" maxWidth="2000px">
       </Container>
     </>
   );

@@ -47,15 +47,50 @@ export const CustomNavLink = styled("div")`
   }
 `;
 
-export const Burger = styled("div")`
-  @media only screen and (max-width: 890px) {
-    display: block;
+export const Burger = styled.div`
+  display: none; // Hide by default
+
+  @media only screen and (max-width: 768px) {
+    display: flex; // Show only on mobile screens
+    top: 50%;
+    width: 2rem;
+    right: 20px;
+    height: 100%;
+    z-index: 1000;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    transform: translateY(-50%);
+  }
+`;
+
+
+export const Outline = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
   }
 
-  display: none;
+  &::before {
+    top: -8px;
+  }
 
-  svg {
-    fill: #161616;
+  &::after {
+    bottom: -8px;
   }
 `;
 
@@ -94,10 +129,6 @@ export const Label = styled("span")`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-`;
-
-export const Outline = styled(MenuOutlined)`
-  font-size: 22px;
 `;
 
 export const Span = styled("span")`

@@ -13,7 +13,7 @@ const scrollAnimation = keyframes`
 `;
 
 export const ScrollDownContainer = styled.div<{ isScrolling: boolean, isAnimating: boolean }>`
-    color: #000;
+    color: #fff;
     position: fixed;
     bottom: 20px;
     left: 50%;

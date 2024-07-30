@@ -42,4 +42,6 @@ export interface BackgroundImageProps{
   backgroundImage?: string;
   children: React.ReactNode;
   fixed?: boolean;
+  height?: string;
+  width?: string;
 }
