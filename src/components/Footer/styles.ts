@@ -56,6 +56,10 @@ export const Para = styled("div")`
   @media screen and (max-width: 768px) {
     width: 90%;
   }
+
+  @media screen and (max-width: 414px) {
+    width: 100%;
+  }
 `;
 
 export const Large = styled(Link)<any>`

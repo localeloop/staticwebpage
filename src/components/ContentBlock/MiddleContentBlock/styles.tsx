@@ -59,6 +59,15 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
     }
     font-size: 0.5rem;
   }
+
+  @media (max-width: 414px) {
+  margin-top: 45%;
+    padding: 1rem;
+    h1 {
+      font-size: 1.5rem;
+    }
+    font-size: 0.5rem;
+  }
 `;
 
 export const Padding = styled.div`

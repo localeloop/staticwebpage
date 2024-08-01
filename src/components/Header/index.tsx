@@ -39,7 +39,7 @@ const Header = ({ t }: { t: TFunction }) => {
   return (
     <HeaderSection>
       <Container maxWidth="1700px">
-        <BookingWidget isVisible={isWidgetVisible}/>
+        <BookingWidget isVisible={isWidgetVisible} onClose={() => setWidgetVisibility(false)} />
         <Row justify="space-between">
           <LogoContainer to="/" aria-label="homepage">
             <Logo>The Queen's Head</Logo>

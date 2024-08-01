@@ -6,6 +6,7 @@ interface BookingWidgetProps {
   width?: string;
   height?: string;
   isVisible: boolean;
+  onClose: () => void;
 }
 
 const WidgetContainer = styled.div<{ isOpen: boolean }>`
@@ -22,6 +23,7 @@ const WidgetContainer = styled.div<{ isOpen: boolean }>`
   @media (max-width: 768px) {
     height: 75%;
     right: ${({ isOpen }) => (isOpen ? '50%' : '-100%')};
+    top: 50%;
   }
 `;
 
@@ -38,8 +40,23 @@ const ResponsiveIframe = styled.iframe`
 
 const BookingWidget: React.FC<BookingWidgetProps> = ({
   src = "https://tableagent.com/iframe/the-queens-head/",
-  isVisible
+  isVisible,
+  onClose
 }) => {
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const widget = document.querySelector('.booking-widget');
+      if (widget && !widget.contains(event.target as Node) && isVisible) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isVisible, onClose]);
+
   return (
     <WidgetContainer isOpen={isVisible} className="booking-widget">
       <ResponsiveIframe

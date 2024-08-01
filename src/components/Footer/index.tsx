@@ -61,8 +61,10 @@ const Footer = ({ t }: any) => {
               <Language>{t("Opening Hours")}</Language>
               <Row justify="space-between">
                 <Col lg={8} md={8} sm={12} xs={12}>
-                  <Para>Mon - Fri: 10:00 - 23:00</Para>
-                  <Para>Sat - Sun: 10:00 - 00:00</Para>
+                  <Para>Mon - Fri: </Para>
+                  <Para>10:00 - 23:00</Para>
+                  <Para>Sat - Sun: </Para>
+                  <Para>10:00 - 00:00</Para>
                 </Col>
               </Row>
             </Col>
