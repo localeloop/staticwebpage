@@ -1,25 +1,25 @@
-import { Spin } from "antd";
 import { Col, Row } from "antd";
 import { lazy, Suspense  } from "react";
 import Carousel from '../../components/Carousel';
 import { BackgroundImageContainer } from "../../common/BackgroundImage/styles";
-import { AnimatedContainer } from "../../components/Slider/styles";
 
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
+import { Slide } from "react-awesome-reveal";
 
 // import AboutContent from "../../content/AboutContent.json";
 // import MissionContent from "../../content/MissionContent.json";
 // import ProductContent from "../../content/ProductContent.json";
 // import ContactContent from "../../content/ContactContent.json";
 
+const HeaderBlock = lazy(() => import("../../components/ContentBlock/HeaderBlock"));
 
-const Contact = lazy(() => import("../../components/ContactForm"));
-const MiddleContentBlock = lazy(() => import("../../components/ContentBlock/MiddleContentBlock"));
 const Container = lazy(() => import("../../common/Container"));
+const ScrollDown = lazy(() => import("../../common/ScrollDown"));
+const Contact = lazy(() => import("../../components/ContactForm"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
-const ScrollDown = lazy(() => import("../../common/ScrollDown"));
+const MiddleContentBlock = lazy(() => import("../../components/ContentBlock/MiddleContentBlock"));
 
 
 const images = [
@@ -36,40 +36,38 @@ const Home = () => {
   return (
     <>
       <ScrollToTop />
-        <Carousel images={images} isGrayscale={false}>
-          
-          <Row justify="space-between" align="middle">
-            <AnimatedContainer>
-
-              <Col xs={24} md={12}>
-                <MiddleContentBlock
-                  title={IntroContent.title}
-                  content={IntroContent.content}
-                  button={IntroContent.button}
-                  href={IntroContent.href}
-                  fontSize="5rem"
-                  flexStyle="flex-end"
-                  />
-              </Col>
-            </AnimatedContainer>
-            <Col xs={24} md={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: "2%"}}>
-            </Col>
-          </Row>
-          <ScrollDown targetId={"about"} />
-        </Carousel>
-      <Container padding="10% 0" maxWidth="1700px">
-        <BackgroundImageContainer 
-          fixed={true}
-          height="10%"
-          backgroundImage="https://assets.thequeensheadfarnham.co.uk/images/background.jpg" 
-        >
-          <MiddleContentBlock
-            id="about"
-            title={MiddleBlockContent.title}
-            content={MiddleBlockContent.text}
-            fontSize='1rem'
+      <Carousel images={images} isGrayscale={false}>
+        <Row justify="space-between" align="middle">
+          <HeaderBlock
+            fontSize="5rem"
+            flexStyle="flex-end"
+            href={IntroContent.href}
+            title={IntroContent.title}
+            button={IntroContent.button}
+            content={IntroContent.content}
           />
+        </Row>
+        <ScrollDown targetId={"about"} />
+      </Carousel>
+      <div id="about" style={{ padding: '50% 0' }}>
+          <BackgroundImageContainer 
+            src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
+            height="60vh"
+            width="100%"
+            fixed={true}
+          >
+          <Slide direction="up" triggerOnce={true}>
+            <MiddleContentBlock
+              height='60vh'
+              title={MiddleBlockContent.title}
+              content={MiddleBlockContent.text}
+              fontSize='1rem'
+            />
+          </Slide>
         </BackgroundImageContainer>
+      </div>
+      <Container>
+        <Contact title="Contact Us" content="Get in touch with us" id=""/>
       </Container>
     </>
   );

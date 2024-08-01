@@ -17,15 +17,15 @@ export const useForm = (validate: any) => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setErrors(validate(values));
-    // Your url for API
-    const url = "";
+    const url = "/api/send-email";
     if (Object.keys(values).length === 3) {
       axios
-        .post(url, {
-          ...values,
-        })
+        .post(url, values)
         .then(() => {
           setShouldSubmit(true);
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
         });
     }
   };

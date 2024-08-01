@@ -3,7 +3,7 @@ import { BackgroundImageProps } from '../types';
 
 const BackgroundImage = (
   {
-    backgroundImage = "", 
+    src = "", 
     children,
     fixed = false,
     height,
@@ -13,7 +13,7 @@ const BackgroundImage = (
     fixed={fixed}
     width={width}
     height={height}
-    backgroundImage={backgroundImage}
+    src={src}
   >
     {children}
   </BackgroundImageContainer>

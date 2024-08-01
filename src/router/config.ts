@@ -12,7 +12,7 @@ const routes = [
   {
     path: "/whatson",
     exact: true,
-    component: "UnderConstruction",
+    component: "WhatsOn",
   },
   {
     path: "/livemusic",

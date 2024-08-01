@@ -1,27 +1,26 @@
 import { lazy } from "react";
-import IntroContent from "../../content/IntroContent.json";
-import MiddleBlockContent from "../../content/MiddleBlockContent.json";
-import FoodContent from "../../content/FoodContent.json";
-import MissionContent from "../../content/MissionContent.json";
-import ProductContent from "../../content/ProductContent.json";
-import ContactContent from "../../content/ContactContent.json";
+import { ImageContainer, WhatsOnContainer } from './styles';
 
-
-const Contact = lazy(() => import("../../components/ContactForm"));
-const MiddleBlock = lazy(() => import("../../components/ContentBlock/MiddleContentBlock"));
 const Container = lazy(() => import("../../common/Container"));
-const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
-const ContentBlock = lazy(() => import("../../components/ContentBlock"));
+
+const whatsOnImages = [
+    "https://assets.thequeensheadfarnham.co.uk/images/whatson-main.png",
+    "https://assets.thequeensheadfarnham.co.uk/images/whatson-openmic.png",
+    "https://assets.thequeensheadfarnham.co.uk/images/whatson-quiz-karaoke.png",
+    "https://assets.thequeensheadfarnham.co.uk/images/whatson-livemusic.png"
+]
 
 const WhatsOn = () => {
     return (
-        <Container padding="10% 0" maxWidth="1700px">
-            <ContentBlock
-                type="right"
-                title={IntroContent.title}
-                id="intro"
-            />
-        </Container>
+        <WhatsOnContainer>
+            <Container padding="0 2%">
+            { whatsOnImages.map((image, index) => (
+                <ImageContainer>
+                    <img key={index} src={image} alt={"What's On " + index} />
+                </ImageContainer>
+            ))}
+            </Container>
+        </WhatsOnContainer>
     )
 }
 

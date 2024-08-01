@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
-export const StyledContainer = styled("div")<{ border?: boolean, padding?: string, maxWidth?: string }>`
+interface ContainerProps {
+  border?: boolean;
+  children?: React.ReactNode;
+  padding?: string;
+  maxWidth?: string;
+  height?: string;
+}
+
+export const StyledContainer = styled("div")<ContainerProps>`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: ${(p) => (p.height? p.height : "100%")};
   max-width: ${(p) => (p.maxWidth? p.maxWidth : "1200px")};
   margin-right: auto;
   margin-left: auto;

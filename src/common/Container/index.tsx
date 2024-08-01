@@ -6,11 +6,13 @@ const Container = ({
   padding,
   maxWidth,
   children,
+  height
 }: ContainerProps) => (
   <StyledContainer
     border={border}
     padding={padding}
     maxWidth={maxWidth}
+    height={height}
   >
     {children}
   </StyledContainer>

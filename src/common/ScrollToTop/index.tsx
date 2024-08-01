@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
 import { Image } from "../Image";
+import { useEffect, useState } from "react";
 import { ScrollUpContainer } from "./styles";
 import { getScroll } from "../utils/getWindow";
+import { FaArrowUp } from "react-icons/fa";
 
 const ScrollToTop = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -35,7 +36,7 @@ const ScrollToTop = () => {
 
   return (
     <ScrollUpContainer onClick={scrollUp} show={showScroll}>
-      <Image src="svg/scroll-top.svg" width="20px" height="20px" />
+      <FaArrowUp />
     </ScrollUpContainer>
   );
 };
