@@ -39,8 +39,6 @@ const Home = () => {
       <Carousel images={images} isGrayscale={false}>
         <Row justify="space-between" align="middle">
           <HeaderBlock
-            fontSize="5rem"
-            flexStyle="flex-end"
             href={IntroContent.href}
             title={IntroContent.title}
             button={IntroContent.button}
@@ -49,7 +47,7 @@ const Home = () => {
         </Row>
         <ScrollDown targetId={"about"} />
       </Carousel>
-      <div id="about" style={{ padding: '50% 0' }}>
+      <div id="about" style={{ padding: '20% 0 10%' }}>
           <BackgroundImageContainer 
             src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
             height="60vh"
@@ -66,6 +64,9 @@ const Home = () => {
           </Slide>
         </BackgroundImageContainer>
       </div>
+      <Container>
+
+      </Container>
       <Container>
         <Contact title="Contact Us" content="Get in touch with us" id=""/>
       </Container>

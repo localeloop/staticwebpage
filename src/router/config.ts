@@ -7,7 +7,7 @@ const routes = [
   {
     path: "/food",
     exact: true,
-    component: "UnderConstruction",
+    component: "Food",
   },
   {
     path: "/whatson",

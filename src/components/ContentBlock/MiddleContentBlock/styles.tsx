@@ -13,7 +13,6 @@ export const MiddleBlockContainer = styled.div<ContentWrapperProps>`
   justify-content: center;
   width: 100%;
   height: ${( props ) => props.height || '100vh'};
-  padding: 20px;
   box-sizing: border-box;
 
   @media (max-width: 1024px) {
@@ -32,12 +31,6 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 1rem;
-  }
-
   button {
     color: #fff;
     font-size: 1rem;
@@ -56,6 +49,15 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   p {
     font-size: 1rem;
     line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
+    h1 {
+      font-size: 2rem;
+    }
+    font-size: 0.5rem;
   }
 `;
 

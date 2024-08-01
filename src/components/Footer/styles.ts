@@ -88,8 +88,8 @@ export const Empty = styled("div")`
 `;
 
 export const FooterContainer = styled("div")`
-  max-width: 510px;
-  width: 100%;
+  max-width: 250px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -106,14 +106,6 @@ export const FooterContainer = styled("div")`
     }
   }
 
-  @media screen and (max-width: 769px) {
-    width: auto;
-
-    a:not(:last-child) {
-      display: none;
-    }
-  }
-
   div {
     cursor: pointer;
     margin-right: 15px;
@@ -124,6 +116,27 @@ export const FooterContainer = styled("div")`
       fill: #4F6F52;
     }
   }
+
+  img {
+    width: 150%;
+    height: 150%;
+  }
+
+  @media screen and (max-width: 769px) {
+    width: auto;
+    max-width: 50%;
+    justify-content: center;
+
+    img {
+      height: 80%;
+      width: 80%;
+    }
+
+    img:first-child {
+      margin-right: 1rem;
+    }
+  }
+
 `;
 
 export const Language = styled("h4")`

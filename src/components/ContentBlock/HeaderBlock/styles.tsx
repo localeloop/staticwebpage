@@ -11,17 +11,18 @@ export const HeaderBlockContainer = styled.div<ContentWrapperProps>`
   align-items: ${( props ) => props.flexStyle || 'center'};
   justify-content: center;
   min-height: 100vh;
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
   padding: 1rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
+    width: 100%;
     flex-direction: column;
   }
 `;
 
 export const ContentWrapper = styled.div<ContentWrapperProps>`
-  font-size: ${props => props.fontSize || '1rem'};
+  font-size: 1rem;
   padding: 1.5rem;
   text-align: center;
   width: 100%;
@@ -61,7 +62,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
     line-height: 1.5;
 
     @media (max-width: 768px) {
-      font-size: 0.9rem;
+      font-size: 1.1rem;
     }
   }
 `;

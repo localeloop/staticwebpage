@@ -7,6 +7,7 @@ import { AnimatedContainer } from '../../Slider/styles';
 import {
   ButtonContainer,
 } from './styles';
+import { Slide } from 'react-awesome-reveal';
 
 interface HeaderBlockProps {
   t?: any;
@@ -32,19 +33,17 @@ const HeaderBlock: React.FC<HeaderBlockProps> = ({
   fontSize = "1.5rem",
 }) => {
   return (
-    <div id={id} className={className}>
-      <HeaderBlockContainer flexStyle={flexStyle}>
-        <AnimatedContainer>
-          <ContentWrapper fontSize={fontSize}>
-            {title && <h2>{title}</h2>}
-            {content && <p>{content}</p>}
-            <ButtonContainer>
-              {button && <Button>{ href && <a href={href} style={{ textDecoration: 'none', color: 'inherit' }}>{(button)}</a>}</Button>}
-            </ButtonContainer>
-          </ContentWrapper>
-        </AnimatedContainer>
-      </HeaderBlockContainer>
-    </div>    
+    <HeaderBlockContainer flexStyle={flexStyle}>
+      <Slide triggerOnce>
+        <ContentWrapper fontSize={fontSize}>
+          {title && <h2>{title}</h2>}
+          {content && <p>{content}</p>}
+          <ButtonContainer>
+            {button && <Button>{ href && <a href={href} style={{ textDecoration: 'none', color: 'inherit' }}>{(button)}</a>}</Button>}
+          </ButtonContainer>
+        </ContentWrapper>
+      </Slide>
+    </HeaderBlockContainer>
   );
 };
 
