@@ -51,15 +51,20 @@ const Footer = ({ t }: any) => {
         <Container>
           <Row justify="space-between">
             <Col lg={10} md={10} sm={12} xs={12}>
-              <a href="mailto:thequeensheadfarnham@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
-              </a>
+              <Language>{t("Address")}</Language>
+              <Para>The Queen's Head</Para>
+              <Para>No. 9 The Burrow</Para>
+              <Para>Farnham, Surrey</Para>
+              <Para>UK GU9 7NA</Para>
             </Col>
             <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Address")}</Language>
-              <Para>No. 9 The Burrow</Para>
-              <Para>The Queens Head, Farnham</Para>
-              <Para>Surrey, United Kingdom, GU9 7NA</Para>
+              <Language>{t("Opening Hours")}</Language>
+              <Row justify="space-between">
+                <Col lg={8} md={8} sm={12} xs={12}>
+                  <Para>Mon - Fri: 10:00 - 23:00</Para>
+                  <Para>Sat - Sun: 10:00 - 00:00</Para>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>

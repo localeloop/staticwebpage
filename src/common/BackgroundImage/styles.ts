@@ -26,11 +26,9 @@ export const BackgroundImageContainer = styled("div")<{
 
   @media only screen and (max-width: 768px) {
     max-width: calc(100% - 38px);
-    padding: 0 18px;
   }
 
   @media only screen and (max-width: 414px) {
     max-width: 100%;
-    padding: 0 18px;
   }
 `;
