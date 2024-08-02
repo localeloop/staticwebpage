@@ -32,15 +32,13 @@ const HeaderBlock: React.FC<HeaderBlockProps> = ({
   flexStyle,
   fontSize = "1.5rem",
 }) => {
+
   return (
-    <HeaderBlockContainer flexStyle={flexStyle}>
+    <HeaderBlockContainer id="intro" flexStyle={flexStyle}>
       <Slide triggerOnce>
         <ContentWrapper fontSize={fontSize}>
           {title && <h2>{title}</h2>}
           {content && <p>{content}</p>}
-          <ButtonContainer>
-            {button && <Button>{ href && <a href={href} style={{ textDecoration: 'none', color: 'inherit' }}>{(button)}</a>}</Button>}
-          </ButtonContainer>
         </ContentWrapper>
       </Slide>
     </HeaderBlockContainer>

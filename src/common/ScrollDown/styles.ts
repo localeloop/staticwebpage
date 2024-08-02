@@ -15,7 +15,7 @@ const scrollAnimation = keyframes`
 export const ScrollDownContainer = styled.div<{ isScrolling: boolean, isAnimating: boolean }>`
     color: #fff;
     position: fixed;
-    bottom: 20px;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

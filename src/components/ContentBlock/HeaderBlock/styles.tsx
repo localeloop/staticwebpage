@@ -7,17 +7,20 @@ interface ContentWrapperProps {
 
 export const HeaderBlockContainer = styled.div<ContentWrapperProps>`
   display: flex;
-  flex-direction: row;
-  align-items: ${( props ) => props.flexStyle || 'center'};
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   min-height: 100vh;
-  width: 50%;
-  box-sizing: border-box;
-  padding: 1rem;
+  width: 20%;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
     flex-direction: column;
+    justify-content: center;
   }
 `;
 
@@ -49,7 +52,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   }
 
   h2 {
-    font-size: ${props => props.fontSize || '1.25rem'};
+    font-size: 2.5rem;
     margin-bottom: 1rem;
 
     @media (max-width: 768px) {

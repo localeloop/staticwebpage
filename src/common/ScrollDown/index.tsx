@@ -9,9 +9,10 @@ import {
 
 interface ScrollDownProps {
     targetId?: string;
+    children?: React.ReactNode;
 }
 
-const ScrollDown: React.FC<ScrollDownProps> = ({ targetId }) => {
+const ScrollDown: React.FC<ScrollDownProps> = ({ targetId, children }) => {
     const [isScrolling, setIsScrolling] = useState(false);
     const [isAnimating, setIsAnimating] = useState(true);
 
@@ -42,7 +43,7 @@ const ScrollDown: React.FC<ScrollDownProps> = ({ targetId }) => {
             isAnimating={isAnimating}
             onClick={handleScrollDown}
         >  
-            <FaArrowDown fontSize={"1.5rem"}/>
+            {children? children : <FaArrowDown fontSize={"1.5rem"}/>}
         </ScrollDownContainer>
     );
 }
