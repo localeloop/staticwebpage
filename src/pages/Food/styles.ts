@@ -33,10 +33,8 @@ export const PreservedText = styled.div`
     }
 
     @media (max-width: 768px) {
-        font-size: 0.8rem;
-
         h1 {
-            font-size: 1.5rem;
+        font-size: 1.5rem;
             text-align: center;
         }
     }
@@ -50,7 +48,6 @@ export const CenteredContent = styled.div`
 `;
 
 export const TextContainer = styled.div`
-    text-align: justify;
     width: 100%;
     max-width: 1200px;
     color: #161616;
