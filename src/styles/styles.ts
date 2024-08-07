@@ -54,8 +54,6 @@ export const Styles = createGlobalStyle`
 
     h1,
     h2,
-    h3,
-    h4,
     h5,
     h6 {
         font-family: 'Cinzel', serif;
@@ -72,6 +70,14 @@ export const Styles = createGlobalStyle`
         }
     }
 
+    h3,h4 {
+        font-size: 200%;
+
+        @media only screen and (max-width: 459px) {
+          font-size: 100%;
+        }
+    }
+
     p {
         color: #ddd;
         font-size: 21px;        
@@ -84,11 +90,10 @@ export const Styles = createGlobalStyle`
 
     a {
         text-decoration: none;
-        outline: none;
-        color: #2E186A;
+        color: #fff;
 
         :hover {
-            color: #2e186a;
+            color: #fff;
         }
     }
     

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 import { ContentBlockProps } from '../types';
 import { MiddleBlockContainer, ContentWrapper } from './styles';
 import { Button } from "../../../common/Button";
@@ -43,7 +44,7 @@ const MiddleBlock: React.FC<MiddleBlockProps> = ({
             {title && <h1>{title}</h1>}
             {content && <p>{content}</p>}
             <ButtonContainer>
-              {button && <Button>{ href && <a href={href} style={{ textDecoration: 'none', color: 'inherit' }}>{(button)}</a>}</Button>}
+              {button && <Button>{ href && <NavLink to={href} style={{ textDecoration: 'none' }}>{(button)}</NavLink> } </Button>}
             </ButtonContainer>  
           </ContentWrapper>
         </AnimatedContainer>

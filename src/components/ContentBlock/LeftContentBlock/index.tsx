@@ -33,20 +33,7 @@ const LeftContentBlock = ({
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>
               <h6>{t(title)}</h6>
-              <ServiceWrapper>
-                <Row justify="space-between">
-                  {typeof section === "object" &&
-                    section.map((item: any, id: number) => {
-                      return (
-                        <Col key={id} span={11}>
-                          <Image src={item.icon} width="60px" height="60px" />
-                          <MinTitle>{t(item.title)}</MinTitle>
-                          <MinPara>{t(item.content)}</MinPara>
-                        </Col>
-                      );
-                    })}
-                </Row>
-              </ServiceWrapper>
+              <p>{t(content)}</p>
             </ContentWrapper>
           </Col>
         </Row>

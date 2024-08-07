@@ -7,7 +7,10 @@ export const BackgroundImageContainer = styled("div")<{
   height?: string,
   width?: string,
 }>`
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: ${(props) => props.height? props.height : "100vh"};
   width: ${(props) => props.width? props.width : "100%"};
   max-width: ${(props) => (props.maxWidth ? "1200px" : "")};
@@ -20,16 +23,10 @@ export const BackgroundImageContainer = styled("div")<{
   background-position: center;
 
   @media only screen and (max-width: 1024px) {
-    max-width: calc(100% - 68px);
     padding: 0 30px;
   }
-
-  @media only screen and (max-width: 768px) {
-    max-width: calc(100% - 38px);
-  }
-
-  @media only screen and (max-width: 414px) {
-    max-width: 100%;
+    
+  @media only screen and (max-width: 459px) {
     height: 80vh;
   }
 `;

@@ -40,7 +40,7 @@ const Footer = ({ t }: any) => {
         key={src}
         aria-label={src}
       >
-        <Image src={`svg/${src}`} width="25px" height="25px" />
+        <Image src={`${src}`} width="25px" height="25px" />
       </a>
     );
   };
@@ -81,7 +81,7 @@ const Footer = ({ t }: any) => {
             <NavLink to="/">
               <LogoContainer>
                 <Image
-                  src="svg/logo.png"
+                  src="https://assets.thequeensheadfarnham.co.uk/logo.png"
                   aria-label="homepage"
                   width="100%"
                   height="100%"
@@ -91,11 +91,11 @@ const Footer = ({ t }: any) => {
             <FooterContainer>
               <SocialLink
                 href="https://www.instagram.com/the_queens_head_/"
-                src="instagram.svg"
+                src="/img/svg/instagram.svg"
               />
               <SocialLink
                 href="https://www.facebook.com/TheQueensHeadFarnham"
-                src="facebook.svg"
+                src="/img/svg/facebook.svg"
               />
             </FooterContainer>
           </Row>

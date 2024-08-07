@@ -6,6 +6,7 @@ import { BackgroundImageContainer } from "../../common/BackgroundImage/styles";
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
 import { Slide } from "react-awesome-reveal";
+import LineBreaker from "../../common/LineBreaker";
 
 // import AboutContent from "../../content/AboutContent.json";
 // import MissionContent from "../../content/MissionContent.json";
@@ -36,7 +37,8 @@ const Home = () => {
         </Row>
         <ScrollDown targetId={"about"} />
       </Carousel>
-      <div id="about" style={{ padding: '20% 0 10%' }}>
+      <div id="about" style={{ padding: '1% 0 10%' }}>
+          <LineBreaker text="About Us" />
           <BackgroundImageContainer 
             src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
             height="60vh"
@@ -44,18 +46,19 @@ const Home = () => {
             fixed={true}
           >
           <Slide direction="up" triggerOnce={true}>
-            <MiddleContentBlock
-              height='60vh'
-              title={MiddleBlockContent.title}
-              content={MiddleBlockContent.text}
-              fontSize='1rem'
-            />
+            <div>
+              <MiddleContentBlock
+                height='60vh'
+                fontSize='1rem'
+                title={MiddleBlockContent.title}
+                content={MiddleBlockContent.text}
+                button="See Our Menus"
+                href="/food"
+                />
+            </div>
           </Slide>
         </BackgroundImageContainer>
       </div>
-      <Container>
-
-      </Container>
       <Container>
         <Contact title="Contact Us" content="Get in touch with us" id=""/>
       </Container>

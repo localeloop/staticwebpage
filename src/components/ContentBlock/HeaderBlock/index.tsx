@@ -1,12 +1,6 @@
 import React from 'react';
-import { ContentBlockProps } from '../types';
 import { HeaderBlockContainer, ContentWrapper } from './styles';
-import { Button } from "../../../common/Button";
-import { AnimatedContainer } from '../../Slider/styles';
 
-import {
-  ButtonContainer,
-} from './styles';
 import { Slide } from 'react-awesome-reveal';
 
 interface HeaderBlockProps {

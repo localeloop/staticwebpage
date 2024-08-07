@@ -1,5 +1,5 @@
 import { ImageProps } from "../types";
 
-export const Image = ({ src, width, height }: ImageProps) => (
-  <img src={`/img/${src}`} alt={src} width={width} height={height} />
+export const Image = ({ src, height, width, alt }: ImageProps) => (
+  <img src={`${src}`} alt={alt} height={height} width={width} />
 );

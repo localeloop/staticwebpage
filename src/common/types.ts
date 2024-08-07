@@ -15,9 +15,10 @@ export interface ButtonProps {
 }
 
 export interface ImageProps {
-  src   : string;
-  width : string;
-  height: string;
+  src     : string;
+  width?  : string;
+  height? : string;
+  alt?   : string;
 }
 
 export interface InputProps {
