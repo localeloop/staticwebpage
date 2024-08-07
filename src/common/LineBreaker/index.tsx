@@ -5,7 +5,7 @@ import { Image } from "../Image";
 const LineBreakerContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 10%;
     justify-content: center;
 
     h4 {

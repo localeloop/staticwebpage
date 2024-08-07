@@ -27,9 +27,13 @@ const Food = () => {
                             {
                                 isFlipped ? (
                                     <FlippedContainer>
-                                        <PreservedText>{FoodContent.flip}</PreservedText>
+                                        <PreservedText><p>{FoodContent.flip}</p></PreservedText>
+                                        <PreservedText><h1>Did you know?</h1></PreservedText>
                                     </FlippedContainer>
-                                ) : <InitialText>{FoodContent.text}</InitialText>
+                                ) : (
+                                    
+                                    <InitialText><h1>Believe it or Not</h1>{FoodContent.text}</InitialText>
+                                )
                             }
                         </TextContainer>
                     </CenteredContent>

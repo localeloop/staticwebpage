@@ -38,7 +38,7 @@ const Home = () => {
         <ScrollDown targetId={"about"} />
       </Carousel>
       <div id="about" style={{ padding: '1% 0 10%' }}>
-          <LineBreaker text="About Us" />
+          <LineBreaker text="About Us"/>
           <BackgroundImageContainer 
             src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
             height="60vh"

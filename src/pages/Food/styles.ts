@@ -20,9 +20,25 @@ export const PreservedText = styled.div`
     -o-transform: scale(-1, 1);
     -ms-transform: scale(-1, 1);
     transform: scale(-1, 1);
+    color: #ddd;
+    text-align: right;
+
+    h1{
+        #fff;
+    }
+
+    p {
+        text-align: justify;
+        padding: 0rem 1.5rem;
+    }
 
     @media (max-width: 768px) {
         font-size: 0.8rem;
+
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
     }
 `;
 
@@ -34,7 +50,7 @@ export const CenteredContent = styled.div`
 `;
 
 export const TextContainer = styled.div`
-    text-align: center;
+    text-align: justify;
     width: 100%;
     max-width: 1200px;
     color: #161616;
@@ -43,6 +59,10 @@ export const TextContainer = styled.div`
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.6s;
+
+    h1 {
+        color: #161616;
+    }
 
     button {
         color: #fff;
@@ -81,7 +101,7 @@ export const StyledImage = styled.img`
     position: absolute;
     bottom: 10%;
     right: 5%;
-    padding: 1.5%;
+    padding: 1%;
     background-color: #fff;
     border-radius: 50px;
     cursor: pointer;
@@ -91,6 +111,7 @@ export const StyledImage = styled.img`
 
     :hover, &.flipped{
         border-radius: 10px;
+        padding: 1.5%;
         background-color: #6a9167;
     }
 `;
