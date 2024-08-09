@@ -53,20 +53,32 @@ const Footer = ({ t }: any) => {
             <Col lg={10} md={10} sm={12} xs={12}>
               <Language>{t("Address")}</Language>
               <Para>The Queen's Head</Para>
-              <Para>No. 9 The Burrow</Para>
+              <Para>No. 9 The Borough</Para>
               <Para>Farnham, Surrey</Para>
               <Para>UK GU9 7NA</Para>
             </Col>
             <Col lg={10} md={10} sm={12} xs={12}>
               <Language>{t("Opening Hours")}</Language>
-              <Row justify="space-between">
                 <Col lg={8} md={8} sm={12} xs={12}>
-                  <Para>Mon - Fri: </Para>
+                  <Para>Mon - Wed: </Para>
                   <Para>10:00 - 23:00</Para>
-                  <Para>Sat - Sun: </Para>
+                  <Para>Thursday: </Para>
                   <Para>10:00 - 00:00</Para>
+                  <Para>Fri - Sat:</Para>
+                  <Para>10:00 - 00:30</Para>
+                  <Para>Sunday:</Para>
+                  <Para>10:00 - 23:30</Para>
                 </Col>
-              </Row>
+            </Col>
+          </Row>
+          <Row justify="space-between">
+            <Col lg={10} md={10} sm={12} xs={12}>
+              <Language>{t("Contact Us")}</Language>
+              <Para>e-Mail: </Para>
+              <Para>thequeensheadfarnham@gmail.com</Para>
+              <Para>musicqueensheadfarnham@gmail.com</Para>
+              <Para>Tel: </Para>
+              <Para>01252 726524</Para>
             </Col>
           </Row>
         </Container>

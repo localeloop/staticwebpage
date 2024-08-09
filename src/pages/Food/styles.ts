@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Image } from "../../common/Image";
 
 export const ImageContainer = styled.div`
     width: 100%;
@@ -95,21 +94,38 @@ export const FlippedContainer = styled.div`
 
 
 export const StyledImage = styled.img`
-    position: absolute;
-    bottom: 10%;
-    right: 5%;
-    padding: 1%;
-    background-color: #fff;
+    top: 15%;
+    right: 3%;
+    padding: 1.5%;
     border-radius: 50px;
+    position: absolute;
+    background-color: #fff;
+    animation: pulse 2s infinite;
+    
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
-    fill: green;
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
 
     :hover, &.flipped{
-        border-radius: 10px;
         padding: 1.5%;
+        animation: none;
+        border-radius: 10px;
         background-color: #6a9167;
+    }
+
+    @media (max-width: 768px) {
+        padding: 4%;
     }
 `;
 
