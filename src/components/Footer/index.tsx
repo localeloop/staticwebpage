@@ -1,4 +1,4 @@
-import { Row, Col } from "antd";
+import { Row, Col, Space } from "antd";
 import { withTranslation } from "react-i18next";
 import { Image } from "../../common/Image";
 import Container from "../../common/Container";
@@ -51,6 +51,17 @@ const Footer = ({ t }: any) => {
         <Container>
           <Row justify="space-between">
             <Col lg={10} md={10} sm={12} xs={12}>
+              <Language>{t("Contact Us")}</Language>
+              <Para>e-Mail: </Para>
+              <Para>thequeensheadfarnham@gmail.com</Para>
+              <Para>musicqueensheadfarnham@gmail.com</Para>
+              <Para>Tel: </Para>
+              <Para>01252 726524</Para>
+            </Col>
+          </Row>
+          <Extra />
+          <Row justify="space-between">
+            <Col lg={10} md={10} sm={12} xs={12}>
               <Language>{t("Address")}</Language>
               <Para>The Queen's Head</Para>
               <Para>No. 9 The Borough</Para>
@@ -69,16 +80,6 @@ const Footer = ({ t }: any) => {
                   <Para>Sunday:</Para>
                   <Para>10:00 - 23:30</Para>
                 </Col>
-            </Col>
-          </Row>
-          <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contact Us")}</Language>
-              <Para>e-Mail: </Para>
-              <Para>thequeensheadfarnham@gmail.com</Para>
-              <Para>musicqueensheadfarnham@gmail.com</Para>
-              <Para>Tel: </Para>
-              <Para>01252 726524</Para>
             </Col>
           </Row>
         </Container>

@@ -10,6 +10,7 @@
     "antd": "^4.24.16",
     "axios": "^0.21.4",
     "dompurify": "^3.1.4",
+    "framer-motion": "^11.3.24",
     "i18next": "^19.9.2",
     "i18next-browser-languagedetector": "^6.1.8",
     "i18next-xhr-backend": "^3.2.2",

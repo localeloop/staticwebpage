@@ -1,40 +1,53 @@
-import { useState, lazy, useMemo, Suspense } from "react";
+import { useState, lazy, useMemo } from "react";
 import { withTranslation, TFunction } from "react-i18next";
-import { Row, Col, Drawer } from "antd";
-import { HeaderSection, LogoContainer, Burger,
+import { Row, Col } from "antd";
+import { motion } from "framer-motion";
+import {
+  HeaderSection, LogoContainer,
   NotHidden, Label, Outline,
 } from "./styles";
+
+import { MenuToggle as Burger } from "./Burger";
 
 import useWindowSize from '../../hooks/useWindowSize';
 import Container from "../../common/Container";
 import Logo from '../../common/Logo';
 
-const LazyDrawer = lazy(() => import("antd").then(module => ({ default: module.Drawer })));
 const BookingWidget = lazy(() => import("../../common/BookingWidget"));
 const MenuItem = lazy(() => import("./MenuItem"));
 
 const Header = ({ t }: { t: TFunction }) => {
-  const [isDrawerVisible, setDrawerVisibility] = useState(false);
   const [isWidgetVisible, setWidgetVisibility] = useState(false);
-  // window inner width
+  const [isOpen, setIsOpen] = useState(false);
+
   const { width } = useWindowSize();
 
   const handleWidgetClick = () => {
     setWidgetVisibility(!isWidgetVisible);
-    burgerMenuButton();
+    setIsOpen(!isOpen);
   };
 
-  const burgerMenuButton = () => {
-    setDrawerVisibility(!isDrawerVisible);
+  // const memoizedMenuItem = useMemo(() =>
+  // );
 
-    if (isWidgetVisible && width <= 768) {
-      setWidgetVisibility(false);
-    }
+  const drawerVariants = {
+    open: {
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
+    },
+    closed: {
+      x: "-100%",
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
+    },
   };
-
-  const memoizedMenuItem = useMemo(() => 
-    <MenuItem handleWidgetClick={handleWidgetClick} t={t} />, [t, handleWidgetClick]
-  );
 
   return (
     <HeaderSection>
@@ -45,31 +58,29 @@ const Header = ({ t }: { t: TFunction }) => {
             <Logo>The Queen's Head</Logo>
           </LogoContainer>
           <NotHidden>
-            {memoizedMenuItem}
+            <MenuItem handleWidgetClick={handleWidgetClick} t={t} />
           </NotHidden>
-          <Burger onClick={burgerMenuButton}>
-            <Outline />
-          </Burger>
+          <Burger toggle={() => setIsOpen(!isOpen)} isOpen={isOpen} />
         </Row>
-        {width <= 768 && ( 
-          <LazyDrawer 
-            closable={false} 
-            open={isDrawerVisible} 
-            onClose={burgerMenuButton}
-            onClick={burgerMenuButton}
-            bodyStyle={{ background: "#161616" }}
+        {width <= 768 && (
+          <motion.div
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            variants={drawerVariants}
+            style={{
+              position: "fixed",
+              top: "10%",
+              left: 0,
+              bottom: 0,
+              width: "75%",
+              backgroundColor: "#161616",
+              zIndex: 1000,
+            }}
           >
             <div>
-              <Col style={{ marginBottom: "2.5rem"}}>
-                <Label onClick={burgerMenuButton}>
-                  <Col span={12} style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Outline style={{padding: "0 0 0 2px", width: '2rem', height: '100%' }} />
-                  </Col>
-                </Label>
-              </Col>
-              {memoizedMenuItem}
+              <MenuItem handleWidgetClick={handleWidgetClick} t={t} isOpen={isOpen} />
             </div>
-          </LazyDrawer>
+          </motion.div>
         )}
       </Container>
     </HeaderSection>
@@ -77,103 +88,3 @@ const Header = ({ t }: { t: TFunction }) => {
 };
 
 export default withTranslation()(Header);
-
-// import { useState, useEffect } from "react";
-// import { Row, Col, Drawer } from "antd";
-// import { withTranslation } from "react-i18next";
-// import Container from "../../common/Container";
-// import { SvgIcon } from "../../common/SvgIcon";
-// import { Button } from "../../common/Button";
-// import { Link } from 'react-router-dom';
-// import {
-//   FloatingBurgerContainer,
-//   HeaderSection,
-//   LogoContainer,
-//   NotHidden,
-//   Menu,
-//   CustomNavLinkSmall,
-//   Label,
-//   Outline,
-//   Span,
-// } from "./styles";
-// import { Burger } from "./BurgerMenu";
-
-// const Header = ({ t }: any) => {
-//   const [visible, setVisibility] = useState(false);
-//   const [isScrolled, setIsScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//       setIsScrolled(scrollTop > 0);
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-//     return () => {
-//       window.removeEventListener("scroll", handleScroll);
-//     };
-//   }, []);
-
-//   const showDrawer = () => {
-//     setVisibility(!visible);
-//   };
-
-//   const onClose = () => {
-//     setVisibility(!visible);
-//   };
-
-//   const MenuItem = () => {
-//     const scrollTo = (id: string) => {
-//       const element = document.getElementById(id) as HTMLDivElement;
-//       element.scrollIntoView({
-//         behavior: "smooth",
-//       });
-//       setVisibility(false);
-//     };
-//     return (
-//       <>
-//         <CustomNavLinkSmall>
-//           <Span>{t("Gallery")}</Span>
-//         </CustomNavLinkSmall>
-//         <CustomNavLinkSmall
-//           style={{ width: "180px" }}
-//           onClick={() => scrollTo("contact")}
-//         >
-//           <Span>
-//             <Button>{t("Contact")}</Button>
-//           </Span>
-//         </CustomNavLinkSmall>
-//       </>
-//     );
-//   };
-
-//   return (
-//     <HeaderSection isScrolled={isScrolled}>
-//       <Container>
-//         <Row justify="space-between">
-//           <LogoContainer to="/" aria-label="homepage">
-//             <SvgIcon src="logo.svg" width="101px" height="64px" />
-//           </LogoContainer>
-//           <FloatingBurgerContainer>
-//               <Burger open={visible} />
-//           </FloatingBurgerContainer>
-//         </Row>
-//         <Drawer placement="left" closable={false} open={visible} onClose={onClose}>
-//           <Col style={{ marginBottom: "2.5rem" }}>
-//             <Label onClick={onClose}>
-//               <Col span={12}>
-//                 <Menu>Menu</Menu>
-//               </Col>
-//               <Col span={12}>
-//                 <Outline />
-//               </Col>
-//             </Label>
-//           </Col>
-//           <MenuItem />
-//         </Drawer>
-//       </Container>
-//     </HeaderSection>
-//   );
-// };
-
-// export default withTranslation()(Header);

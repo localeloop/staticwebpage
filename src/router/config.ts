@@ -17,7 +17,7 @@ const routes = [
   {
     path: "/livemusic",
     exact: true,
-    component: "UnderConstruction",
+    component: "LiveMusic",
   },
 ];
 

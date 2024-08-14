@@ -1,6 +1,35 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
+import { motion } from "framer-motion";
+
+export const BurgerButton = styled.button`
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+    outline: none;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: none;
+    padding: 10px;
+  }
+`;
+
+export const BurgerPath = styled(motion.path)`
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+`;
 
 export const HeaderSection = styled("header")`
   color: rgba(0, 0, 0, 1);
@@ -109,7 +138,16 @@ export const Menu = styled("h5")`
 export const MenuItems = styled("div")`
   position: absolute;
   right: 0;
-`
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+`;
+
 
 export const CustomNavLinkSmall = styled(NavLink)`
   font-size: 1.2rem;
@@ -118,7 +156,7 @@ export const CustomNavLinkSmall = styled(NavLink)`
   margin: 0.5rem 2rem;
 
   @media only screen and (max-width: 768px) {
-    margin: 1.25rem 2rem;
+    margin: 2.5rem auto;
   }
 `;
 

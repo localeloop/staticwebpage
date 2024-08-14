@@ -1,37 +1,54 @@
 import { TFunction } from 'i18next';
 import { Button } from '../../common/Button';
 import { NavLink } from 'react-router-dom';
-import {
-    MenuItems,
-    CustomNavLinkSmall,
-    Span
-} from './styles';
+import { MenuItems, CustomNavLinkSmall, Span } from './styles';
+import useWindowSize from '../../hooks/useWindowSize';
+import { motion } from 'framer-motion';
 
-const MenuItem = ( {handleWidgetClick, t} : {handleWidgetClick: () => void, t: TFunction}) => {
-    return (
-      <MenuItems>
-        <CustomNavLinkSmall>
-          <NavLink to="food">
-            <Span>{t("Food")}</Span>
-          </NavLink>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall>
-          <NavLink to="whatson">
-            <Span>{t("What's On")}</Span>
-          </NavLink>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall>
-          <NavLink to="livemusic">
-            <Span>{t("Live Music")}</Span>
-          </NavLink>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall style={{ width: '180px' }}>
-          <Span>
-            <Button onClick={handleWidgetClick}>{t('Reserve Table')}</Button>
-          </Span>
-        </CustomNavLinkSmall>
-      </MenuItems>
-    );
+const menuItemVariants = {
+  open: { transform: 'scale(1)', opacity: 1, filter: 'blur(0px)' },
+  closed: { transform: 'scale(0.5)', opacity: 0, filter: 'blur(10px)' },
+};
+
+const MenuItem = ({ handleWidgetClick, t, isOpen }: { handleWidgetClick: () => void, t: TFunction, isOpen?: boolean }) => {
+  const { width } = useWindowSize();
+  const isMobile = width <= 768;
+
+  return (
+    <MenuItems
+      as={motion.div}
+      initial="closed"
+      animate={isOpen ? "open" : "closed"}
+      variants={isMobile ? {
+        open: {
+          transition: {
+            staggerChildren: 0.2,
+          },
+        },
+      } : {}}
+    >
+      <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}}>
+        <NavLink to="food">
+          <Span>{t("Food")}</Span>
+        </NavLink>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}}>
+        <NavLink to="whatson">
+          <Span>{t("What's On")}</Span>
+        </NavLink>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}}>
+        <NavLink to="livemusic">
+          <Span>{t("Live Music")}</Span>
+        </NavLink>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}} style={{ width: '180px' }}>
+        <Span>
+          <Button onClick={handleWidgetClick}>{t('Reserve Table')}</Button>
+        </Span>
+      </CustomNavLinkSmall>
+    </MenuItems>
+  );
 };
 
 export default MenuItem;

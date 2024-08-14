@@ -18,7 +18,7 @@ const UnderConstructionPage = () => {
     return (
         <Container padding="20% 10%" maxWidth="1700px">
             <Container>
-            <h1 style={{ "color": "black", "textAlign": "center" }}> { UnderConstruction.title } </h1>
+            <h1 style={{"fontSize": "40px", "paddingTop": "50%", "color": "black", "textAlign": "center" }}> { UnderConstruction.title } </h1>
             <p dangerouslySetInnerHTML={{ __html: sanitizedContent}} style={{ "color": "black", "textAlign": "center"  }}></p>
             </Container>
             <GifContainer>

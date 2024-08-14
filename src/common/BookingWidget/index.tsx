@@ -20,10 +20,10 @@ const WidgetContainer = styled.div<{ isOpen: boolean }>`
   height: 70%;
   width: 20%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 459px) {
     height: 75%;
-    right: ${({ isOpen }) => (isOpen ? '50%' : '-100%')};
-    top: 50%;
+    right: ${({ isOpen }) => (isOpen ? '47.8%' : '-100%')};
+    top: 49.8%;
   }
 `;
 
