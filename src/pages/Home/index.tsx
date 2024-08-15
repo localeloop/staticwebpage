@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import { lazy, Suspense  } from "react";
 import Carousel from '../../components/Carousel';
 import { BackgroundImageContainer } from "../../common/BackgroundImage/styles";
+import ReviewsComponent from "../../common/Reviews";
 
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
@@ -37,7 +38,7 @@ const Home = () => {
         </Row>
         <ScrollDown targetId={"about"} />
       </Carousel>
-      <div id="about" style={{ padding: '1% 0 10%' }}>
+      <div id="about" style={{ padding: '1% 0 ' }}>
           <LineBreaker text="About Us"/>
           <BackgroundImageContainer 
             src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
@@ -59,8 +60,9 @@ const Home = () => {
           </Slide>
         </BackgroundImageContainer>
       </div>
+      <ReviewsComponent />
       <Container>
-        <Contact title="Contact Us" content="Get in touch with us" id=""/>
+        <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>
       </Container>
     </>
   );

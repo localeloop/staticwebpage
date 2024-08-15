@@ -14,7 +14,6 @@ interface ImageProps {
 
 export const MainBody = styled.div`
     background-color: #161616;
-    height: 100vh;
     width: 100vw;
 `;
 

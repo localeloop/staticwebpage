@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import Container from '../../common/Container';
-import CustomCalendar from '../../components/EventCalendar';
+import EventsCalendar from '../../components/EventsCalendar';
 
 import { useScroll, useTransform, motion, useSpring } from 'framer-motion';
 
@@ -12,6 +12,7 @@ import {
  } from './styles';
 
 import { ReactComponent as Bird1 } from './images/bird1.svg';
+import ContactForm from '../../components/ContactForm';
 
  
 const LiveMusic = () => {
@@ -22,7 +23,14 @@ const LiveMusic = () => {
 
     return (
         <MainBody>
-            <CustomCalendar />
+            <Container>
+                <EventsCalendar />
+                <ContactForm 
+                    title="Are you a band?"
+                    content="We'd love to hear from you!"
+                    color="#fff"
+                />
+            </Container>
         </MainBody>
     )
 }

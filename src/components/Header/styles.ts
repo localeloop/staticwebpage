@@ -36,7 +36,6 @@ export const HeaderSection = styled("header")`
   background: #161616;
   padding: 1rem 0.5rem;
   height: 7rem;
-  position: fixed;
   width: 100%;
   z-index: 2;
 

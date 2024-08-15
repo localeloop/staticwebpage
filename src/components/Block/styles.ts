@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
-export const Content = styled("p")`
-  color: #161616;
+interface Props {
+  color?: string;
+  direction?: string;
+}
+
+export const Content = styled("p")<Props>`
+  color: ${(props) => props.color ? props.color : "#161616"};
   margin-top: 1.5rem;
 `;
 
-export const Container = styled("div")`
+export const Container = styled("div")<Props>`
   position: relative;
   max-width: 700px;
 
   h6 {
-    color: #161616;
+    color: ${(props) => props.color ? props.color : "#161616"};
   }
 `;
 

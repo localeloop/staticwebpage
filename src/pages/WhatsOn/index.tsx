@@ -20,7 +20,7 @@ const WhatsOn = () => {
 
     return (
         <WhatsOnContainer>
-            <Carousel height="50vh" />
+            <Carousel height="20vh" />
             <Container padding="0 2%">
             { whatsOnImages.map((image, index) => (
                 <Slide key={index} direction={directions[index % 2] || "right"} triggerOnce={true}>

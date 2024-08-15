@@ -4,15 +4,16 @@ import { Container, TextWrapper, Content } from "./styles";
 interface Props {
   title: string;
   content: string;
+  color?: string;
   t: any;
 }
 
-const Block = ({ title, content, t }: Props) => {
+const Block = ({ title, content, color, t }: Props) => {
   return (
-    <Container>
+    <Container color={color}>
       <h6>{t(title)}</h6>
       <TextWrapper>
-        <Content>{t(content)}</Content>
+        <Content color={color}>{t(content)}</Content>
       </TextWrapper>
     </Container>
   );
