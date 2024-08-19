@@ -60,7 +60,7 @@ const Home = () => {
           </Slide>
         </BackgroundImageContainer>
       </div>
-      <ReviewsComponent />
+      {/* <ReviewsComponent /> */}
       <Container>
         <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>
       </Container>
