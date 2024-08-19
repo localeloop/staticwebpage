@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeaderBlockContainer, ContentWrapper } from './styles';
 
 import { Slide } from 'react-awesome-reveal';
+import Container from '../../../common/Container';
 
 interface HeaderBlockProps {
   t?: any;
@@ -27,13 +28,25 @@ const HeaderBlock: React.FC<HeaderBlockProps> = ({
   fontSize = "1.5rem",
 }) => {
 
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  useEffect(() => {
+    const handlePageLoad = () => {
+      if (document.readyState === 'complete'){
+        setIsPageLoaded(true);
+      }
+    }
+  })
+
   return (
     <HeaderBlockContainer id="intro" flexStyle={flexStyle}>
-      <Slide triggerOnce>
-        <ContentWrapper fontSize={fontSize}>
-          {title && <h2>{title}</h2>}
-          {content && <p>{content}</p>}
-        </ContentWrapper>
+      <Slide triggerOnce delay={isPageLoaded ? 100000 : 1500}>
+        <Container>
+          <ContentWrapper fontSize={fontSize}>
+            {title && <h2>{title}</h2>}
+            {content && <p>{content}</p>}
+          </ContentWrapper>
+        </Container>
       </Slide>
     </HeaderBlockContainer>
   );

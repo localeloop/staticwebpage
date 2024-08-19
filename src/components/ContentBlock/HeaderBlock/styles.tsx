@@ -8,7 +8,6 @@ interface ContentWrapperProps {
 export const HeaderBlockContainer = styled.div<ContentWrapperProps>`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   min-height: 100vh;
   width: 20%;
 
@@ -33,7 +32,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   color: #161616;
 
   background-color: rgba(255, 255, 255, 1);
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
