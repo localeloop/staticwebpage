@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import { TFunction } from 'i18next';
 import { Button } from '../../common/Button';
 import { NavLink } from 'react-router-dom';
-import { MenuItems, CustomNavLinkSmall, Span } from './styles';
 import useWindowSize from '../../hooks/useWindowSize';
 import { motion } from 'framer-motion';
+import { MenuItems, CustomNavLinkSmall, Span, DropdownContainer, SocialLink } from './styles';
 
 const menuItemVariants = {
   open: { transform: 'scale(1)', opacity: 1, filter: 'blur(0px)' },
@@ -13,6 +14,12 @@ const menuItemVariants = {
 const MenuItem = ({ handleWidgetClick, t, isOpen }: { handleWidgetClick: () => void, t: TFunction, isOpen?: boolean }) => {
   const { width } = useWindowSize();
   const isMobile = width <= 768;
+
+  const [dropDownOpen, setDropDownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropDownOpen(!dropDownOpen);
+  }
 
   return (
     <MenuItems
@@ -31,6 +38,20 @@ const MenuItem = ({ handleWidgetClick, t, isOpen }: { handleWidgetClick: () => v
         <NavLink to="food">
           <Span>{t("Food")}</Span>
         </NavLink>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}}>
+          <Span onClick={toggleDropdown}>{t("Order Food")}</Span>
+          {
+            dropDownOpen && (
+            <DropdownContainer>
+              <SocialLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
+                <img src="/img/svg/deliveroo.svg" alt="Deliveroo" width="128" height="64" />
+              </SocialLink>
+              <SocialLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
+                <img src="/img/svg/justeat.svg" alt="Just Eat" width="128" height="64" />
+              </SocialLink>
+            </DropdownContainer>
+          )}
       </CustomNavLinkSmall>
       <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}}>
         <NavLink to="whatson">

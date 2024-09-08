@@ -9,6 +9,9 @@ import MiddleBlockContent from "../../content/MiddleBlockContent.json";
 import { Slide } from "react-awesome-reveal";
 import LineBreaker from "../../common/LineBreaker";
 
+import { SocialLink } from "../../components/Header/styles";
+import { StyledImage, StyledLink } from "./styles";
+
 // import AboutContent from "../../content/AboutContent.json";
 // import MissionContent from "../../content/MissionContent.json";
 // import ProductContent from "../../content/ProductContent.json";
@@ -38,6 +41,19 @@ const Home = () => {
         </Row>
         <ScrollDown targetId={"about"} />
       </Carousel>
+      <div id="foodordering"> 
+        <Container>
+          <div style={{ display: "flex", }}>
+
+            <StyledLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
+              <StyledImage src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
+            </StyledLink>
+            <StyledLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
+              <StyledImage src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
+            </StyledLink>
+          </div>
+        </Container> 
+      </div>
       <div id="about" style={{ padding: '1% 0 ' }}>
           <LineBreaker text="About Us"/>
           <BackgroundImageContainer 

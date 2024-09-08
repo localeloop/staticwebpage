@@ -53,7 +53,7 @@ const Food = () => {
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Burgers" />
-                            <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-sunday-menu-2.pdf" target="_blank">
+                            <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-main-menu.pdf" target="_blank">
                                 <img src="https://assets.thequeensheadfarnham.co.uk/images/qh-sunday-menu-2.png" style={{width: '100%'}} />
                             </a>
                         </Col>
@@ -61,7 +61,7 @@ const Food = () => {
                     <Row gutter={[16, 16]} justify="space-between" align="middle">
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Roast" />
-                            <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-sunday-menu-1.pdf"  target="_blank">
+                            <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-sunday-menu.pdf"  target="_blank">
                                 <img src="https://assets.thequeensheadfarnham.co.uk/images/qh-sunday-menu-1.png" style={{marginTop: '5%', width:'100%'}} />
                             </a>
                         </Col>
@@ -69,6 +69,20 @@ const Food = () => {
                             <LineBreaker text="Sandwiches" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/sandwich-menu.pdf"  target="_blank">
                                 <img src="https://assets.thequeensheadfarnham.co.uk/images/sandwich-menu.png" style={{marginTop: '5%', width:'100%'}} />
+                            </a>
+                        </Col>
+                    </Row>
+                    <Row gutter={[16, 16]} justify="space-between" align="middle">
+                        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                            <LineBreaker text="Breakfast" />
+                            <a href="https://assets.thequeensheadfarnham.co.uk/pdf/breakfast-menu.pdf"  target="_blank">
+                                <img src="https://assets.thequeensheadfarnham.co.uk/images/breakfast-menu.jpg" style={{marginTop: '5%', width:'100%'}} />
+                            </a>
+                        </Col>
+                        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                            <LineBreaker text="Kids Menu" />
+                            <a href="https://assets.thequeensheadfarnham.co.uk/pdf/kids-menu.pdf"  target="_blank">
+                                <img src="https://assets.thequeensheadfarnham.co.uk/images/kids-menu.jpg" style={{marginTop: '5%', width:'100%'}} />
                             </a>
                         </Col>
                     </Row>

@@ -148,11 +148,37 @@ export const MenuItems = styled("div")`
 `;
 
 
+export const DropdownContainer = styled.div`
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  border-radius: 0 2%;
+  transition: display 2s ease;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+`;
+
+
+export const SocialLink = styled.a`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  &:hover {
+    background-color: #333;
+  }
+
+  img {
+  }
+`;
+
 export const CustomNavLinkSmall = styled(NavLink)`
   font-size: 1.2rem;
   color: #ddd;
   transition: color 0.2s ease-in;
   margin: 0.5rem 2rem;
+
 
   @media only screen and (max-width: 768px) {
     margin: 2.5rem auto;

@@ -101,16 +101,18 @@ const Footer = ({ t }: any) => {
                 />
               </LogoContainer>
             </NavLink>
-            <FooterContainer>
-              <SocialLink
-                href="https://www.instagram.com/the_queens_head_/"
-                src="/img/svg/instagram.svg"
-              />
-              <SocialLink
-                href="https://www.facebook.com/TheQueensHeadFarnham"
-                src="/img/svg/facebook.svg"
-              />
-            </FooterContainer>
+            <Col>
+              <FooterContainer>
+                <SocialLink
+                  href="https://www.instagram.com/the_queens_head_/"
+                  src="/img/svg/instagram.svg"
+                  />
+                <SocialLink
+                  href="https://www.facebook.com/TheQueensHeadFarnham"
+                  src="/img/svg/facebook.svg"
+                  />
+              </FooterContainer>
+            </Col>
           </Row>
         </Container>
       </Extra>

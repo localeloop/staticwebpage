@@ -96,12 +96,13 @@ export const FlippedContainer = styled.div`
 export const StyledImage = styled.img`
     top: 15%;
     right: 3%;
-    padding: 1.5%;
-    border-radius: 50px;
+    padding: 1%;
+    border-radius: 30px;
     position: absolute;
     background-color: #fff;
     animation: pulse 2s infinite;
-    
+    height: 10%;
+
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
@@ -118,7 +119,7 @@ export const StyledImage = styled.img`
     }
 
     :hover, &.flipped{
-        padding: 1.5%;
+        padding: 1%;
         animation: none;
         border-radius: 10px;
         background-color: #6a9167;

@@ -10,33 +10,8 @@ interface EventData {
 
 const EventData = [
     {
-        month: 'August',
-        performances : [
-            {
-                date: 25,
-                day: 'Sun',
-                performers: ['Laurence Henderson Band', 'Milly Thimaras', 'Greg C & Brother Jack'],
-                price: 5,
-                description: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.',
-            },
-            {
-                date: 30,
-                day: 'Fri',
-                performers: ['Missy Nelson',],
-                description: 'Catch Missyy Nelson at The Queens Head on Friday 4th August! Entry is free!',
-            },
-        ]
-    },
-    {
         month: 'September',
         performances: [
-            {
-                date: 1,
-                day: 'Sun',
-                price: 5,
-                performers: ['Creature of Habit', 'Big Trousers', "Dahlia's Comet"],
-                description: 'Join us for a Sunday full of amazing performances by Creature of Habit, Big Trousers, and Dahlia\'s Comet.',
-            },
             {
                 date: 8,
                 day: 'Sun',
