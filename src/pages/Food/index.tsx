@@ -2,7 +2,7 @@ import { lazy, useState } from "react";
 import Carousel from '../../components/Carousel';
 import ImageContainer, { CenteredContent, 
     TextContainer, PreservedText, StyledImage,
-    FlippedContainer, InitialText } from "./styles";
+    FlippedContainer, InitialText, ImageWrapper } from "./styles";
 import { Row, Col} from "antd";
 import LineBreaker from "../../common/LineBreaker";
 import FoodContent from "../../content/FoodContent.json";
@@ -38,7 +38,9 @@ const Food = () => {
                         </TextContainer>
                     </CenteredContent>
                 </Container>
-                <StyledImage onClick={handleFlip} className={isFlipped ? "flipped" : ""} src="/img/svg/vegan.svg" alt="Food" />
+                <ImageWrapper>
+                    <StyledImage onClick={handleFlip} className={isFlipped ? "flipped" : ""} src="/img/svg/vegan.svg" alt="Food" />
+                </ImageWrapper>
                 <ScrollDown />
             </Carousel>
             <Container padding="5% 5%" maxWidth="1700px">

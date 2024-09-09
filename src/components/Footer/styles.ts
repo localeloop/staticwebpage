@@ -51,7 +51,7 @@ export const LogoContainer = styled("div")`
 export const Para = styled("div")`
   color: #161616;
   font-size: 14px;
-  width: 70%;
+  width: 100%;
 
   @media screen and (max-width: 768px) {
     width: 90%;

@@ -92,9 +92,23 @@ export const FlippedContainer = styled.div`
     border-radius: 10px;
 `;
 
+export const ImageWrapper = styled.div`
+    position: relative;
+
+    ::after {
+        content: 'click me!';
+        position: absolute;
+        display: block;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+`;
+
 
 export const StyledImage = styled.img`
-    top: 15%;
+    top: 75%;
     right: 3%;
     padding: 1%;
     border-radius: 30px;

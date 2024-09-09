@@ -52,11 +52,10 @@ const Footer = ({ t }: any) => {
           <Row justify="space-between">
             <Col lg={10} md={10} sm={12} xs={12}>
               <Language>{t("Contact Us")}</Language>
-              <Para>e-Mail: </Para>
-              <Para>thequeensheadfarnham@gmail.com</Para>
-              <Para>musicqueensheadfarnham@gmail.com</Para>
-              <Para>Tel: </Para>
-              <Para>01252 726524</Para>
+              <Para>e-Mail: thequeensheadfarnham@gmail.com</Para>
+              <Para>e-Mail: musicqueensheadfarnham@gmail.com</Para>
+              <Para>Tel: 01252 726524</Para>
+              <Para></Para>
             </Col>
           </Row>
           <Extra />
@@ -70,15 +69,11 @@ const Footer = ({ t }: any) => {
             </Col>
             <Col lg={10} md={10} sm={12} xs={12}>
               <Language>{t("Opening Hours")}</Language>
-                <Col lg={8} md={8} sm={12} xs={12}>
-                  <Para>Mon - Wed: </Para>
-                  <Para>10:00 - 23:00</Para>
-                  <Para>Thursday: </Para>
-                  <Para>10:00 - 00:00</Para>
-                  <Para>Fri - Sat:</Para>
-                  <Para>10:00 - 00:30</Para>
-                  <Para>Sunday:</Para>
-                  <Para>10:00 - 23:30</Para>
+                <Col lg={10} md={8} sm={12} xs={12}>
+                  <Para>Mon - Wed: 10:00 - 23:00</Para>
+                  <Para>Thursday: 10:00 - 00:00</Para>
+                  <Para>Fri - Sat: 10:00 - 00:30</Para>
+                  <Para>Sunday: 10:00 - 23:30</Para>
                 </Col>
             </Col>
           </Row>

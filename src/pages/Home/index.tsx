@@ -10,7 +10,7 @@ import { Slide } from "react-awesome-reveal";
 import LineBreaker from "../../common/LineBreaker";
 
 import { SocialLink } from "../../components/Header/styles";
-import { StyledImage, StyledLink } from "./styles";
+import { StyledImage, StyledLink, StyledLogoContainer, FoodDeliveryLinks  } from "./styles";
 
 // import AboutContent from "../../content/AboutContent.json";
 // import MissionContent from "../../content/MissionContent.json";
@@ -23,7 +23,6 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollDown = lazy(() => import("../../common/ScrollDown"));
 const Contact = lazy(() => import("../../components/ContactForm"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
-const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const MiddleContentBlock = lazy(() => import("../../components/ContentBlock/MiddleContentBlock"));
 
 const Home = () => {
@@ -41,41 +40,36 @@ const Home = () => {
         </Row>
         <ScrollDown targetId={"about"} />
       </Carousel>
-      <div id="foodordering"> 
-        <Container>
-          <div style={{ display: "flex", }}>
-
-            <StyledLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
-              <StyledImage src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
-            </StyledLink>
-            <StyledLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
-              <StyledImage src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
-            </StyledLink>
+      <FoodDeliveryLinks>
+        <StyledLogoContainer style={{ display: "flex", justifyContent: "space-between" }}>
+          <StyledLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
+            <StyledImage src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
+          </StyledLink>
+          <StyledLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
+            <StyledImage src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
+          </StyledLink>
+        </StyledLogoContainer>
+      </FoodDeliveryLinks>
+      <LineBreaker text="About Us"/>
+      <BackgroundImageContainer 
+        src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
+        height="60vh"
+        width="100%"
+        fixed={true}
+      >
+        <Slide direction="up" triggerOnce={true}>
+          <div>
+            <MiddleContentBlock
+              height='60vh'
+              fontSize='1rem'
+              title={MiddleBlockContent.title}
+              content={MiddleBlockContent.text}
+              button="See Our Menus"
+              href="/food"
+              />
           </div>
-        </Container> 
-      </div>
-      <div id="about" style={{ padding: '1% 0 ' }}>
-          <LineBreaker text="About Us"/>
-          <BackgroundImageContainer 
-            src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
-            height="60vh"
-            width="100%"
-            fixed={true}
-          >
-          <Slide direction="up" triggerOnce={true}>
-            <div>
-              <MiddleContentBlock
-                height='60vh'
-                fontSize='1rem'
-                title={MiddleBlockContent.title}
-                content={MiddleBlockContent.text}
-                button="See Our Menus"
-                href="/food"
-                />
-            </div>
-          </Slide>
-        </BackgroundImageContainer>
-      </div>
+        </Slide>
+      </BackgroundImageContainer>
       {/* <ReviewsComponent /> */}
       <Container>
         <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>
