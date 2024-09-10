@@ -93,29 +93,20 @@ export const FlippedContainer = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-    position: relative;
-
-    ::after {
-        content: 'click me!';
-        position: absolute;
-        display: block;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: nowrap;
-    }
+    position: absolute;
+    top: 75%;
+    right: 5%;
+    height: 100px;
+    width: 100px;
 `;
 
 
 export const StyledImage = styled.img`
-    top: 75%;
-    right: 3%;
     padding: 1%;
     border-radius: 30px;
-    position: absolute;
     background-color: #fff;
     animation: pulse 2s infinite;
-    height: 10%;
+    height: 100%;
 
     cursor: pointer;
     transition: all 0.3s ease-in-out;
