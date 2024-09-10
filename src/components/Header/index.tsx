@@ -77,25 +77,41 @@ const Header = ({ t }: { t: TFunction }) => {
           <Burger toggle={() => setIsOpen(!isOpen)} isOpen={isOpen} />
         </Row>
         {width <= 768 && (
-          <motion.div
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            variants={drawerVariants}
-            ref={menuRef}
-            style={{
-              position: "fixed",
-              top: "10%",
-              left: 0,
-              bottom: 0,
-              width: "75%",
-              backgroundColor: "#161616",
-              zIndex: 1000,
-            }}
-          >
-            <div>
-              <MenuItem handleWidgetClick={handleWidgetClick} t={t} isOpen={isOpen} />
-            </div>
-          </motion.div>
+          <>
+            <motion.div
+              initial={false}
+              animate={isOpen ? "open" : "closed"}
+              variants={drawerVariants}
+              style={{
+                position: "fixed",
+                top: "15%",
+                left: 0,
+                bottom: 0,
+                width: "75%",
+                backgroundColor: "#161616",
+                zIndex: 1000,
+                overflowY: "auto",
+              }}
+            >
+              <div>
+                <MenuItem handleWidgetClick={handleWidgetClick} t={t} isOpen={isOpen} />
+              </div>
+            </motion.div>
+            {isOpen && (
+              <div
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: "rgba(0,0,0,0.5)",
+                  zIndex: 999,
+                }}
+                onClick={() => setIsOpen(false)}
+              />
+            )}
+          </>
         )}
       </Container>
     </HeaderSection>
