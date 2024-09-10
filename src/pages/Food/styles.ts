@@ -97,19 +97,11 @@ export const ImageWrapper = styled.div`
     top: 75%;
     right: 5%;
     height: 100px;
-    width: 100px;
-`;
-
-
-export const StyledImage = styled.img`
-    padding: 1%;
-    border-radius: 30px;
-    background-color: #fff;
+    width: 160px;
     animation: pulse 2s infinite;
-    height: 100%;
+    font-weight: bold;
 
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    text-align: center;
 
     @keyframes pulse {
         0% {
@@ -124,6 +116,27 @@ export const StyledImage = styled.img`
     }
 
     :hover, &.flipped{
+        animation: none;
+    }
+
+    @media (max-width: 768px){
+        top: 80%;
+        right: -5%;
+    }
+        
+`;
+
+
+export const StyledImage = styled.img`
+    padding: 1%;
+    border-radius: 30px;
+    background-color: #fff;
+    height: 100%;
+
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    :hover, &.flipped{
         padding: 1%;
         animation: none;
         border-radius: 10px;
@@ -132,6 +145,7 @@ export const StyledImage = styled.img`
 
     @media (max-width: 768px) {
         padding: 4%;
+        height: 70%;
     }
 `;
 

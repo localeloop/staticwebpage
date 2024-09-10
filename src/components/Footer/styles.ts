@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 export const FooterSection = styled("footer")`
   background: rgb(241, 242, 243);
   padding: 2.5rem 0;
+  z-index: 1000;
 `;
 
 export const Title = styled("h4")`
   font-size: 22px;
   text-transform: capitalize;
   color: #161616;
+  z-index: 1000;
 
   @media screen and (max-width: 414px) {
     padding: 1.5rem 0;
@@ -21,6 +23,7 @@ export const NavLink = styled(Link)`
   font-size: 1rem;
   margin-bottom: 0.625rem;
   transition: all 0.2s ease-in-out;
+  z-index: 1000;
 
   &:hover,
   &:active,
@@ -36,11 +39,13 @@ export const Extra = styled("section")`
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 2rem;
+  z-index: 1000;
 `;
 
 export const LogoContainer = styled("div")`
   display: flex;
   position: relative;
+  z-index: 1000;
 
   @media screen and (max-width: 768px) {
     height: 80%;
@@ -52,6 +57,7 @@ export const Para = styled("div")`
   color: #161616;
   font-size: 14px;
   width: 100%;
+  z-index: 1000;
 
   @media screen and (max-width: 768px) {
     width: 90%;
@@ -73,6 +79,7 @@ export const Large = styled(Link)<any>`
   margin-bottom: 0.625rem;
   transition: all 0.3s ease-in-out;
   max-width: max-content;
+  z-index: 1000;
 
   &:hover {
     color: #4F6F52;
@@ -88,6 +95,7 @@ export const Chat = styled("p")`
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.3s ease-in-out;
+  z-index: 1000;
 
   &:hover {
     border-bottom: 1px solid #4F6F52;
@@ -98,6 +106,7 @@ export const Chat = styled("p")`
 export const Empty = styled("div")`
   position: relative;
   height: 53px;
+  z-index: 1000;
 `;
 
 export const FooterContainer = styled("div")`
@@ -108,6 +117,7 @@ export const FooterContainer = styled("div")`
   text-align: center;
   align-items: center;
   transition: all 0.1s ease-in-out;
+  z-index: 1000;
 
   a {
     &:hover,
@@ -156,6 +166,7 @@ export const Language = styled("h4")`
   font-size: 22px;
   text-transform: capitalize;
   color: #161616;
+  z-index: 1000;
 
   @media screen and (max-width: 414px) {
     padding: 1.5rem 0;
@@ -169,6 +180,7 @@ export const Label = styled("label")`
   display: block;
   margin-bottom: 2rem;
   font-family: "Motiva Sans Bold", serif;
+  z-index: 1000;
 
   @media screen and (max-width: 414px) {
     padding: 1.5rem 0;

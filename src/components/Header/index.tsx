@@ -1,4 +1,4 @@
-import { useState, lazy, useMemo } from "react";
+import { useState, lazy, useMemo, useRef, useEffect } from "react";
 import { withTranslation, TFunction } from "react-i18next";
 import { Row, Col } from "antd";
 import { motion } from "framer-motion";
@@ -20,15 +20,29 @@ const Header = ({ t }: { t: TFunction }) => {
   const [isWidgetVisible, setWidgetVisibility] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)){
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, []);
+
   const { width } = useWindowSize();
 
   const handleWidgetClick = () => {
     setWidgetVisibility(!isWidgetVisible);
     setIsOpen(!isOpen);
   };
-
-  // const memoizedMenuItem = useMemo(() =>
-  // );
 
   const drawerVariants = {
     open: {
@@ -67,6 +81,7 @@ const Header = ({ t }: { t: TFunction }) => {
             initial={false}
             animate={isOpen ? "open" : "closed"}
             variants={drawerVariants}
+            ref={menuRef}
             style={{
               position: "fixed",
               top: "10%",

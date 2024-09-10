@@ -3,6 +3,22 @@ import styled, { css, keyframes } from 'styled-components';
 const fontColour = '#fff';
 
 export const EventsContainer = styled.section`
+    padding-top: 5%;
+    padding-bottom: 20%;
+    h1 {
+        text-align: center;
+    }
+
+    @media (max-width: 768px){
+        padding-top: 50%;
+        padding-bottom: 40%;
+        width: 80%;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 1.2rem;
+        }
+    }
 `;
 
 export const CarouselContainer = styled.div`
@@ -51,7 +67,7 @@ export const EventItem = styled.div`
     transition: transform 0.5s ease-in-out;
 
     :hover {
-        transform: scale(1.04);
+        transform: scale(1.01);
     }
 
     @media screen and (max-width: 768px) {
@@ -169,8 +185,8 @@ export const EventAdditional = styled.div`
 
 export const CarouselControl = styled.div<{ direction: 'prev' | 'next' }>`
     position: absolute;
-    top: 30px;
-    ${props => props.direction === 'prev' ? css`left: 15%;` : css`right: 15%;`}
+    top: 25px;
+    ${props => props.direction === 'prev' ? css`left: 10%;` : css`right: 10%;`}
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -194,8 +210,8 @@ export const CarouselControl = styled.div<{ direction: 'prev' | 'next' }>`
         height: 50px;
 
         &::before {
-        width: 20px;
-        height: 20px;
+            width: 20px;
+            height: 20px;
         }
     }
 `;
@@ -203,8 +219,6 @@ export const CarouselControl = styled.div<{ direction: 'prev' | 'next' }>`
 export const CarouselInner = styled.div<{ animating: boolean }>`
     display: flex;
     overflow: hidden;
-    opacity: ${({ animating }) => (animating ? 0 : 1)};
-    transition: opacity 0.3s ease-in-out;
     overflow: visible;
 `;
 

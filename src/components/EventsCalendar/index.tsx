@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import EventData from './data';
+import { format, isBefore, startOfToday } from 'date-fns';
 import {
     EventsContainer,
     CarouselContainer,
@@ -28,17 +29,32 @@ const EventsCalendar: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
+  const getMonthNumber = (monthName: string): number => {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return months.indexOf(monthName);
+  }
+
+  // filter dates
+  const currentDate = startOfToday();
+  const futureEvents = EventData.map( monthData => ({
+    ...monthData,
+    performances: monthData.performances.filter(performance => {
+      const eventDate = new Date( new Date().getFullYear(), getMonthNumber(monthData.month), performance.date )
+      return !isBefore( eventDate, currentDate );
+    })
+  })).filter(monthData => monthData.performances.length > 0 );
+
   const handlePrevClick = () => {
     if (animating) return;
     setAnimating(true);
-    setActiveIndex(( prevIndex ) => ( prevIndex === 0 ? EventData.length - 1 : prevIndex - 1 ));
+    setActiveIndex(( prevIndex ) => ( prevIndex === 0 ? futureEvents.length - 1 : prevIndex - 1 ));
     setTimeout(() => { setAnimating(false); }, 300);
   };
 
   const handleNextClick = () => {
     if (animating) return;
     setAnimating(true);
-    setActiveIndex(( prevIndex ) => ( prevIndex === EventData.length - 1 ? 0 : prevIndex + 1 ));
+    setActiveIndex(( prevIndex ) => ( prevIndex === futureEvents.length - 1 ? 0 : prevIndex + 1 ));
     setTimeout(() => { setAnimating(false); }, 300);
   };
 
@@ -60,10 +76,10 @@ const EventsCalendar: React.FC = () => {
 
   return (
     <EventsContainer>
-        <h1 style={{textAlign: "center"}}>Live Music Calendar</h1>
+        <h1>Live Music Calendar</h1>
         <CarouselContainer>
             <CarouselInner animating={animating} >
-                {EventData.map((eventData, index) => (
+                {futureEvents.map((eventData, index) => (
                     <CarouselItem key={index} active={index === activeIndex} animating={animating}>
                         <EventContainer>
                             <EventHeader>

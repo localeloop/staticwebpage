@@ -40,20 +40,6 @@ const MenuItem = ({ handleWidgetClick, t, isOpen }: { handleWidgetClick: () => v
         </NavLink>
       </CustomNavLinkSmall>
       <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}}>
-          <Span onClick={toggleDropdown}>{t("Order Food")}</Span>
-          {
-            dropDownOpen && (
-            <DropdownContainer>
-              <SocialLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
-                <img src="/img/svg/deliveroo.svg" alt="Deliveroo" width="128" height="64" />
-              </SocialLink>
-              <SocialLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
-                <img src="/img/svg/justeat.svg" alt="Just Eat" width="128" height="64" />
-              </SocialLink>
-            </DropdownContainer>
-          )}
-      </CustomNavLinkSmall>
-      <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}}>
         <NavLink to="whatson">
           <Span>{t("What's On")}</Span>
         </NavLink>

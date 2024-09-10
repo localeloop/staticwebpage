@@ -1,5 +1,5 @@
 interface EventData {
-    month: string,
+    month: any,
     date: string,
     day: string,
     title: string,

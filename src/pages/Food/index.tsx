@@ -7,9 +7,31 @@ import { Row, Col} from "antd";
 import LineBreaker from "../../common/LineBreaker";
 import FoodContent from "../../content/FoodContent.json";
 import ScrollDown from "../../common/ScrollDown";
+import ImageMarquee from "../../common/ImageMarquee";
+
+import { FoodDeliveryLinks, StyledLogoContainer, StyledLink } from "../Home/styles";
 
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
+
+const images = [
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image1.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image2.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image3.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image4.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image5.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image6.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image7.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image8.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image11.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image12.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image13.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image14.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image15.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image16.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image17.jpeg',
+    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image18.jpeg',
+]
 
 const Food = () => {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -21,6 +43,16 @@ const Food = () => {
     return (
         <div id="intro" >
             <Carousel height="100vh">
+                <FoodDeliveryLinks>
+                    <StyledLogoContainer style={{ display: "flex", justifyContent: "space-between" }}>
+                    <StyledLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
+                        <img style={{ height: "100%", width: "100%" }} src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
+                    </StyledLink>
+                    <StyledLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
+                        <img style={{ height: "100%", width: "100%" }} src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
+                    </StyledLink>
+                    </StyledLogoContainer>
+                </FoodDeliveryLinks>
                 <Container>
                     <CenteredContent>
                         <TextContainer className={isFlipped ? "flipped" : ""}>
@@ -38,12 +70,14 @@ const Food = () => {
                         </TextContainer>
                     </CenteredContent>
                 </Container>
-                <ImageWrapper>
+                <ImageWrapper className={isFlipped ? "flipped" : ""}>
                     <StyledImage onClick={handleFlip} className={isFlipped ? "flipped" : ""} src="/img/svg/vegan.svg" alt="Food" />
+                    <p>Click Me!</p>
                 </ImageWrapper>
                 <ScrollDown />
             </Carousel>
-            <Container padding="5% 5%" maxWidth="1700px">
+            <ImageMarquee images={images}/>
+            <Container maxWidth="1700px">
                 <ScrollToTop />
                 <ImageContainer>
                     <Row gutter={[16, 16]} justify="space-between" align="middle">
