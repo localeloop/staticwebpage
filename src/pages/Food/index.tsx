@@ -76,7 +76,12 @@ const Food = () => {
                 </ImageWrapper>
                 <ScrollDown />
             </Carousel>
-            <ImageMarquee images={images}/>
+            <ImageMarquee 
+                images={images}
+                imageHeight={400}
+                imageWidth={500}
+                imageMargin={20}
+            />
             <Container maxWidth="1700px">
                 <ScrollToTop />
                 <ImageContainer>

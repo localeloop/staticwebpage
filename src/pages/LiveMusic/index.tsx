@@ -76,7 +76,12 @@ const LiveMusic = () => {
                     <Candle/>
                 </StyledCandle>
             </Container>
-            <ImageMarquee images={images}/>
+            <ImageMarquee 
+                images={images} 
+                imageHeight={400}
+                imageWidth={500}
+                imageMargin={20}
+            />
             <SnakeImageContainer>
                 <StyledSnake>
                     <Snake/>
