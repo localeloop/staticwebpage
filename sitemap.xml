@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.thequeensheadfarnham.co.uk/</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://thequeensheadfarnham.co.uk/</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Food Page -->
+  <url>
+    <loc>https://www.thequeensheadfarnham.co.uk/food</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thequeensheadfarnham.co.uk/food</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Whats On Page -->
+  <url>
+    <loc>https://www.thequeensheadfarnham.co.uk/whatson</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thequeensheadfarnham.co.uk/whatson</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Live Music Page -->
+  <url>
+    <loc>https://www.thequeensheadfarnham.co.uk/livemusic</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thequeensheadfarnham.co.uk/livemusic</loc>
+    <lastmod>2024-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
