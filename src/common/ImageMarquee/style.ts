@@ -17,13 +17,13 @@ export const MarqueeTrack = styled(motion.div)`
   white-space: nowrap;
 `;
 
-export const MarqueeItem = styled.img`
-  height: 500px;
+export const MarqueeItem = styled.div`
+  height: 400px;
   width: 500px;
-  margin: 0 20px;
+  margin: 0 3%;
+  flex-shrink: 0;
 
   img {
-    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;

@@ -185,7 +185,7 @@ export const EventAdditional = styled.div`
 
 export const CarouselControl = styled.div<{ direction: 'prev' | 'next' }>`
     position: absolute;
-    top: 25px;
+    top: 4%;
     ${props => props.direction === 'prev' ? css`left: 10%;` : css`right: 10%;`}
     width: 30px;
     height: 30px;
@@ -219,7 +219,6 @@ export const CarouselControl = styled.div<{ direction: 'prev' | 'next' }>`
 export const CarouselInner = styled.div<{ animating: boolean }>`
     display: flex;
     overflow: hidden;
-    overflow: visible;
 `;
 
 export const CarouselItem = styled.div<{ active: boolean, animating: boolean }>`

@@ -6,7 +6,7 @@ interface LazyImageProps {
 }
 
 const LazyImage: React.FC<LazyImageProps> = ({ src, alt }) => {
-  return <img src={src} alt={alt} />;
+  return <img src={src} alt={alt} loading="lazy"/>;
 };
 
 export default LazyImage;
