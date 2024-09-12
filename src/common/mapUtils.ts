@@ -1,0 +1,68 @@
+interface DeviceScreenInfo {
+    width: number,
+    height: number,
+    dpi: number,
+    widthInInches: number,
+    heightInInches: number
+};
+
+interface ZoomScales {
+    [key: number]: number;
+}
+
+export function getDeviceScreenSize(): DeviceScreenInfo {
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    const dpi = window.devicePixelRatio * 96;
+
+    const widthInInches = screenWidth / dpi;
+    const heightInInches = screenHeight / dpi;
+
+    return {
+        width: screenWidth,
+        height: screenHeight,
+        dpi: dpi,
+        widthInInches: widthInInches,
+        heightInInches: heightInInches
+    }
+}
+
+const scales: ZoomScales = {
+    19: 1128.497220,
+    18: 2256.994440,
+    17: 4513.988880,
+    16: 9027.977761,
+    15: 18055.955520,
+    14: 36111.911040,
+    13: 72223.822090,
+    12: 144447.644200,
+    11: 288895.288400,
+    10: 577790.576700,
+    9: 1155581.153000,
+    8: 2311162.307000,
+    7: 4622324.614000,
+    6: 9244649.227000,
+    5: 18489298.450000,
+    4: 36978596.910000,
+    3: 73957193.820000,
+    2: 147914387.600000,
+    1: 295828775.300000,
+    0: 591657550.500000
+};
+
+export function getScaleForZoomLevel(zoomLevel: number): number {
+    return scales[zoomLevel] ?? 0;
+}
+
+export function calculateMapCoverage(zoomLevel: number): { widthInMeters: number, heightInMeters: number }{
+    const deviceInfo = getDeviceScreenSize();
+    const scale = getScaleForZoomLevel(zoomLevel);
+
+    const widthInMeters = deviceInfo.width * scale / deviceInfo.dpi;
+    const heightInMeters = deviceInfo.height * scale / deviceInfo.dpi;
+
+    return {
+        widthInMeters: widthInMeters,
+        heightInMeters: heightInMeters
+    }
+}

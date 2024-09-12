@@ -9,6 +9,7 @@ const BackgroundImage = (
     height,
     width,
   }: BackgroundImageProps ) => (
+
   <BackgroundImageContainer
     fixed={fixed}
     width={width}

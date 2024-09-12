@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const MarqueeContainer = styled.div`
   width: 100%;
   height: ${(props: {height: number}) => props.height}px;
-  overflow-x: hidden;
+  overflow: hidden;
   margin-top: 5%;
   margin-bottom: 5%;
 `;

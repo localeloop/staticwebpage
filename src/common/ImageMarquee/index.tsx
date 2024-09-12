@@ -11,63 +11,31 @@ interface ImageMarqueeProps {
     imageMargin: number;
 }
 
-interface PreloadObserverProps {
-    images: string[],
-    onPreload: (index: number) => void,
-    preloadAhead: number
-}
-
-const PreloadObserver: React.FC<PreloadObserverProps> = ({ images, onPreload, preloadAhead }) => {
-    const observerRef = useRef<IntersectionObserver | null>(null);
-  
-    useEffect(() => {
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.001,  // Trigger the observer when the element is about 10% visible
-      };
-  
-        observerRef.current = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const index = Number(entry.target.getAttribute('data-index'));
-                    for (let i = 0; i < preloadAhead; i++) {
-                        onPreload(index + i); // Preload the current and next few images
-                    }
-                }
-            });
-        }, options);
-  
-        // Attach observer to all image containers
-        const imageElements = document.querySelectorAll('.marquee-item');
-        imageElements.forEach((el, index) => {
-            el.setAttribute('data-index', String(index));
-            observerRef.current?.observe(el);
-        });
-  
-        // Cleanup observer on component unmount
-        return () => {
-            if (observerRef.current) {
-            observerRef.current.disconnect();
-            }
-        };
-    }, [images, onPreload, preloadAhead]);
-  
-    return null;
-};
-
 const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images, imageWidth, imageHeight, imageMargin }) => {
-    const [preloadedImages, setPreloadedImages] = useState<number[]>([]);
+    const [imagesLoaded, setImagesLoaded] = useState(false);
     const controls = useAnimation();
     const trackRef = useRef<HTMLDivElement>(null);
 
     const totalWidth = images.length * (imageWidth + imageMargin * 2);
+    const tripleBuffer = [...images, ...images];
+    
+    useEffect(() => {
+        const preloadImages = async () => {
+            const imagePromises = tripleBuffer.map(src => {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.src = src;
+                    img.onload = resolve;
+                    img.onerror = reject;
+                });
+            });
 
-    const preloadImages = useCallback((index: number) => {
-        if (!preloadedImages.includes(index)){
-            setPreloadedImages(prev => [...prev, index]);
-        }
-    }, [preloadedImages, setPreloadedImages]);
+            await Promise.all(imagePromises);
+            setImagesLoaded(true);
+        };
+
+        preloadImages();
+    }, [tripleBuffer]);
 
     useEffect(() => {
         const animateMarquee = async () => {
@@ -78,7 +46,7 @@ const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images, imageWidth, imageHe
                         x: {
                             repeat: Infinity,
                             repeatType: 'loop',
-                            duration: 200,
+                            duration: 100,
                             ease: 'linear'
                         },
                     },
@@ -89,28 +57,21 @@ const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images, imageWidth, imageHe
         animateMarquee();
     }, [controls, totalWidth])
 
-    console.log( preloadedImages )
+    if (!imagesLoaded) {
+        return <div>Loading images...</div>
+    }
 
     return (
         <MarqueeContainer height={imageHeight}>
             <MarqueeTrack ref={trackRef} animate={controls} style={{ width: `${totalWidth * 2}px` }}>
-                {[...images, ...images].map((src, index) => (
+                {tripleBuffer.map((src, index) => (
                     <MarqueeItem className="marquee-item" key={index} style={{ width: `${imageWidth}px`, height: `${imageHeight}px`, margin: `0 ${imageMargin}px` }}>
                         <Suspense fallback={<div>loading...</div>}>
-                            {preloadedImages.includes(index) ? (
-                                <LazyImage src={src} alt={`Image ${index}`} />
-                                ) : (
-                                <></>
-                            )}
+                            <LazyImage src={src} alt={`Image ${index}`} />
                         </Suspense>
                     </MarqueeItem>
                 ))}
             </MarqueeTrack>
-            <PreloadObserver
-                images={images}
-                onPreload={preloadImages}
-                preloadAhead={6} // Preload 3 images ahead
-            />
         </MarqueeContainer>
     );
 };

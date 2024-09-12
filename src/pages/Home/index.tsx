@@ -9,11 +9,7 @@ import { Slide } from "react-awesome-reveal";
 import LineBreaker from "../../common/LineBreaker";
 
 import { StyledImage, StyledLink, StyledLogoContainer, FoodDeliveryLinks  } from "./styles";
-
-// import AboutContent from "../../content/AboutContent.json";
-// import MissionContent from "../../content/MissionContent.json";
-// import ProductContent from "../../content/ProductContent.json";
-// import ContactContent from "../../content/ContactContent.json";
+import GoogleMapComponent from "../../common/GoogleMap";
 
 const HeaderBlock = lazy(() => import("../../components/ContentBlock/HeaderBlock"));
 
@@ -72,6 +68,7 @@ const Home = () => {
       <Container>
         <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>
       </Container>
+      <GoogleMapComponent/>
     </>
   );
 };

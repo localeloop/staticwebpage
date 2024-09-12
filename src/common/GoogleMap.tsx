@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 const mapContainerStyle = {
     width: "100vw",
-    height: "100vh"
+    height: "50vh"
 };
 
 const center = {
@@ -22,7 +22,7 @@ const GoogleMapComponent: React.FC = () => {
         <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={center}
-            zoom={80}
+            zoom={19}
         >
             <Marker position={center}/>
         </GoogleMap>

@@ -2,9 +2,6 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { Image } from "../../common/Image";
 import Container from "../../common/Container";
-import GoogleMapComponent from "../../common/GoogleMap";
-
-import i18n from "i18next";
 import {
   FooterSection,
   NavLink,
@@ -38,7 +35,6 @@ const Footer = ({ t }: any) => {
 
   return (
     <>
-      <GoogleMapComponent />
       <FooterSection>
         <Container>
           <Row justify="space-between">
