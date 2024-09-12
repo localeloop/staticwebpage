@@ -77,7 +77,7 @@ const EventsCalendar: React.FC = () => {
         <CarouselContainer>
             <CarouselInner animating={animating} >
                 {futureEvents.map((eventData, index) => (
-                    <CarouselItem key={index} active={index === activeIndex} animating={animating}>
+                    <CarouselItem key={`${index}-carousel-item`} active={index === activeIndex} animating={animating}>
                         <EventContainer>
                             <EventHeader>
                                 <EventHeaderTitle>{eventData.month}</EventHeaderTitle>

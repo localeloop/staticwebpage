@@ -15,12 +15,6 @@ const MenuItem = ({ handleWidgetClick, t, isOpen }: { handleWidgetClick: () => v
   const { width } = useWindowSize();
   const isMobile = width <= 768;
 
-  const [dropDownOpen, setDropDownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setDropDownOpen(!dropDownOpen);
-  }
-
   return (
     <MenuItems
       as={motion.div}

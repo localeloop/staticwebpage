@@ -1,22 +1,20 @@
 import { Row } from "antd";
 import { lazy  } from "react";
+import { Slide } from "react-awesome-reveal";
 import Carousel from '../../components/Carousel';
+import LineBreaker from "../../common/LineBreaker";
 import { BackgroundImageContainer } from "../../common/BackgroundImage/styles"
+import { StyledImage, StyledLink, StyledLogoContainer, FoodDeliveryLinks  } from "./styles";
 
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
-import { Slide } from "react-awesome-reveal";
-import LineBreaker from "../../common/LineBreaker";
-
-import { StyledImage, StyledLink, StyledLogoContainer, FoodDeliveryLinks  } from "./styles";
-import GoogleMapComponent from "../../common/GoogleMap";
-
-const HeaderBlock = lazy(() => import("../../components/ContentBlock/HeaderBlock"));
 
 const Container = lazy(() => import("../../common/Container"));
 const ScrollDown = lazy(() => import("../../common/ScrollDown"));
 const Contact = lazy(() => import("../../components/ContactForm"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
+const GoogleMapComponent = lazy(() => import('../../common/GoogleMap'));
+const HeaderBlock = lazy(() => import("../../components/ContentBlock/HeaderBlock"));
 const MiddleContentBlock = lazy(() => import("../../components/ContentBlock/MiddleContentBlock"));
 
 const Home = () => {

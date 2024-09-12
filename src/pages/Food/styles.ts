@@ -43,7 +43,7 @@ export const CenteredContent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
 `;
 
 export const TextContainer = styled.div`
@@ -120,10 +120,15 @@ export const ImageWrapper = styled.div`
     }
 
     @media (max-width: 768px){
-        top: 80%;
-        right: -5%;
+        top: 90%;
+        right: 0%;
     }
         
+    @media (max-width: 480px){
+        height: 80px;
+        top: 92%;
+        right: -2%;
+    }
 `;
 
 

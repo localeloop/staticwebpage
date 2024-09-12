@@ -6,31 +6,31 @@ import ImageContainer, { CenteredContent,
 import { Row, Col} from "antd";
 import LineBreaker from "../../common/LineBreaker";
 import FoodContent from "../../content/FoodContent.json";
-import ScrollDown from "../../common/ScrollDown";
 import ImageMarquee from "../../common/ImageMarquee";
 
 import { FoodDeliveryLinks, StyledLogoContainer, StyledLink } from "../Home/styles";
 
+const LazyImage = lazy(() => import('../../common/LazyImage'));
 const Container = lazy(() => import("../../common/Container"));
+const ScrollDown = lazy(() => import("../../common/ScrollDown"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 
 const images = [
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image1.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image2.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image3.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image4.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image5.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image6.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image7.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image8.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image11.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image12.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image13.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image14.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image15.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image16.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image17.jpeg',
-    'https://assets.thequeensheadfarnham.co.uk/FoodPhotos/image18.jpeg',
+    'FoodPhotos/image1.jpg',
+    'FoodPhotos/image2.jpg',
+    'FoodPhotos/image3.jpg',
+    'FoodPhotos/image4.jpg',
+    'FoodPhotos/image6.jpg',
+    'FoodPhotos/image7.jpg',
+    'FoodPhotos/image8.jpg',
+    'FoodPhotos/image11.jpg',
+    'FoodPhotos/image12.jpg',
+    'FoodPhotos/image13.jpg',
+    'FoodPhotos/image14.jpg',
+    'FoodPhotos/image15.jpg',
+    'FoodPhotos/image16.jpg',
+    'FoodPhotos/image17.jpg',
+    'FoodPhotos/image18.jpg',
 ]
 
 const Food = () => {
@@ -41,7 +41,7 @@ const Food = () => {
     };
 
     return (
-        <div id="intro" >
+        <div>
             <Carousel height="100vh">
                 <FoodDeliveryLinks>
                     <StyledLogoContainer style={{ display: "flex", justifyContent: "space-between" }}>
@@ -78,9 +78,6 @@ const Food = () => {
             </Carousel>
             <ImageMarquee 
                 images={images}
-                imageHeight={400}
-                imageWidth={500}
-                imageMargin={20}
             />
             <Container maxWidth="1700px">
                 <ScrollToTop />
@@ -89,13 +86,13 @@ const Food = () => {
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Main Menu" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-main-menu.pdf" target="_blank" rel="noopener noreferrer">
-                                <img src="https://assets.thequeensheadfarnham.co.uk/images/qh-main-menu.png" style={{width: '100%'}} alt="main menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/qh-main-menu.png" style={{width: '100%'}} alt="main menu the queens head farnham"/>
                             </a>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Burgers" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-main-menu.pdf" target="_blank" rel="noopener noreferrer">
-                                <img src="https://assets.thequeensheadfarnham.co.uk/images/qh-sunday-menu-2.png" style={{width: '100%'}} alt="sunday menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/qh-sunday-menu-2.png" style={{width: '100%'}} alt="sunday menu the queens head farnham"/>
                             </a>
                         </Col>
                     </Row>
@@ -103,13 +100,13 @@ const Food = () => {
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Roast" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-sunday-menu.pdf"  target="_blank" rel="noopener noreferrer">
-                                <img src="https://assets.thequeensheadfarnham.co.uk/images/qh-sunday-menu-1.png" style={{marginTop: '5%', width:'100%'}}alt="sunday menu burger the queens head farnham" />
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/qh-sunday-menu-1.png" style={{marginTop: '5%', width:'100%'}}alt="sunday menu burger the queens head farnham" />
                             </a>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Sandwiches" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/sandwich-menu.pdf"  target="_blank" rel="noopener noreferrer">
-                                <img src="https://assets.thequeensheadfarnham.co.uk/images/sandwich-menu.png" style={{marginTop: '5%', width:'100%'}} alt="sandiwch menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/sandwich-menu.png" style={{marginTop: '5%', width:'100%'}} alt="sandiwch menu the queens head farnham"/>
                             </a>
                         </Col>
                     </Row>
@@ -117,13 +114,13 @@ const Food = () => {
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Breakfast" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/breakfast-menu.pdf"  target="_blank" rel="noopener noreferrer">
-                                <img src="https://assets.thequeensheadfarnham.co.uk/images/breakfast-menu.jpg" style={{marginTop: '5%', width:'100%'}} alt="breakfat menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/breakfast-menu.jpg" style={{marginTop: '5%', width:'100%'}} alt="breakfat menu the queens head farnham"/>
                             </a>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Kids Menu" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/kids-menu.pdf"  target="_blank" rel="noopener noreferrer">
-                                <img src="https://assets.thequeensheadfarnham.co.uk/images/kids-menu.jpg" style={{marginTop: '5%', width:'100%'}} alt="kids menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/kids-menu.jpg" style={{marginTop: '5%', width:'100%'}} alt="kids menu the queens head farnham"/>
                             </a>
                         </Col>
                     </Row>

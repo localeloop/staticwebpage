@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export const BurgerButton = styled.button`
   display: none;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 853px) {
     display: block;
     outline: none;
     border: none;
@@ -77,7 +77,7 @@ export const CustomNavLink = styled("div")`
 export const Burger = styled.div`
   display: none; // Hide by default
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 853px) {
     display: flex; // Show only on mobile screens
     top: 50%;
     width: 2rem;

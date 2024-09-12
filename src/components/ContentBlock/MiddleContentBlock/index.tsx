@@ -48,7 +48,7 @@ const MiddleBlock: React.FC<MiddleBlockProps> = ({
           </ContentWrapper>
         </AnimatedContainer>
       </MiddleBlockContainer>
-    </div>    
+    </div>
   );
 };
 

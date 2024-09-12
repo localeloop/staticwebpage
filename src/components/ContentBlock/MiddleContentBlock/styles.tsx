@@ -42,7 +42,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   }
 
   h2 {
-    font-size: ${props => props.fontSize || '1.25rem'};
+    font-size: ${props => props.fontSize || '1rem'};
     margin-bottom: 1rem;
   }
 
@@ -54,19 +54,21 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   @media (max-width: 768px) {
     width: 100%;
     padding: 1rem;
+    font-size: 0.5rem;
+
     h1 {
       font-size: 2rem;
     }
-    font-size: 0.5rem;
   }
 
   @media (max-width: 414px) {
-  margin-top: 45%;
+    font-size: 0.5rem;
+    margin-top: 45%;
     padding: 1rem;
+
     h1 {
       font-size: 1.5rem;
     }
-    font-size: 0.5rem;
   }
 `;
 
