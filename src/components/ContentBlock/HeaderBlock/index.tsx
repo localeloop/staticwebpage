@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { HeaderBlockContainer, ContentWrapper } from './styles';
 
 import { Slide } from 'react-awesome-reveal';
@@ -29,14 +29,6 @@ const HeaderBlock: React.FC<HeaderBlockProps> = ({
 }) => {
 
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  useEffect(() => {
-    const handlePageLoad = () => {
-      if (document.readyState === 'complete'){
-        setIsPageLoaded(true);
-      }
-    }
-  })
 
   return (
     <HeaderBlockContainer id="intro" flexStyle={flexStyle}>

@@ -68,11 +68,3 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({
 };
 
 export default BookingWidget;
-
-{/* <iframe
-  src="https://tableagent.com/iframe/the-queens-head/"
-  style="border:0px none;min-width:375px;min-height:736px"
-  sandbox="allow-forms allow-modals allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-  width="100%"
-  height="100%">
-</iframe> */}

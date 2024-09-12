@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { MenuOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
 
 export const BurgerButton = styled.button`

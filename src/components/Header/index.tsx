@@ -1,10 +1,10 @@
 import { useState, lazy, useMemo, useRef, useEffect } from "react";
 import { withTranslation, TFunction } from "react-i18next";
-import { Row, Col } from "antd";
+import { Row } from "antd";
 import { motion } from "framer-motion";
 import {
   HeaderSection, LogoContainer,
-  NotHidden, Label, Outline,
+  NotHidden
 } from "./styles";
 
 import { MenuToggle as Burger } from "./Burger";

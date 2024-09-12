@@ -1,24 +1,18 @@
-import { Row, Col, Space } from "antd";
+import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { Image } from "../../common/Image";
 import Container from "../../common/Container";
+import GoogleMapComponent from "../../common/GoogleMap";
 
 import i18n from "i18next";
 import {
   FooterSection,
-  Title,
   NavLink,
   Extra,
   LogoContainer,
   Para,
-  Large,
-  Chat,
-  Empty,
   FooterContainer,
   Language,
-  Label,
-  LanguageSwitch,
-  LanguageSwitchContainer,
 } from "./styles";
 
 interface SocialLinkProps {
@@ -27,10 +21,7 @@ interface SocialLinkProps {
 }
 
 const Footer = ({ t }: any) => {
-  const handleChange = (language: string) => {
-    i18n.changeLanguage(language);
-  };
-
+  
   const SocialLink = ({ href, src }: SocialLinkProps) => {
     return (
       <a
@@ -47,6 +38,7 @@ const Footer = ({ t }: any) => {
 
   return (
     <>
+      <GoogleMapComponent />
       <FooterSection>
         <Container>
           <Row justify="space-between">

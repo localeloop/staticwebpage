@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import EventData from './data';
-import { format, isBefore, startOfToday } from 'date-fns';
+import { isBefore, startOfToday } from 'date-fns';
 import {
     EventsContainer,
     CarouselContainer,
@@ -16,13 +16,10 @@ import {
     EventItemContainer,
     PerformersAndPriceContainer,
     DateSuffix,
-    EventDesc,
-    EventDescription,
     EventTitle,
     PerformersList,
     EntryPrice,
     CarouselControl,
-    MoreInfoLink
 } from './styles';
 
 const EventsCalendar: React.FC = () => {

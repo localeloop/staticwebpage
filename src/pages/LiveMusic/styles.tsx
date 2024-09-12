@@ -1,16 +1,5 @@
-import React from 'react';
 import styled from "styled-components";
-
 import { motion } from 'framer-motion';
-
-// Image props
-interface ImageProps {
-    fill?   : string;
-    width?  : string;
-    height? : string;
-    rotate? : string;
-    stroke? : string;
-}
 
 export const MainBody = styled.div`
     background-color: #161616;

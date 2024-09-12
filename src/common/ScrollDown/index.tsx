@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowDown } from 'react-icons/fa';
-import { useTranslation } from'react-i18next';
 
 import { 
-    ScrollDownContainer,
-    Span
+    ScrollDownContainer
 } from './styles';
 
 interface ScrollDownProps {

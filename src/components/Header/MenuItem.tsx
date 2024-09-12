@@ -4,7 +4,7 @@ import { Button } from '../../common/Button';
 import { NavLink } from 'react-router-dom';
 import useWindowSize from '../../hooks/useWindowSize';
 import { motion } from 'framer-motion';
-import { MenuItems, CustomNavLinkSmall, Span, DropdownContainer, SocialLink } from './styles';
+import { MenuItems, CustomNavLinkSmall, Span } from './styles';
 
 const menuItemVariants = {
   open: { transform: 'scale(1)', opacity: 1, filter: 'blur(0px)' },

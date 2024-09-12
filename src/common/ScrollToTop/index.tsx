@@ -1,4 +1,3 @@
-import { Image } from "../Image";
 import { useEffect, useState } from "react";
 import { ScrollUpContainer } from "./styles";
 import { getScroll } from "../utils/getWindow";

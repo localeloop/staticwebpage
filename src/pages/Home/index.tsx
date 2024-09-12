@@ -1,15 +1,13 @@
-import { Col, Row } from "antd";
-import { lazy, Suspense  } from "react";
+import { Row } from "antd";
+import { lazy  } from "react";
 import Carousel from '../../components/Carousel';
-import { BackgroundImageContainer } from "../../common/BackgroundImage/styles";
-import ReviewsComponent from "../../common/Reviews";
+import { BackgroundImageContainer } from "../../common/BackgroundImage/styles"
 
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
 import { Slide } from "react-awesome-reveal";
 import LineBreaker from "../../common/LineBreaker";
 
-import { SocialLink } from "../../components/Header/styles";
 import { StyledImage, StyledLink, StyledLogoContainer, FoodDeliveryLinks  } from "./styles";
 
 // import AboutContent from "../../content/AboutContent.json";

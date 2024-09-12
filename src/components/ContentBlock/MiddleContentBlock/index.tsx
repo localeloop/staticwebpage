@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { ContentBlockProps } from '../types';
 import { MiddleBlockContainer, ContentWrapper } from './styles';
 import { Button } from "../../../common/Button";
 import { AnimatedContainer } from '../../../components/Slider/styles';

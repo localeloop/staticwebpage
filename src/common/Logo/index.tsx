@@ -10,8 +10,6 @@ interface LogoProps {
 }
 
 const Logo = ( { img, alt, onClick, children }: LogoProps ) => {
-    let val;
-
     if ( img && children ){
         throw new Error( 'You can only pass either img or text, not both' );
     }

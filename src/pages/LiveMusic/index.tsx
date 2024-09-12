@@ -1,31 +1,24 @@
-import React, {useEffect, useRef} from 'react';
+
 import Container from '../../common/Container';
 import EventsCalendar from '../../components/EventsCalendar';
 
-import { useScroll, useTransform, motion, useSpring } from 'framer-motion';
 import ImageMarquee from '../../common/ImageMarquee';
 
 // Styles
 import { 
     MainBody, 
-    ImageContainer,
     StyledBird1,
     StyledBird2,
     BirdContainer,
     StyledSnake,
     SnakeImageContainer,
     StyledCandle,
-    Flower1Container
  } from './styles';
 
 import { ReactComponent as Bird1 } from './images/bird1.svg';
 import { ReactComponent as Snake } from './images/snake.svg';
 import { ReactComponent as Candle } from './images/candle.svg';
-import { ReactComponent as Flower1 } from './images/flower1.svg'
-import { ReactComponent as Flower2 } from './images/flower2.svg'
 import ContactForm from '../../components/ContactForm';
-import { BackgroundImageContainer } from '../../common/BackgroundImage/styles';
-
 const images = [
     'https://qh-store.nyc3.digitaloceanspaces.com/bandphotos/bandphotos-1-min.jpg',
     'https://qh-store.nyc3.digitaloceanspaces.com/bandphotos/bandphotos-2-min.jpg',
@@ -51,10 +44,6 @@ const images = [
 ]
 
 const LiveMusic = () => {
-
-    const { scrollY } = useScroll();
-    const y = useTransform(scrollY, [0, 1000], [-10, 100] );
-    const x = useTransform(scrollY, [0, 1000], [10, -10] );
 
     return (
         <MainBody>

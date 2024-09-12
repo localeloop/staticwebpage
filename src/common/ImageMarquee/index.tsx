@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useRef, useEffect, useState, useCallback } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import { MarqueeContainer, MarqueeTrack, MarqueeItem } from "./style";
 
 const LazyImage = lazy(() => import('../../common/LazyImage'));
