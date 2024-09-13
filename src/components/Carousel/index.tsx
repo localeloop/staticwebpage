@@ -1,5 +1,8 @@
-import React from 'react';
-import { CarouselContainer, CarouselSlide, CarouselContent } from './styles';
+import React, { useCallback, useEffect, useState } from 'react';
+import { CarouselContainer, CarouselContent } from './styles';
+import { getDeviceType } from '../../common/utils/getDeviceType';
+
+import LazyCarouselSlide from './CarouselSlide';
 
 interface ImageProps {
   src: string;
@@ -15,13 +18,13 @@ interface CarouselProps {
 }
 
 const defaultImages = [
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-1.JPG', alt: 'farnham queens head right side bar', title: 'right side bar' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-3.JPG', alt: 'farnham queens head nook area fullers', title: 'nook area' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-5.JPG', alt: 'farnham queens head public house statue head plantlife', title: 'public house farnham' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-6.JPG', alt: 'farnham queens head public house guinness amstel stowford press', title: 'tap house' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-7.JPG', alt: 'queens head farnham ale taps hsb london pride', title: 'ale taps' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-8.JPG', alt: 'queens head farnham entrance welcome', title: 'entrance' },
-  { src: 'https://assets.thequeensheadfarnham.co.uk/images/carousel-9.JPG', alt: 'queens head farnham outside area plant life outside seating', title: 'outside area' },
+  { src: 'images/carousel-1.jpg', alt: 'farnham queens head right side bar', title: 'right side bar' },
+  { src: 'images/carousel-3.jpg', alt: 'farnham queens head nook area fullers', title: 'nook area' },
+  { src: 'images/carousel-5.jpg', alt: 'farnham queens head public house statue head plantlife', title: 'public house farnham' },
+  { src: 'images/carousel-6.jpg', alt: 'farnham queens head public house guinness amstel stowford press', title: 'tap house' },
+  { src: 'images/carousel-7.jpg', alt: 'queens head farnham ale taps hsb london pride', title: 'ale taps' },
+  { src: 'images/carousel-8.jpg', alt: 'queens head farnham entrance welcome', title: 'entrance' },
+  { src: 'images/carousel-9.jpg', alt: 'queens head farnham outside area plant life outside seating', title: 'outside area' },
 ]
 
 const Carousel: React.FC<CarouselProps> = ({ height = "100vh", images, children , isGrayscale = false}) => {
@@ -32,9 +35,10 @@ const Carousel: React.FC<CarouselProps> = ({ height = "100vh", images, children 
   return (
     <CarouselContainer height={height}>
       {images.map((image, index) => (
-        <CarouselSlide
+        <LazyCarouselSlide
           key={index}
-          backgroundImage={image.src}
+          src={image.src}
+          alt={image.alt}
           style={{ animationDelay: `${index * 6}s` }}
         />
       ))}
