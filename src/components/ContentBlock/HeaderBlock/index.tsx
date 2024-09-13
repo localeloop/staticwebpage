@@ -28,11 +28,9 @@ const HeaderBlock: React.FC<HeaderBlockProps> = ({
   fontSize = "1.5rem",
 }) => {
 
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
-
   return (
     <HeaderBlockContainer id="intro" flexStyle={flexStyle}>
-      <Slide triggerOnce delay={isPageLoaded ? 100000 : 1500}>
+      <Slide triggerOnce>
         <Container>
           <ContentWrapper fontSize={fontSize}>
             {title && <h2>{title}</h2>}
