@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const BackgroundImageContainer = styled("div")<{ 
+const BackgroundImageContainer = styled("div")<{ 
   src?: string, 
   maxWidth?: boolean, 
   fixed?: boolean,
@@ -30,3 +30,5 @@ export const BackgroundImageContainer = styled("div")<{
     height: 80vh;
   }
 `;
+
+export default BackgroundImageContainer;

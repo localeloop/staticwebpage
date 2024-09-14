@@ -1,7 +1,9 @@
-import React, { lazy, Suspense, useRef, useEffect, useState, useCallback, useMemo, useLayoutEffect} from "react";
-import { useAnimation } from "framer-motion";
+import React, { lazy, Suspense, useRef, useEffect, useState, useCallback, useMemo } from "react";
 import { getDeviceType } from "../utils/getDeviceType";
 import { MarqueeContainer, MarqueeTrack, MarqueeItem } from "./style";
+import { useAnimation } from "framer-motion";
+
+const Spinner = lazy(() => import("../Spinner"));
 
 interface ImageMarqueeProps {
     images: string[];
@@ -26,13 +28,13 @@ const sizes = {
 }
 
 const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images }) => {
-    const controls = useAnimation();
     const trackRef = useRef<HTMLDivElement>(null);
     const [deviceType, setDeviceType] = useState(getDeviceType());
     const [imagesLoaded, setImagesLoaded] = useState<HTMLImageElement[]>([]);
     const [imageWidth, setImageWidth] = useState(0);
     const [imageHeight, setImageHeight] = useState(0);
     const [imageMargin, setImageMargin] = useState(0);
+    const controls = useAnimation();
 
     useEffect(() => {
       const setSizes = sizes[getDeviceType()]
@@ -94,7 +96,7 @@ const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images }) => {
           }
         animateMarquee();
       }
-    }, [controls, totalWidth, imagesLoaded, tripleBuffer.length]);
+    }, [totalWidth, imagesLoaded, tripleBuffer.length]);
     
     useEffect(() => {
       const handleResize = () => {
@@ -106,7 +108,7 @@ const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images }) => {
     }, [])
 
     if (!imagesLoaded) {
-      return <div>Loading images...</div>
+      return <Spinner />
     }
     
     return (

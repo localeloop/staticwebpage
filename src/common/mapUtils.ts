@@ -1,3 +1,5 @@
+import { useMemo } from "react"
+
 interface DeviceScreenInfo {
     width: number,
     height: number,
@@ -11,9 +13,9 @@ interface ZoomScales {
 }
 
 export function getDeviceScreenSize(): DeviceScreenInfo {
-    const screenWidth = window.screen.width;
-    const screenHeight = window.screen.height;
-    const dpi = window.devicePixelRatio * 96;
+    const screenWidth = window?.screen?.width || 1024;
+    const screenHeight = window?.screen?.height || 768;
+    const dpi = (window.devicePixelRatio || 1) * 96;
 
     const widthInInches = screenWidth / dpi;
     const heightInInches = screenHeight / dpi;
@@ -55,8 +57,8 @@ export function getScaleForZoomLevel(zoomLevel: number): number {
 }
 
 export function calculateMapCoverage(zoomLevel: number): { widthInMeters: number, heightInMeters: number }{
-    const deviceInfo = getDeviceScreenSize();
     const scale = getScaleForZoomLevel(zoomLevel);
+    const deviceInfo = useMemo(() => getDeviceScreenSize(), []);
 
     const widthInMeters = deviceInfo.width * scale / deviceInfo.dpi;
     const heightInMeters = deviceInfo.height * scale / deviceInfo.dpi;

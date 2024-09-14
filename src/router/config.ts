@@ -19,6 +19,10 @@ const routes = [
     exact: true,
     component: "LiveMusic",
   },
+  {
+    path: "*",
+    component: "NotFound"
+  }
 ];
 
 export default routes;

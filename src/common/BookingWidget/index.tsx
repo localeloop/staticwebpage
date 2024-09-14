@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 
 interface BookingWidgetProps {
@@ -38,24 +38,24 @@ const ResponsiveIframe = styled.iframe`
   max-height: 100%;
 `;
 
-const BookingWidget: React.FC<BookingWidgetProps> = ({
+const BookingWidget: React.FC<BookingWidgetProps> = React.memo(({
   src = "https://tableagent.com/iframe/the-queens-head/",
   isVisible,
   onClose
 }) => {
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const widget = document.querySelector('.booking-widget');
-      if (widget && !widget.contains(event.target as Node) && isVisible) {
-        onClose();
-      }
-    };
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    const widget = document.querySelector('.booking-widget');
+    if (widget && !widget.contains(event.target as Node) && isVisible) {
+      onClose();
+    }
+  }, [isVisible, onClose]);
 
+  useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isVisible, onClose]);
+  }, [handleClickOutside]);
 
   return (
     <WidgetContainer isOpen={isVisible} className="booking-widget">
@@ -65,6 +65,6 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({
       />
     </WidgetContainer>
   );
-};
+});
 
 export default BookingWidget;

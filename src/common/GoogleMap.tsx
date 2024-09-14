@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
+
+const Spinner = lazy(() => import('./Spinner'))
 
 const mapContainerStyle = {
     width: "100vw",
@@ -12,21 +15,29 @@ const center = {
 }
 
 const GoogleMapComponent: React.FC = () => {
+    const {isInView, elementRef} = useIntersectionObserver({
+        threshold: 0.1
+    })
+
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: 'AIzaSyDRS0kNFrZUuCfm2kfaBwdkaI6KExNbScw'
     });
 
-    if (!isLoaded) return <div>is loading...</div>
+    if (!isLoaded) return <Spinner />
 
     return (
-        <GoogleMap
-            mapContainerStyle={mapContainerStyle}
-            center={center}
-            zoom={19}
-        >
-            <Marker position={center}/>
-        </GoogleMap>
-    )
+        <div ref={elementRef} aria-label="Google Map showing the location of the Queen's Head">
+            {isInView && (
+                <GoogleMap
+                    mapContainerStyle={mapContainerStyle}
+                    center={center}
+                    zoom={19}
+                >
+                    <Marker position={center}/>
+                </GoogleMap>
+            )}
+        </div>
+    );
 }
 
 export default GoogleMapComponent

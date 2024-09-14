@@ -20,7 +20,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
   style
 }) => {
 
-  const imgRef = useRef<HTMLImageElement | null>(null);
+  const imgRef = useRef<HTMLImageElement | null>(null);    
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,12 +61,13 @@ const LazyImage: React.FC<LazyImageProps> = ({
 
   return (
     <img 
+      alt={ alt }
+      loading="lazy"
       ref={ imgRef }
+      style={ style }
       data-src={ src }
       src={ placeholder }
-      alt={ alt }
       className={ className }
-      style={ style }
     />
   )
 };

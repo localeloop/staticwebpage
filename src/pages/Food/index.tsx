@@ -6,7 +6,6 @@ import ImageContainer, { CenteredContent,
 import { Row, Col} from "antd";
 import LineBreaker from "../../common/LineBreaker";
 import FoodContent from "../../content/FoodContent.json";
-import ImageMarquee from "../../common/ImageMarquee";
 
 import { FoodDeliveryLinks, StyledLogoContainer, StyledLink } from "../Home/styles";
 
@@ -14,6 +13,7 @@ const LazyImage = lazy(() => import('../../common/LazyImage'));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollDown = lazy(() => import("../../common/ScrollDown"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
+const ImageMarquee = lazy(() => import("../../common/ImageMarquee"));
 
 const images = [
     'FoodPhotos/image1.jpg',
@@ -46,10 +46,10 @@ const Food = () => {
                 <FoodDeliveryLinks>
                     <StyledLogoContainer style={{ display: "flex", justifyContent: "space-between" }}>
                     <StyledLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
-                        <img style={{ height: "100%", width: "100%" }} src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
+                        <img loading="lazy" style={{ height: "100%", width: "100%" }} src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
                     </StyledLink>
                     <StyledLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
-                        <img style={{ height: "100%", width: "100%" }} src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
+                        <img loading="lazy" style={{ height: "100%", width: "100%" }} src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
                     </StyledLink>
                     </StyledLogoContainer>
                 </FoodDeliveryLinks>

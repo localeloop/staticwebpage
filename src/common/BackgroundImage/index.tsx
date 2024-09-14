@@ -1,4 +1,4 @@
-import { BackgroundImageContainer } from "./styles";
+import BackgroundImageContainer from "./styles";
 import { BackgroundImageProps } from '../types';
 
 const BackgroundImage = (

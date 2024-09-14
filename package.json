@@ -31,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyze": "react-app-rewired build && npm run analyze:open",
+    "analyze:open": "webpack-bundle-analyzer build/static/js/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,7 +54,9 @@
     "@types/dompurify": "^3.0.5",
     "@types/react-dom": "^18.3.0",
     "@types/react-helmet": "^6.1.11",
+    "react-app-rewired": "^2.2.1",
     "webpack": "^5.91.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4"
   }
 }

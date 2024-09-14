@@ -73,7 +73,8 @@ const LazyCarouselSlide: React.FC<LazyCarouselSlideProps> = ({ src, alt, classNa
             style={{
                 ...style,
                 backgroundImage: `url(${backgroundImage})`, // Use LQ or HQ image
-                transition: 'background-image 0.3s ease-in-out', // Optional: smooth transition when the HQ image is loaded
+                filter: hqLoaded ? 'none' : 'blur(10px)', // Apply blur only when LQ image is shown
+                transition: 'background-image 0.3s ease-in-out, filter 0.3s ease-in-out', // Smooth transition for both background and blur
             }}
             aria-label={alt}
         />

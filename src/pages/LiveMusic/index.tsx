@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 // Styles
 import { 
@@ -14,6 +14,7 @@ import {
 import { ReactComponent as Bird1 } from './images/bird1.svg';
 import { ReactComponent as Snake } from './images/snake.svg';
 import { ReactComponent as Candle } from './images/candle.svg';
+import Spinner from '../../common/Spinner';
 
 
 const Container = React.lazy(() => import('../../common/Container'));
@@ -56,34 +57,36 @@ const LiveMusic = () => {
             </Flower1Container> */}
             <BirdContainer>
                 <StyledBird1>
-                    <Bird1/>
+                    <Bird1 aria-label="Traditional Tattoo Flash Art of a Swallow"/>
                 </StyledBird1>
                 <StyledBird2>
-                    <Bird1/>
+                    <Bird1 aria-label="Traditional Tattoo Flash Art of a Swallow"/>
                 </StyledBird2>
             </BirdContainer>
-            <Container>
-                <EventsCalendar />
-                <StyledCandle>
-                    <Candle/>
-                </StyledCandle>
-            </Container>
-            <ImageMarquee 
-                images={images}
-            />
-            <SnakeImageContainer>
-                <StyledSnake>
-                    <Snake/>
-                </StyledSnake>
+            <Suspense fallback={<Spinner/>}>
                 <Container>
-
-                <ContactForm 
-                    title="Are you a band?"
-                    content="We'd love to hear from you!"
-                    color="#fff"
-                    />
+                    <EventsCalendar />
+                    <StyledCandle>
+                        <Candle aria-label="Traditional Tattoo Flash Art of a Candle Burning at Both Ends"/>
+                    </StyledCandle>
                 </Container>
-            </SnakeImageContainer>
+                <ImageMarquee 
+                    images={images}
+                    />
+                <SnakeImageContainer>
+                    <StyledSnake>
+                        <Snake aria-label="Traditional Tattoo Flash Art of a Snake"/>
+                    </StyledSnake>
+                    <Container>
+
+                    <ContactForm 
+                        title="Are you a band?"
+                        content="We'd love to hear from you!"
+                        color="#fff"
+                        />
+                    </Container>
+                </SnakeImageContainer>
+            </Suspense>
 
         </MainBody>
     )
