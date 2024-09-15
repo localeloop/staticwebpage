@@ -73,9 +73,7 @@ const Home = () => {
           <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>
         </Container>
       </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <GoogleMapComponent />
-      </Suspense>
+      <GoogleMapComponent />
     </>
   );
 };

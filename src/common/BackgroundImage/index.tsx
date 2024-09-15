@@ -1,5 +1,5 @@
 // BackgroundImage.tsx
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import BackgroundImageContainer from './styles';
 import { BackgroundImageProps } from '../types';
 import { getDeviceType } from '../../common/utils/getDeviceType';
