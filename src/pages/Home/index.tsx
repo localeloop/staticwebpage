@@ -16,7 +16,7 @@ const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const GoogleMapComponent = lazy(() => import('../../common/GoogleMap'));
 const HeaderBlock = lazy(() => import("../../components/ContentBlock/HeaderBlock"));
 const MiddleContentBlock = lazy(() => import("../../components/ContentBlock/MiddleContentBlock"));
-const BackgroundImageContainer = lazy(() => import('../../common/BackgroundImage/styles'));
+const BackgroundImage = lazy(() => import('../../common/BackgroundImage'));
 
 const Home = () => {
   return (
@@ -49,8 +49,8 @@ const Home = () => {
         </StyledLogoContainer>
       </FoodDeliveryLinks>
       <LineBreaker text="About Us"/>
-      <BackgroundImageContainer 
-        src="https://assets.thequeensheadfarnham.co.uk/images/background.jpg"
+      <BackgroundImage 
+        src="images/background.jpg"
         height="60vh"
         width="100%"
         fixed={true}
@@ -67,7 +67,7 @@ const Home = () => {
             />
           </Suspense>
         </Slide>
-      </BackgroundImageContainer>
+      </BackgroundImage>
       <Suspense fallback={<div></div>}>
         <Container>
           <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>

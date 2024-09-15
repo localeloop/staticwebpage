@@ -17,9 +17,9 @@ const useIntersectionObserver = (options: IntersectionObserverInit) => {
         observer.observe(elementRef.current);
       }
   
-        return () => {
-            if (elementRef.current) observer.unobserve(elementRef.current);
-        };
+      return () => {
+          if (elementRef.current) observer.unobserve(elementRef.current);
+      };
     }, [options]);
   
     return { isInView, elementRef };

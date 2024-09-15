@@ -42,7 +42,7 @@ export interface validateProps {
 
 export interface BackgroundImageProps{
   src?: string;
-  children        : React.ReactNode;
+  children?       : React.ReactNode;
   fixed?          : boolean;
   height?         : string;
   width?          : string;
