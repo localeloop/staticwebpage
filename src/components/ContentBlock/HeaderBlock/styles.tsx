@@ -8,8 +8,9 @@ interface ContentWrapperProps {
 export const HeaderBlockContainer = styled.div<ContentWrapperProps>`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: inherit;
   width: 20%;
+  height: 100vh;
 
   a {
     text-decoration: none;
@@ -28,6 +29,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   padding: 1.5rem;
   text-align: center;
   width: 100%;
+  height: 100%;
   max-width: 1200px;
   color: #161616;
 

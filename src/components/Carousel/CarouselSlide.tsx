@@ -12,7 +12,7 @@ interface LazyCarouselSlideProps {
 
 const LazyCarouselSlide: React.FC<LazyCarouselSlideProps> = ({ src, alt, className, style }) => {
   return (
-    <CarouselSlide className={className} style={style} aria-label={alt}>
+    <CarouselSlide className={className} style={style} title={alt}>
       <BackgroundImage src={src} height="100%" width="100%" />
     </CarouselSlide>
   );

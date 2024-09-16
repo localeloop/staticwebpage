@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React from 'react';
 import { HeaderBlockContainer, ContentWrapper } from './styles';
 
 import { Slide } from 'react-awesome-reveal';

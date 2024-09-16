@@ -16,21 +16,21 @@ const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ImageMarquee = lazy(() => import("../../common/ImageMarquee"));
 
 const images = [
-    'FoodPhotos/image1.jpg',
-    'FoodPhotos/image2.jpg',
-    'FoodPhotos/image3.jpg',
-    'FoodPhotos/image4.jpg',
-    'FoodPhotos/image6.jpg',
-    'FoodPhotos/image7.jpg',
-    'FoodPhotos/image8.jpg',
-    'FoodPhotos/image11.jpg',
-    'FoodPhotos/image12.jpg',
-    'FoodPhotos/image13.jpg',
-    'FoodPhotos/image14.jpg',
-    'FoodPhotos/image15.jpg',
-    'FoodPhotos/image16.jpg',
-    'FoodPhotos/image17.jpg',
-    'FoodPhotos/image18.jpg',
+    'FoodPhotos/image1.webp',
+    'FoodPhotos/image2.webp',
+    'FoodPhotos/image3.webp',
+    'FoodPhotos/image4.webp',
+    'FoodPhotos/image6.webp',
+    'FoodPhotos/image7.webp',
+    'FoodPhotos/image8.webp',
+    'FoodPhotos/image11.webp',
+    'FoodPhotos/image12.webp',
+    'FoodPhotos/image13.webp',
+    'FoodPhotos/image14.webp',
+    'FoodPhotos/image15.webp',
+    'FoodPhotos/image16.webp',
+    'FoodPhotos/image17.webp',
+    'FoodPhotos/image18.webp',
 ]
 
 const Food = () => {

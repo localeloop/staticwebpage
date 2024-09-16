@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { BurgerButton, BurgerPath } from './styles';
 
 export const MenuToggle = ({ toggle, isOpen }: { toggle: () => void; isOpen: boolean }) => (
-  <BurgerButton onClick={toggle}>
+  <BurgerButton aria-label="Mobile Menu" onClick={toggle}>
     <motion.svg
       width="23"
       height="18"

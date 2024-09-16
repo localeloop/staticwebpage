@@ -15,11 +15,12 @@ import {
 interface SocialLinkProps {
   href: string;
   src: string;
+  alt: string;
 }
 
 const Footer = ({ t }: any) => {
   
-  const SocialLink = ({ href, src }: SocialLinkProps) => {
+  const SocialLink = ({ href, src, alt }: SocialLinkProps) => {
     return (
       <a
         href={href}
@@ -28,7 +29,7 @@ const Footer = ({ t }: any) => {
         key={src}
         aria-label={src}
       >
-        <Image src={`${src}`} width="25px" height="25px" />
+        <Image src={`${src}`} width="25px" height="25px" alt={alt} />
       </a>
     );
   };
@@ -79,6 +80,7 @@ const Footer = ({ t }: any) => {
                 <Image
                   src="https://assets.thequeensheadfarnham.co.uk/logo.png"
                   aria-label="homepage"
+                  alt="Queens head logo"
                   width="100%"
                   height="100%"
                 />
@@ -88,10 +90,12 @@ const Footer = ({ t }: any) => {
               <FooterContainer>
                 <SocialLink
                   href="https://www.instagram.com/the_queens_head_/"
+                  alt="Queens head Instagram"
                   src="/img/svg/instagram.svg"
                   />
                 <SocialLink
                   href="https://www.facebook.com/TheQueensHeadFarnham"
+                  alt="Queens head facebook"
                   src="/img/svg/facebook.svg"
                   />
               </FooterContainer>

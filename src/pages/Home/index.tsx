@@ -23,17 +23,17 @@ const Home = () => {
     <>
       {/* Render critical content immediately */}
       <ScrollToTop />
-      <Carousel isGrayscale={false}>
-        <Row justify="space-between" align="middle">
-          <Suspense fallback={<Spinner />}>
+        <Carousel isGrayscale={false}>
+        <Suspense fallback={<Spinner />}>
+          <Row justify="space-between" align="middle">
             <HeaderBlock
               href={IntroContent.href}
               title={IntroContent.title}
               button={IntroContent.button}
               content={IntroContent.content}
             />
-          </Suspense>
-        </Row>
+          </Row>
+        </Suspense>
         <Suspense fallback={<div></div>}>
           <ScrollDown targetId={"about"} />
         </Suspense>
@@ -50,7 +50,7 @@ const Home = () => {
       </FoodDeliveryLinks>
       <LineBreaker text="About Us"/>
       <BackgroundImage 
-        src="images/background.jpg"
+        src="images/background.webp"
         height="60vh"
         width="100%"
         fixed={true}
@@ -58,6 +58,7 @@ const Home = () => {
         <Slide direction="up" triggerOnce={true}>
           <Suspense fallback={<div></div>}>
             <MiddleContentBlock
+              id="about"
               height='60vh'
               fontSize='1rem'
               title={MiddleBlockContent.title}
