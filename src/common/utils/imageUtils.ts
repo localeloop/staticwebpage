@@ -1,5 +1,7 @@
+import { getDeviceType } from "./getDeviceType";
 
-const getFullPath = (partialPath: string, deviceType: string, isLowQuality: boolean = false) => {
+const getFullPath = (partialPath: string, deviceType?: string, isLowQuality: boolean = false) => {
+    if (!deviceType) deviceType = getDeviceType();
     const parts = partialPath.split('/');
     const deviceFolder = isLowQuality ? 'lq' : deviceType; // Use 'lq' folder for low-quality images
     parts.splice(1, 0, deviceFolder);

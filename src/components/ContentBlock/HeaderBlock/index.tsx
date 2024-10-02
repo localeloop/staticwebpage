@@ -30,8 +30,8 @@ const HeaderBlock: React.FC<HeaderBlockProps> = ({
 
   return (
     <HeaderBlockContainer id="intro" flexStyle={flexStyle}>
-      <Slide triggerOnce>
-        <Container>
+      <Slide direction='down' triggerOnce>
+        <Container padding='0 15%'>
           <ContentWrapper fontSize={fontSize}>
             {title && <h2>{title}</h2>}
             {content && <p>{content}</p>}

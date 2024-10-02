@@ -48,7 +48,6 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
 
   p {
     font-size: 1rem;
-    line-height: 1.5;
   }
   
   @media (max-width: 768px) {
@@ -62,12 +61,33 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   }
 
   @media (max-width: 414px) {
-    font-size: 0.5rem;
-    margin-top: 45%;
-    padding: 1rem;
-
     h1 {
       font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 375px){
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 320px){
+
+    h1 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
     }
   }
 `;

@@ -48,27 +48,27 @@ const Home = () => {
           </StyledLink>
         </StyledLogoContainer>
       </FoodDeliveryLinks>
-      <LineBreaker text="About Us"/>
-      <BackgroundImage 
-        src="images/background.webp"
-        height="60vh"
-        width="100%"
-        fixed={true}
-      >
-        <Slide direction="up" triggerOnce={true}>
-          <Suspense fallback={<div></div>}>
-            <MiddleContentBlock
-              id="about"
-              height='60vh'
-              fontSize='1rem'
-              title={MiddleBlockContent.title}
-              content={MiddleBlockContent.text}
-              button="See Our Menus"
-              href="/food"
-            />
-          </Suspense>
-        </Slide>
-      </BackgroundImage>
+        <LineBreaker text="About Us"/>
+      <div id="about">
+        <BackgroundImage 
+          src="images/background.webp"
+          height="100vh"
+          width="100%"
+          fixed={true}
+          >
+          <Slide direction="up" triggerOnce={true}>
+            <Suspense fallback={<div></div>}>
+              <MiddleContentBlock
+                height='60vh'
+                title={MiddleBlockContent.title}
+                content={MiddleBlockContent.text}
+                button="See Our Menus"
+                href="/food"
+                />
+            </Suspense>
+          </Slide>
+        </BackgroundImage>
+      </div>
       <Suspense fallback={<div></div>}>
         <Container>
           <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>

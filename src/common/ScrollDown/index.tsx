@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaArrowDown } from 'react-icons/fa';
+import { SlArrowDown } from "react-icons/sl";
 
 import { 
     ScrollDownContainer
@@ -16,8 +16,8 @@ const ScrollDown: React.FC<ScrollDownProps> = ({ targetId, children }) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolling(window.pageYOffset > 0);
-            setIsAnimating(window.pageYOffset === 0);
+            setIsScrolling(window.scrollY > 0);
+            setIsAnimating(window.scrollY === 0);
         }
 
         window.addEventListener("scroll", handleScroll);
@@ -40,8 +40,8 @@ const ScrollDown: React.FC<ScrollDownProps> = ({ targetId, children }) => {
             isScrolling={isScrolling}
             isAnimating={isAnimating}
             onClick={handleScrollDown}
-        >  
-            {children? children : <FaArrowDown fontSize={"1.5rem"}/>}
+        >
+           <SlArrowDown fontSize={"1.5rem"}/>
         </ScrollDownContainer>
     );
 }

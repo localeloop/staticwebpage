@@ -8,9 +8,15 @@ interface ContentWrapperProps {
 export const HeaderBlockContainer = styled.div<ContentWrapperProps>`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-height: inherit;
-  width: 20%;
+  width: 100%;
   height: 100vh;
+
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   a {
     text-decoration: none;
@@ -33,7 +39,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   max-width: 1200px;
   color: #161616;
 
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 0 0 10px 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 

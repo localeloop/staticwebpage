@@ -1,8 +1,10 @@
-import React from 'react';
-import { CarouselContainer, CarouselContent } from './styles';
+import React, { useEffect, useState } from 'react';
+import { CarouselContainer, CarouselContent, SingleCarouselSlide } from './styles';
+import BackgroundImage from '../../common/BackgroundImage';
 
 import LazyCarouselSlide from './CarouselSlide';
 import { getDeviceType } from '../../common/utils/getDeviceType';
+import getFullPath from '../../common/utils/imageUtils';
 
 interface ImageProps {
   src: string;
@@ -27,12 +29,9 @@ const defaultImages = [
   { src: 'images/carousel-9.webp', alt: 'queens head farnham outside area plant life outside seating', title: 'outside area' },
 ]
 
-const Carousel: React.FC<CarouselProps> = ({ height, images, children , isGrayscale = false}) => {
+const Carousel: React.FC<CarouselProps> = ({ height, images=defaultImages, children , isGrayscale = false}) => {
   const deviceType = getDeviceType();
-
-  if (!images) {
-    images = defaultImages;
-  }
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const heights: Record<string, string> = {
     'tablet': '680px',
@@ -43,15 +42,17 @@ const Carousel: React.FC<CarouselProps> = ({ height, images, children , isGraysc
   const carouselHeight = heights[deviceType] || heights['default']
 
   return (
-    <CarouselContainer height={carouselHeight}>
-      {images.map((image, index) => (
-        <LazyCarouselSlide
-          key={index}
-          src={image.src}
-          alt={image.alt}
-          style={{ animationDelay: `${index * 6}s` }}
-        />
-      ))}
+    <CarouselContainer className="this thing">
+      {(
+        images.map((image, index) => (
+          <LazyCarouselSlide
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            style={{ animationDelay: `${index * 3}s` }}
+          />
+        ))
+      )}
       <CarouselContent>{children}</CarouselContent>
     </CarouselContainer>
   );
