@@ -3,6 +3,7 @@ import { ImageContainer, WhatsOnContainer } from './styles';
 import { Slide } from "react-awesome-reveal";
 import Carousel from "../../components/Carousel";
 import Spinner from "../../common/Spinner";
+import LineBreaker from "../../common/LineBreaker";
 
 
 const Container = lazy(() => import("../../common/Container"));
@@ -40,9 +41,16 @@ const WhatsOn = () => {
     
 
     return (
-        <WhatsOnContainer>
-            <Carousel height="20vh" />
+        <WhatsOnContainer className="whats on container">
+            {/* <Carousel height="20vh" /> */}
+            <LineBreaker text="This Month" color="#cccccc"/>
             <Container padding="0 2%">
+              <ImageContainer>
+                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/desktop/halloween.png" alt="halloween at the queens head"/>
+              </ImageContainer>
+            </Container>
+            <Container padding="0 2%">
+                <LineBreaker text="Every Week" color="#cccccc"/>
                 {whatsOnImages.map((image, index) => (
                     <Slide key={index} direction={directions[index % 2] || "right"} triggerOnce={true}>
                         <ImageContainer>

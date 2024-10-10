@@ -43,16 +43,6 @@ const Food = () => {
     return (
         <div>
             <Carousel height="100vh">
-                <FoodDeliveryLinks>
-                    <StyledLogoContainer style={{ display: "flex", justifyContent: "space-between" }}>
-                    <StyledLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
-                        <img loading="lazy" style={{ height: "100%", width: "100%" }} src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
-                    </StyledLink>
-                    <StyledLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
-                        <img loading="lazy" style={{ height: "100%", width: "100%" }} src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
-                    </StyledLink>
-                    </StyledLogoContainer>
-                </FoodDeliveryLinks>
                 <Container>
                     <CenteredContent>
                         <TextContainer className={isFlipped ? "flipped" : ""}>
@@ -76,6 +66,16 @@ const Food = () => {
                 </ImageWrapper>
                 <ScrollDown />
             </Carousel>
+                <FoodDeliveryLinks>
+                    <StyledLogoContainer style={{ display: "flex", justifyContent: "space-between" }}>
+                    <StyledLink href="https://deliveroo.co.uk/menu/camberley/farnham/the-queens-head-the-borough" target="_blank" rel="noopener noreferrer">
+                        <img loading="lazy" style={{ height: "100%", width: "100%" }} src="/img/svg/deliveroo.svg" alt="Deliveroo Queens Head"/>
+                    </StyledLink>
+                    <StyledLink href="https://www.just-eat.co.uk/restaurants-thequeenshead-farnham/menu" target="_blank" rel="noopener noreferrer">
+                        <img loading="lazy" style={{ height: "100%", width: "100%" }} src="/img/svg/justeat.svg" alt="Just Eat Queens Head"/>
+                    </StyledLink>
+                    </StyledLogoContainer>
+                </FoodDeliveryLinks>
             <ImageMarquee 
                 images={images}
             />

@@ -18,6 +18,7 @@ const MenuItem = lazy(() => import("./MenuItem"));
 
 const Header = ({ t }: { t: TFunction }) => {
   const [isWidgetVisible, setWidgetVisibility] = useState(false);
+  const [scrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -44,6 +45,21 @@ const Header = ({ t }: { t: TFunction }) => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled){
+        setIsScrolled(isScrolled);
+      }
+    }
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    }
+
+  }, [scrolled] )
+
   const drawerVariants = {
     open: {
       x: 0,
@@ -64,7 +80,7 @@ const Header = ({ t }: { t: TFunction }) => {
   };
 
   return (
-    <HeaderSection>
+    <HeaderSection scrolled={scrolled}>
       <Container maxWidth="1400px">
         <BookingWidget isVisible={isWidgetVisible} onClose={() => setWidgetVisibility(false)} />
         <Row justify="space-between">

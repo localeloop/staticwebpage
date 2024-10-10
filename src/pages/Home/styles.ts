@@ -25,9 +25,9 @@ export const StyledLogoContainer = styled.div`
 
 export const FoodDeliveryLinks = styled.div`
     width: 100%;
-    background: linear-gradient(50deg, #ff8111 50%, #00CCBC 50%);
+    background: linear-gradient(50deg, lch(70% 80 60) 50%, lch(75% 40 180) 50%);
 
     @media only screen and ( max-width: 750px ){
-        background: linear-gradient(80deg, #ff8000 50%, #00CCBC 50%);
+        background: linear-gradient(80deg, lch(71% 85 59) 50%, lch(75% 40 180) 50%);
     }
 `;

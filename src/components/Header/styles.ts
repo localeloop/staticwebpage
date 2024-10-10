@@ -30,9 +30,10 @@ export const BurgerPath = styled(motion.path)`
   stroke-linecap: round;
 `;
 
-export const HeaderSection = styled("header")`
+export const HeaderSection = styled("header")<{ scrolled: boolean }>`
+  position: fixed;
   color: rgba(0, 0, 0, 1);
-  background: #161616;
+  background: ${props => props.scrolled ? 'rgba(22,22,22,0.98 )' : 'rgba(255,255,255,0)'};
   padding: 1rem 0.5rem;
   height: 7rem;
   width: 100%;

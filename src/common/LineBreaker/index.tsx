@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Image } from "../Image";
+import { color } from "framer-motion";
 
 const LineBreakerContainer = styled.div`
     display: flex;
@@ -9,7 +10,7 @@ const LineBreakerContainer = styled.div`
     justify-content: center;
 
     h4 {
-        color: #161616;
+        color: ${ props => props.color || '#161616' };
     }
 `;
 
@@ -19,25 +20,26 @@ const Line = styled.div`
 `;
 
 const LineLeft = styled(Line)`
-    background-image: linear-gradient(to right, transparent 0%, #000000 50%, #000000 100%);
+    background-image: linear-gradient(to right, transparent 0%, ${ props => props.color || '#000000' } 50%, ${ props => props.color || '#000000' } 100%);
     margin-right: 1%;
 `;
 
 const LineRight = styled(Line)`
-    background-image: linear-gradient(to left, transparent 0%, #000000 50%, #000000 100%);
+    background-image: linear-gradient(to left, transparent 0%, ${ props => props.color || '#000000' } 50%, ${ props => props.color || '#000000' } 100% );
     margin-left: 1%;
 `;
 
 interface Props {
     text?: string;
+    color?: string;
 }
 
-const LineBreaker = ({ text }: Props) => {
+const LineBreaker = ({ text, color }: Props) => {
   return (
-    <LineBreakerContainer>
-        <LineLeft />
+    <LineBreakerContainer color={color}>
+        <LineLeft color={color}/>
             { text ? <h4>{text}</h4> : <Image src="https://assets.thequeensheadfarnham.co.uk/logo.png" alt="logo" /> }
-        <LineRight />
+        <LineRight color={color} />
     </LineBreakerContainer>
   );
 };

@@ -1,8 +1,9 @@
 import styled from'styled-components';
 
 export const WhatsOnContainer = styled.div`
-    min-height: 80vh;
-
+    min-height: 100vh;
+    background: linear-gradient(to top, lch(11% 1 360), lch(5% 1 270));
+    
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
