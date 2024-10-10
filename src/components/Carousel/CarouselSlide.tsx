@@ -8,12 +8,26 @@ interface LazyCarouselSlideProps {
   alt?: string;
   className?: string;
   style?: React.CSSProperties;
+  fetchPriority?: 'high' | 'low' | 'auto';
+  index: number;
 }
 
-const LazyCarouselSlide: React.FC<LazyCarouselSlideProps> = ({ src, alt, className, style }) => {
+const LazyCarouselSlide: React.FC<LazyCarouselSlideProps> = ({ src, alt, className, style, fetchPriority, index }) => {
+  const isFirstSlide = index === 0;
+
   return (
-    <CarouselSlide className={className} style={style} title={alt}>
-      <BackgroundImage src={src} height="100%" width="100%" />
+    <CarouselSlide 
+      className={className} 
+      style={style} 
+      title={alt}
+      isFirstSlide={isFirstSlide}
+    >
+      <BackgroundImage 
+        src={src} 
+        height="100%" 
+        width="100%" 
+        fetchPriority={isFirstSlide ? 'high' : fetchPriority}
+      />
     </CarouselSlide>
   );
 };

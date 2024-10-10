@@ -11,6 +11,7 @@ import {
   FooterContainer,
   Language,
 } from "./styles";
+import LazyImage from "../../common/LazyImage";
 
 interface SocialLinkProps {
   href: string;
@@ -77,12 +78,10 @@ const Footer = ({ t }: any) => {
           >
             <NavLink to="/">
               <LogoContainer>
-                <Image
+                <LazyImage
                   src="https://assets.thequeensheadfarnham.co.uk/logo.png"
                   aria-label="homepage"
                   alt="Queens head logo"
-                  width="100%"
-                  height="100%"
                 />
               </LogoContainer>
             </NavLink>

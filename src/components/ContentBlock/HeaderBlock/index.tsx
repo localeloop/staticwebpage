@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeaderBlockContainer, ContentWrapper } from './styles';
+import LazyImage from '../../../common/LazyImage';
 
 import { Slide } from 'react-awesome-reveal';
 import Container from '../../../common/Container';

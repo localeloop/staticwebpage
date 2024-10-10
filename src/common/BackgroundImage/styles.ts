@@ -17,10 +17,15 @@ const BackgroundImageContainer = styled("div")<{
 
   background: #161616;
   background-image: ${(props) => props.src ? `url(${props.src})` : "rgba(22,22,22,1)"};
-  background-attachment: ${(props) => props.fixed? "fixed" : "scroll"};
+  background-attachment: ${(props) => props.fixed ? "fixed" : "scroll"};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  // for IOS Safari...
+  @supports (-webkit-overflow-scrolling: touch){
+    background-attachment: scroll;
+  }
 
   @media only screen and (max-width: 1024px) {
     padding: 0 30px;

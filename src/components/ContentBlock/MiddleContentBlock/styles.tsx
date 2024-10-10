@@ -27,10 +27,11 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   width: 100%;
   max-width: 1200px;
   color: #161616;
+  text-wrap: balance;
 
   background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
   button {
     color: #fff;
     font-size: 1rem;

@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import { Slide } from "react-awesome-reveal";
 import Carousel from '../../components/Carousel';
 import LineBreaker from "../../common/LineBreaker";
-import { StyledImage, StyledLink, StyledLogoContainer, FoodDeliveryLinks  } from "./styles";
+import { StyledImage, StyledLink, StyledLogoContainer, FoodDeliveryLinks, About } from "./styles";
 
 import IntroContent from "../../content/IntroContent.json";
 import MiddleBlockContent from "../../content/MiddleBlockContent.json";
@@ -49,7 +49,7 @@ const Home = () => {
         </StyledLogoContainer>
       </FoodDeliveryLinks>
         <LineBreaker text="About Us"/>
-      <div id="about">
+      <About id="about">
         <BackgroundImage 
           src="images/background.webp"
           height="100vh"
@@ -68,7 +68,7 @@ const Home = () => {
             </Suspense>
           </Slide>
         </BackgroundImage>
-      </div>
+      </About>
       <Suspense fallback={<div></div>}>
         <Container>
           <Contact title="Contact Us" content="Get in touch with us" id="" color="#161616"/>

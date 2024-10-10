@@ -43,8 +43,8 @@ const WhatsOn = () => {
     return (
         <WhatsOnContainer className="whats on container">
             {/* <Carousel height="20vh" /> */}
+            <Container padding="">
             <LineBreaker text="This Month" color="#cccccc"/>
-            <Container padding="0 2%">
               <ImageContainer>
                 <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/desktop/halloween.png" alt="halloween at the queens head"/>
               </ImageContainer>

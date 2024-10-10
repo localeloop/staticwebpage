@@ -55,6 +55,10 @@ export const TextContainer = styled.div`
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.6s;
+    
+    p {
+        text-wrap: balance;
+    }
 
     h1 {
         color: #161616;

@@ -33,7 +33,7 @@ export const BurgerPath = styled(motion.path)`
 export const HeaderSection = styled("header")<{ scrolled: boolean }>`
   position: fixed;
   color: rgba(0, 0, 0, 1);
-  background: ${props => props.scrolled ? 'rgba(22,22,22,0.98 )' : 'rgba(255,255,255,0)'};
+  background: ${props => props.scrolled ? 'rgba(22,22,22,0.8 )' : 'rgba(22,22,22,0.3)'};
   padding: 1rem 0.5rem;
   height: 7rem;
   width: 100%;
@@ -201,12 +201,34 @@ export const Span = styled("span")`
   font-size: 1.4rem;
   text-decoration: none;
   color: #fff;
+  position: relative;
+  font-family: 'Cinzel', sans-serif;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    transform: scaleX(0); 
+    transform-origin: left; 
+    transition: transform 0.3s ease-in-out;
+  }
 
   &:hover,
   &:active,
   &:focus {
-    color: #4F6F52;
-    text-underline-position: under;
-    text-decoration: #4F6F52 underline;
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &:not(:hover) {
+    &::after {
+      transform-origin: right;
+      transform: scaleX(0);
+    }
   }
 `;

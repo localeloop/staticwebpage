@@ -8,7 +8,7 @@ export const Styles = createGlobalStyle`
     }
 
     @font-face {
-        font-family: "Cinzel", sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -17,9 +17,8 @@ export const Styles = createGlobalStyle`
     body,
     html,
     a {
-        font-family: 'Cinzel', sans-serif;
+        font-family: 'Montserrat', sans-serif;
     }
-
 
     body {
         margin:0;

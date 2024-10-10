@@ -30,29 +30,20 @@ const defaultImages = [
 ]
 
 const Carousel: React.FC<CarouselProps> = ({ height, images=defaultImages, children , isGrayscale = false}) => {
-  const deviceType = getDeviceType();
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  const heights: Record<string, string> = {
-    'tablet': '680px',
-    'phones': '480px',
-    'default': height || '100vh'
-  }
-
-  const carouselHeight = heights[deviceType] || heights['default']
-
   return (
-    <CarouselContainer className="this thing">
-      {(
-        images.map((image, index) => (
-          <LazyCarouselSlide
-            key={index}
-            src={image.src}
-            alt={image.alt}
-            style={{ animationDelay: `${index * 3}s` }}
-          />
-        ))
-      )}
+    <CarouselContainer>
+      {images.map((image, index) => (
+        <LazyCarouselSlide
+          key={index}
+          src={image.src}
+          alt={image.alt}
+          style={{ 
+            animationDelay: `${index * 3}s`,
+          }}
+          fetchPriority={index === 0 ? 'high' : 'auto'}
+          index={index}
+        />
+      ))}
       <CarouselContent>{children}</CarouselContent>
     </CarouselContainer>
   );

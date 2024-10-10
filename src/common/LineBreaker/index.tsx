@@ -6,8 +6,8 @@ import { color } from "framer-motion";
 const LineBreakerContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-top: 10%;
     justify-content: center;
+    padding-top: 10%;
 
     h4 {
         color: ${ props => props.color || '#161616' };

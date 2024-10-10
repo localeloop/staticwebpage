@@ -46,4 +46,7 @@ export interface BackgroundImageProps{
   fixed?          : boolean;
   height?         : string;
   width?          : string;
+  fetchPriority?  : string;
+  loading?        : string;
+  alt?            : string;
 }

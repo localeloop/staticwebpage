@@ -6,6 +6,7 @@ interface CarouselContainerProps {
 
 interface CarouselSlideProps {
   isGrayscale?: string;
+  isFirstSlide?: boolean;
 }
 const fadeAnimation = keyframes`
   0%, 20%, 100%{
@@ -31,8 +32,9 @@ export const CarouselSlide = styled.div<CarouselSlideProps>`
   height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  animation: ${fadeAnimation} 15s infinite;
+  opacity: ${props => props.isFirstSlide ? 1 : 0};
+  animation: ${props => props.isFirstSlide ? 'none' : css`${fadeAnimation} 15s infinite`};
+  animation-delay: ${props => props.isFirstSlide ? '0s' : props.style?.animationDelay};
 
   ${(props) =>
     props.isGrayscale &&
