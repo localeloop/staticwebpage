@@ -1,4 +1,4 @@
-import { useState, lazy, useMemo, useRef, useEffect } from "react";
+import { useState, lazy, useRef, useEffect } from "react";
 import { withTranslation, TFunction } from "react-i18next";
 import { Row } from "antd";
 import { motion } from "framer-motion";
@@ -9,11 +9,11 @@ import {
 
 import { MenuToggle as Burger } from "./Burger";
 
-import useWindowSize from '../../hooks/useWindowSize';
+import useWindowSize from "../../hooks/useWindowSize";
 import Container from "../../common/Container";
-import Logo from '../../common/Logo';
+import Logo from "../../common/Logo";
 
-const BookingWidget = lazy(() => import("../../common/BookingWidget"));
+const BookingWidget = lazy(() => import('../../common/BookingWidget'))
 const MenuItem = lazy(() => import("./MenuItem"));
 
 const Header = ({ t }: { t: TFunction }) => {

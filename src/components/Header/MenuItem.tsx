@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { TFunction } from 'i18next';
-import { Button } from '../../common/Button';
-import { NavLink } from 'react-router-dom';
-import useWindowSize from '../../hooks/useWindowSize';
 import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
+import { Button } from '../../common/Button';
+import useWindowSize from '../../hooks/useWindowSize';
 import { MenuItems, CustomNavLinkSmall, Span } from './styles';
 
 const menuItemVariants = {

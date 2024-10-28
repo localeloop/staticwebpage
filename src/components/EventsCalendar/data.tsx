@@ -10,47 +10,8 @@ interface EventData {
 
 const EventData = [
     {
-        month: 'September',
+        month: 'October',
         performances: [
-            {
-                date: 8,
-                day: 'Sun',
-                price: 5,
-                performers: ['Black Market', 'Arid Wave', 'Liquid Dogs'],
-                description: 'Enjoy performances by Black Market, Arid Wave, and Liquid Dogs this Sunday.',
-            },
-            {
-                date: 15,
-                day: 'Sun',
-                price: 5,
-                performers: ['The Mezz', 'Sour Kix', 'Armstrong'],
-                description: 'A Sunday packed with exciting performances from The Mezz, Sour Kix, and Armstrong.',
-            },
-            {
-                date: 22,
-                day: 'Sun',
-                price: 5,
-                performers: ['The Landings', 'Sunshine Pony Club'],
-                description: 'Catch The Landings and Sunshine Pony Club live on Sunday 22nd September.',
-            },
-            {
-                date: 27,
-                day: 'Fri',
-                performers: ['Stones of the Queen\'s Age?'],
-                description: 'Kick off your weekend with Stones of the Queen\'s Age on Friday 27th September.',
-            },
-            {
-                date: 29,
-                day: 'Sun',
-                price: 5,
-                performers: ['Passive Fix', 'Trevor\'s Head', 'Colour Blind Monks'],
-                description: 'End September with performances from Passive Fix, Trevor\'s Head, and Colour Blind Monks.',
-            },
-            ],
-        },
-        {
-            month: 'October',
-            performances: [
             {
                 date: 6,
                 day: 'Sun',
@@ -69,7 +30,7 @@ const EventData = [
                 date: 20,
                 day: 'Sun',
                 price: 5,
-                performers: ['Aqualine', 'Fever Rouge?', 'Artroom'],
+                performers: ['Aqualine', 'Fever Rouge', 'Artroom'],
                 description: 'Enjoy performances by Aqualine, Fever Rouge, and Artroom on Sunday 20th October.',
             },
             {
@@ -85,6 +46,45 @@ const EventData = [
                 price: 5,
                 performers: ['Elephants with Shotguns', 'Cardboard'],
                 description: 'End October with performances by Elephants with Shotguns and Cardboard on Sunday 27th October.',
+            },
+        ],
+    },
+    {
+        month: 'November',
+        performances: [
+            {
+                date: 1,
+                day: 'Fri',
+                performers: ['Si Hitchenson'],
+                description: 'Enjoy the evening with Si Hitchenson\s loop pedal performance',
+            },
+            {
+                date: 3,
+                day: 'Sun',
+                price: 5,
+                performers: ['Empires, Empires', 'Ain\'t', 'Doops'],
+            },
+            {
+                date: 10,
+                day: 'Sun',
+                price: 5,
+                performers: ['Kit Trigg', 'Fiver', 'The Bluepers'],
+            },
+            {
+                date: 17,
+                day: 'Sun',
+                performers: ['The Dazed Minded', 'Puma Theory', 'Silverline'],
+            },
+            {
+                date: 24,
+                day: 'Sun',
+                price: 5,
+                performers: ['Sugar Darling', 'Tegalu Cat', 'Van Quan'],
+            },
+            {
+                date: 29,
+                day: 'Fri',
+                performers: ['Si Hitchenson'],
             },
         ],
     },

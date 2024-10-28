@@ -2,6 +2,7 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { Image } from "../../common/Image";
 import Container from "../../common/Container";
+import LazyImage from "../../common/LazyImage";
 import {
   FooterSection,
   NavLink,
@@ -11,7 +12,6 @@ import {
   FooterContainer,
   Language,
 } from "./styles";
-import LazyImage from "../../common/LazyImage";
 
 interface SocialLinkProps {
   href: string;

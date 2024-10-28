@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/common/ScrollDown"  ]
+, "src/common/ScrollDown", "../../tqhf-next/src/components/Header", "../../tqhf-next/src/components/Footer"  ]
 }
