@@ -73,6 +73,7 @@ const EventData = [
             {
                 date: 17,
                 day: 'Sun',
+                price: 5,
                 performers: ['The Dazed Minded', 'Puma Theory', 'Silverline'],
             },
             {

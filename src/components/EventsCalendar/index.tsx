@@ -22,6 +22,7 @@ import {
     CarouselControl,
 } from './styles';
 
+
 const EventsCalendar: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -35,9 +36,9 @@ const EventsCalendar: React.FC = () => {
   const currentDate = startOfToday();
   const futureEvents = EventData.map( monthData => ({
     ...monthData,
-    performances: monthData.performances.filter(performance => {
-      const eventDate = new Date( new Date().getFullYear(), getMonthNumber(monthData.month), performance.date )
-      return !isBefore( eventDate, currentDate );
+    performances: monthData.performances.filter((performance) => {
+      const eventDate = new Date(new Date().getFullYear(), getMonthNumber(monthData.month), performance.date);
+      return !isBefore(eventDate, currentDate);
     })
   })).filter(monthData => monthData.performances.length > 0 );
 
@@ -107,8 +108,8 @@ const EventsCalendar: React.FC = () => {
                     </CarouselItem>
                 ))}
             </CarouselInner>
-            <CarouselControl direction="prev" onClick={handlePrevClick} />
-            <CarouselControl direction="next" onClick={handleNextClick} />
+          <CarouselControl direction="prev" onClick={handlePrevClick} />
+          <CarouselControl direction="next" onClick={handleNextClick} />
         </CarouselContainer>
     </EventsContainer>
   );

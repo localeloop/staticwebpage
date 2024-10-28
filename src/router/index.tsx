@@ -3,8 +3,8 @@ import { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import { Styles } from "../styles/styles";
 
-const Header = lazy(() => import('../../../../tqhf-next/src/components/Header'));
-const Footer = lazy(() => import('../../../../tqhf-next/src/components/Footer'));
+const Header = lazy(() => import('../components/Header'));
+const Footer = lazy(() => import('../components/Footer'));
 
 const Router = () => {
   return (
