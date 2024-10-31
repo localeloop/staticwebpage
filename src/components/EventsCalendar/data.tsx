@@ -1,14 +1,7 @@
-interface EventData {
-    month: any,
-    date: string,
-    day: string,
-    title: string,
-    description?: string,
-    additionalInfo?: string
-    price: number;
-}
+import { EventDataType } from "./types";
 
-const EventData = [
+
+const EventData: EventDataType[] = [
     {
         month: 'October',
         performances: [

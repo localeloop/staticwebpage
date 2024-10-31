@@ -58,7 +58,6 @@ const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images }) => {
                   const img = new Image();
                   const fullPath = getFullPath( partialPath );
                   img.src = fullPath;
-                  console.log('Full image path:', fullPath);
                   img.onload = () => {
                     loadedImages.push(img); // Push the full path of the loaded image
                     resolve();
@@ -68,7 +67,6 @@ const ImageMarquee: React.FC<ImageMarqueeProps> = ({ images }) => {
             });
 
             await Promise.all(imagePromises);
-            console.log('Loaded images:', loadedImages);
             setImagesLoaded(loadedImages);
         };
 

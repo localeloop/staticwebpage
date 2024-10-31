@@ -22,6 +22,7 @@ import {
     CarouselControl,
 } from './styles';
 
+import { PerformanceType } from './types';
 
 const EventsCalendar: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -36,10 +37,11 @@ const EventsCalendar: React.FC = () => {
   const currentDate = startOfToday();
   const futureEvents = EventData.map( monthData => ({
     ...monthData,
-    performances: monthData.performances.filter((performance) => {
+    performances: monthData.performances?.filter((performance: PerformanceType) => {
+      console.log( performance );
       const eventDate = new Date(new Date().getFullYear(), getMonthNumber(monthData.month), performance.date);
       return !isBefore(eventDate, currentDate);
-    })
+    }) || []
   })).filter(monthData => monthData.performances.length > 0 );
 
   const handlePrevClick = () => {
@@ -77,13 +79,13 @@ const EventsCalendar: React.FC = () => {
         <h1>Live Music Calendar</h1>
         <CarouselContainer>
             <CarouselInner animating={animating} >
-                {futureEvents.map((eventData, index) => (
+                {futureEvents.map((eventData, index: number) => (
                     <CarouselItem key={`${index}-carousel-item`} active={index === activeIndex} animating={animating}>
                         <EventContainer>
                             <EventHeader>
                                 <EventHeaderTitle>{eventData.month}</EventHeaderTitle>
                             </EventHeader>
-                            {eventData.performances.map((performance, performanceIndex) => (
+                            {eventData.performances.map((performance: PerformanceType, performanceIndex: number) => (
                                 <EventItemContainer>
                                     <EventItem key={`${index}-${performanceIndex}`}>
                                         <EventDate>
@@ -95,7 +97,7 @@ const EventsCalendar: React.FC = () => {
                                         </EventDate>
                                         <PerformersAndPriceContainer>
                                             <PerformersList>
-                                                {performance.performers.map((performer, i) => (
+                                                {performance.performers.map((performer: string, i: number) => (
                                                     <EventTitle key={`${performanceIndex}-${performer}`}>{performer}</EventTitle>
                                                 ))}
                                             </PerformersList>
