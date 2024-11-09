@@ -49,10 +49,10 @@ const WhatsOn = () => {
                 <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/desktop/halloween.png" alt="halloween at the queens head"/>
               </ImageContainer>
             </Container>
-            <Container padding="0 2%">
+            <Container padding="0 2% 10% 2%">
                 <LineBreaker text="Every Week" color="#cccccc"/>
                 {whatsOnImages.map((image, index) => (
-                    <Slide key={index} direction={directions[index % 2] || "right"} triggerOnce={true}>
+                    <Slide key={index} direction={"up"} triggerOnce={true}>
                         <ImageContainer>
                             <Suspense fallback={<Spinner />}>
                                 <LazyImage src={image.src} alt={image.alt} />
