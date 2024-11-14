@@ -43,12 +43,12 @@ const WhatsOn = () => {
     return (
         <WhatsOnContainer className="whats on container">
             {/* <Carousel height="20vh" /> */}
-            <Container padding="">
+            {/* <Container padding="">
             <LineBreaker text="This Month" color="#cccccc"/>
               <ImageContainer>
                 <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/desktop/halloween.png" alt="halloween at the queens head"/>
               </ImageContainer>
-            </Container>
+            </Container> */}
             <Container padding="0 2% 10% 2%">
                 <LineBreaker text="Every Week" color="#cccccc"/>
                 {whatsOnImages.map((image, index) => (
