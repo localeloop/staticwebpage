@@ -1,9 +1,10 @@
 import { lazy, Suspense, useMemo } from "react";
-import { ImageContainer, WhatsOnContainer } from './styles';
+import { ImageContainer, PyroElement, WhatsOnContainer } from './styles';
 import { Slide } from "react-awesome-reveal";
 import Carousel from "../../components/Carousel";
 import Spinner from "../../common/Spinner";
 import LineBreaker from "../../common/LineBreaker";
+import getFullPath from "../../common/utils/imageUtils";
 
 
 const Container = lazy(() => import("../../common/Container"));
@@ -42,13 +43,17 @@ const WhatsOn = () => {
 
     return (
         <WhatsOnContainer className="whats on container">
+            <PyroElement>
+              <div className="before"></div>
+              <div className="after"></div>
+            </PyroElement>
             {/* <Carousel height="20vh" /> */}
-            {/* <Container padding="">
-            <LineBreaker text="This Month" color="#cccccc"/>
+            <Container padding="">
+            <LineBreaker text="Coming up..." color="#cccccc"/>
               <ImageContainer>
-                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/desktop/halloween.png" alt="halloween at the queens head"/>
+                <LazyImage src={ getFullPath( 'images/newyears.png' )} alt="new years eve at the queens head"/>
               </ImageContainer>
-            </Container> */}
+            </Container>
             <Container padding="0 2% 10% 2%">
                 <LineBreaker text="Every Week" color="#cccccc"/>
                 {whatsOnImages.map((image, index) => (

@@ -11,7 +11,7 @@ import TextArea from "../../common/TextArea";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
 
 const Contact = ({ title, color, content, id, t }: ContactProps) => {
-  const { values, errors, handleChange, handleSubmit } = useForm(
+  const { values, errors, handleChange } = useForm(
     validate
   ) as any;
 
@@ -23,6 +23,39 @@ const Contact = ({ title, color, content, id, t }: ContactProps) => {
       </Zoom>
     );
   };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    // event.preventDefault;
+
+    const formData = {
+      name: values.name,
+      email: values.email,
+      content: values.message
+    }
+
+    try {
+      const response = await fetch('', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        console.log( 'Form submitted successfully', result );
+      }
+
+      else {
+        console.error( 'Form submission error: ', result.message )
+      }
+    }
+
+    catch ( error ) {
+      console.error( 'Network error: ', error );
+    }
+  }
 
   return (
     <ContactContainer id={id} color={color}>
