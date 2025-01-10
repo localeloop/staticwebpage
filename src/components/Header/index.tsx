@@ -46,6 +46,7 @@ const Header = ({ t }: { t: TFunction }) => {
   };
 
   useEffect(() => {
+    
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
       if (isScrolled !== scrolled){
@@ -92,7 +93,7 @@ const Header = ({ t }: { t: TFunction }) => {
           </NotHidden>
           <Burger toggle={() => setIsOpen(!isOpen)} isOpen={isOpen} />
         </Row>
-        {width <= 768 && (
+        { width <= 768 && (
           <>
             <motion.div
               initial={false}
@@ -100,7 +101,7 @@ const Header = ({ t }: { t: TFunction }) => {
               variants={drawerVariants}
               style={{
                 position: "fixed",
-                top: "15%",
+                top: "10%",
                 left: 0,
                 bottom: 0,
                 width: "75%",

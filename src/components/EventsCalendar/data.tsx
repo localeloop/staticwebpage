@@ -2,86 +2,82 @@ import { EventDataType } from "./types";
 
 
 const EventData: EventDataType[] = [
-    {
-        month: 'October',
-        performances: [
-            {
-                date: 6,
-                day: 'Sun',
-                performers: ['Alice Armstrong'],
-                price: 6,
-                description: 'Don\'t miss Alice Armstrong\'s performance on Sunday 6th October. Entry fee is £6.',
-            },
-            {
-                date: 13,
-                day: 'Sun',
-                price: 5,
-                performers: ['Samuel Ashton'],
-                description: 'Join us for an unforgettable evening with Samuel Ashton on Sunday 13th October.',
-            },
-            {
-                date: 20,
-                day: 'Sun',
-                price: 5,
-                performers: ['Aqualine', 'Fever Rouge', 'Artroom'],
-                description: 'Enjoy performances by Aqualine, Fever Rouge, and Artroom on Sunday 20th October.',
-            },
-            {
-                date: 26,
-                day: 'Sat',
-                performers: ['Datura Roots Collective', 'Greg & Jack DJ'],
-                price: 5,
-                description: 'Celebrate Halloween with Datura Roots Collective and DJ Greg & Jack on Saturday 26th October. Entry fee is £500.',
-            },
-            {
-                date: 27,
-                day: 'Sun',
-                price: 5,
-                performers: ['Elephants with Shotguns', 'Cardboard'],
-                description: 'End October with performances by Elephants with Shotguns and Cardboard on Sunday 27th October.',
-            },
-        ],
-    },
-    {
-        month: 'November',
-        performances: [
-            {
-                date: 1,
-                day: 'Fri',
-                performers: ['Si Hitchenson'],
-                description: 'Enjoy the evening with Si Hitchenson\s loop pedal performance',
-            },
-            {
-                date: 3,
-                day: 'Sun',
-                price: 5,
-                performers: ['Empires, Empires', 'Ain\'t', 'Doops'],
-            },
-            {
-                date: 10,
-                day: 'Sun',
-                price: 5,
-                performers: ['Kit Trigg', 'Fiver', 'The Bluepers'],
-            },
-            {
-                date: 17,
-                day: 'Sun',
-                price: 5,
-                performers: ['The Dazed Minded', 'Puma Theory', 'Silverline'],
-            },
-            {
-                date: 24,
-                day: 'Sun',
-                price: 5,
-                performers: ['Sugar Darling', 'Tegalu Cat', 'Van Quan'],
-            },
-            {
-                date: 29,
-                day: 'Fri',
-                performers: ['Si Hitchenson'],
-            },
-        ],
-    },
+	{
+		month: 'January',
+		performances: [
+			{
+				date: 11,
+				day: 'Sat',
+				performers: ['Brobed Stils'],
+				description: 'Brodie & The Boys are back playing their classic repertoire for you entertainment.',
+			},
+			{
+				date: 12,
+				day: 'Sun',
+				performers: ['Skunkworm', 'White Noise Machine', 'Vinyl'],
+				price: 5,
+				description: 'A triple bill of chaotic rock music',
+			},
+			{
+				date: 19,
+				day: 'Sun',
+				performers: ['Goodbye Andy', 'Benchwarmer', 'Coast'],
+				price: 5,
+				description: 'Goodbye Andy are among the best new local bands. Support from Benchwarmer, and Coast.',
+			},
+			{
+				date: 26,
+				day: 'Sun',
+				performers: ['Puma Theory', 'Bad Mouth', 'White Label'],
+				price: 5,
+				description: 'Triple bill of brilliant rock music.',
+			},
+			{
+				date: 31,
+				day: 'Fri',
+				performers: ['Simon Hitchenson'],
+				description: 'Simon is back again with his awesome loop pedalling party bangers!',
+			},
+		],
+	},
+	{
+		month: 'February',
+		performances: [
+			{
+				date: 2,
+				day: 'Sun',
+				performers: ['Van Quan', 'Benchy & The Gazers', 'Pink Walrus'],
+				description: 'The epic Van Quan supported by Benchy & The Gazers, and Pink Walrus',
+			},
+			{
+				date: 9,
+				day: 'Sun',
+				performers: ['Ross Harding', 'The Bluepers', 'VibraCore'],
+				price: 5,
+				description: 'Blues rock is the order of the hour. Be sure to get down.',
+			},
+			{
+				date: 16,
+				day: 'Sun',
+				performers: ['Lugnut', 'Suburban Sound Machine', 'Paradise Taxi'],
+				price: 5,
+				description: 'The weird and wonderful Lugnut boys are back in town.',
+			},
+			{
+				date: 23,
+				day: 'Sun',
+				performers: ['Samuel Ashton & The Instincts', "& Special Guests"],
+				price: 6,
+				description: 'The world class soul & blues man with his beautiful tones and wonderful band are back in farnham',
+			},
+			{
+				date: 28,
+				day: 'Fri',
+				performers: ['The Replays'],
+				description: 'The Replays duo consists of Jack & Joe with classic tunes you know and love!',
+			},
+		],
+	},
 ];
 
 export default EventData;

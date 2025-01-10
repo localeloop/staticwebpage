@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { TFunction } from 'i18next';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
@@ -44,9 +43,7 @@ const MenuItem = ({ handleWidgetClick, t, isOpen }: { handleWidgetClick: () => v
         </NavLink>
       </CustomNavLinkSmall>
       <CustomNavLinkSmall as={motion.div} variants={isMobile ? menuItemVariants : {}} style={{ width: '180px' }}>
-        <Span>
-          <Button onClick={handleWidgetClick}>{t('Reserve Table')}</Button>
-        </Span>
+        <Button onClick={ handleWidgetClick}>{t('Reserve Table') }</Button>
       </CustomNavLinkSmall>
     </MenuItems>
   );
