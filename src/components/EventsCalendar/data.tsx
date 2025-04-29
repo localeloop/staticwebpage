@@ -78,6 +78,117 @@ const EventData: EventDataType[] = [
 			},
 		],
 	},
+
+	{
+		month: 'May',
+		performances: [
+			{
+				date: 2,
+				day: 'Friday',
+				performers: ["DJ's"],
+				description: 'Late Licence (TEN done) plus Saturday DJ’s',
+			},
+			{
+				date: 4,
+				day: 'Sunday',
+				performers: ['The Scribes', 'Vermantics', 'GJT DJ'],
+				price: 550,
+				description: 'Late Licence (Star Wars theme?) (TEN done). GJT DJ before & after table1',
+			},
+			{
+				date: 11,
+				day: 'Sunday',
+				performers: ['One Dead Thief', 'Empires, Empires', 'Cream Soda'],
+				price: 100,
+				description: '',
+			},
+			{
+				date: 18,
+				day: 'Sunday',
+				performers: ['Tegalu Cat', 'Flounder', 'Tooth'],
+				price: 100,
+				description: '',
+			},
+			{
+				date: 23,
+				day: 'Friday',
+				performers: ["DJ's"],
+				description: 'Late Licence (TEN done) plus Saturday DJ’s',
+			},
+			{
+				date: 25,
+				day: 'Sunday',
+				performers: ['Year of the Dog', 'ALPHALFA'],
+				price: 500,
+				description: 'Late Licence (TEN done)',
+			},
+		],
+	},
+	{
+		month: 'June',
+		performances: [
+			{
+				date: 1,
+				day: 'Sunday',
+				performers: ['Arid Wave - Nel Blu', 'First day of Spring', 'Lame'],
+				description: '4 band bill',
+			},
+			{
+				date: 8,
+				day: 'Sunday',
+				performers: ["Chillin' Marla"],
+				description: "Reggae Night (jerk chicken burger)",
+			},
+			{
+				date: 15,
+				day: 'Sunday',
+				performers: ['The Ariston', 'Trapps', 'Elephants with shotguns'],
+				price: 100,
+				description: 'Father’s Day',
+			},
+			{
+				date: 22,
+				day: 'Sunday',
+				performers: ['Bad Liars', 'The Lurxx'],
+				description: 'BOTB heat 1',
+			},
+			{
+				date: 29,
+				day: 'Sunday',
+				performers: ['Spirit Oil', 'TBD', 'White Noise Machine', 'Bugbear?', 'Danny Mariott'],
+				description: 'BOTB heat 2',
+			},
+		],
+	},
+	{
+		month: 'July',
+		performances: [
+			{
+				date: 6,
+				day: 'Sunday',
+				performers: ['Stonny the donny', 'Halloran', 'The Bluepers'],
+				description: 'BOTB heat 3',
+			},
+			{
+				date: 13,
+				day: 'Sunday',
+				performers: ['The Medicine', 'Swell', 'Skweegie', 'CGI Goth Wife', 'Sturnums'],
+				description: 'BOTB heat 4',
+			},
+			{
+				date: 20,
+				day: 'Sunday',
+				performers: ['Cold July', 'Loanne', 'Liquid dogs', 'Paradise Taxi'],
+				description: 'BOTB heat 5',
+			},
+			{
+				date: 27,
+				day: 'Sunday',
+				performers: ["To Be Assigned"],
+				description: 'BOTB Final',
+			},
+		],
+	}
 ];
 
 export default EventData;
