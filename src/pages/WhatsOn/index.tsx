@@ -51,7 +51,8 @@ const WhatsOn = () => {
 			<Container padding="">
 				<LineBreaker text="Coming up..." color="#cccccc" />
 				<ImageContainer>
-					<LazyImage src={getFullPath('images/winter-spring-2025.png')} alt="new years eve at the queens head" />
+					<LazyImage src={getFullPath('images/whats-on-friday.webp')} alt="the queens head farnham last friday every month" />
+					<LazyImage src={getFullPath('images/battleofthebands.webp')} alt="battle of the bands this summer at the queens head farnham" />
 				</ImageContainer>
 			</Container>
 			<Container padding="0 2% 10% 2%">
