@@ -86,13 +86,13 @@ const Food = () => {
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Main Menu" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-main-menu.pdf" target="_blank" rel="noopener noreferrer">
-                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/qh-main-menu.png" style={{width: '100%'}} alt="main menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/qh-main-menu.webp" style={{width: '100%'}} alt="main menu the queens head farnham"/>
                             </a>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Burgers" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/qh-main-menu.pdf" target="_blank" rel="noopener noreferrer">
-                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/qh-sunday-menu-2.png" style={{width: '100%'}} alt="sunday menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/qh-main-menu-2.webp" style={{width: '100%'}} alt="sunday menu the queens head farnham"/>
                             </a>
                         </Col>
                     </Row>
@@ -114,13 +114,13 @@ const Food = () => {
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Breakfast" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/breakfast-menu.pdf"  target="_blank" rel="noopener noreferrer">
-                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/breakfast-menu.jpg" style={{marginTop: '5%', width:'100%'}} alt="breakfat menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/breakfast-menu.webp" style={{marginTop: '5%', width:'100%'}} alt="breakfat menu the queens head farnham"/>
                             </a>
                         </Col>
                         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                             <LineBreaker text="Kids Menu" />
                             <a href="https://assets.thequeensheadfarnham.co.uk/pdf/kids-menu.pdf"  target="_blank" rel="noopener noreferrer">
-                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/kids-menu.jpg" style={{marginTop: '5%', width:'100%'}} alt="kids menu the queens head farnham"/>
+                                <LazyImage src="https://assets.thequeensheadfarnham.co.uk/images/kids-menu.webp" style={{marginTop: '5%', width:'100%'}} alt="kids menu the queens head farnham"/>
                             </a>
                         </Col>
                     </Row>
