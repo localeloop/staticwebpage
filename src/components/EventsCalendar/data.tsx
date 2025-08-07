@@ -196,13 +196,15 @@ const EventData: EventDataType[] = [
 			date: 10,
 			day: 'Sunday',
 			performers: ['Dahlia\'s Comet', 'Silverline', 'The Borough'],
-			description: 'shoegaze indie'
+			description: 'shoegaze indie',
+			price: 5,
 		},
 		{
 			date: 17,
 			day: 'Sunday',
 			performers: ['A.D SCRUFFS', 'Cullan Flanagan', 'Eloise Kate'],
-			description: 'Folk'
+			description: 'Folk',
+			price: 5,
 		},
 		{
 			date: 22,
@@ -214,19 +216,22 @@ const EventData: EventDataType[] = [
 			date: 23,
 			day: 'Saturday',
 			performers: [],
-			description: 'Late Licence'
+			description: 'Late Licence',
+			price: 5,
 		},
 		{
 			date: 24,
 			day: 'Sunday',
 			performers: ['Beatroot', 'Two man Ting', 'Unknown DJ collective'],
-			description: 'Late Licence'
+			description: 'Late Licence',
+			price: 5,
 		},
 		{
 			date: 31,
 			day: 'Sunday',
 			performers: ['Tegalu Cat', 'Brainface', 'Tooth'],
-			description: ''
+			description: '',
+			price: 5,
 		}
 	]
 },
@@ -237,19 +242,22 @@ const EventData: EventDataType[] = [
 			date: 7,
 			day: 'Sunday',
 			performers: ['The Colour Blind Monks', 'Fanchon', 'Numskull'],
-			description: 'FRESHAS'
+			description: 'FRESHAS',
+			price: 5,
 		},
 		{
 			date: 14,
 			day: 'Sunday',
 			performers: ['India Arkin', 'Hoof', 'Charlotte Franklin'],
-			description: 'FRESHAS'
+			description: 'FRESHAS',
+			price: 5,
 		},
 		{
 			date: 21,
 			day: 'Sunday',
 			performers: ['Doops', 'Artroom', 'Baby Maker'],
-			description: 'FRESHAS'
+			description: 'FRESHAS',
+			price: 5,
 		},
 		{
 			date: 26,
@@ -261,7 +269,8 @@ const EventData: EventDataType[] = [
 			date: 28,
 			day: 'Sunday',
 			performers: ['Basharan', 'Vermantics', 'Tribal Jury'],
-			description: 'FRESHAS'
+			description: 'FRESHAS',
+			price: 5,
 		}
 	]
 },
@@ -272,25 +281,29 @@ const EventData: EventDataType[] = [
 			date: 5,
 			day: 'Sunday',
 			performers: ['Skunkworm', 'Van Quan', 'Stonny the Donny'],
-			description: ''
+			description: '',
+			price: 5,
 		},
 		{
 			date: 12,
 			day: 'Sunday',
 			performers: ['Sunlifter', 'Bones ate arfa', 'Claydoll'],
-			description: ''
+			description: '',
+			price: 5,
 		},
 		{
 			date: 19,
 			day: 'Sunday',
 			performers: ['Grizzly', 'Frank from Blue Velvet', 'Hannah Lou Clark'],
-			description: ''
+			description: '',
+			price: 5,
 		},
 		{
 			date: 26,
 			day: 'Sunday',
 			performers: ['Trevors Head', 'Bacchanal'],
-			description: ''
+			description: '',
+			price: 5,
 		}
 	]
 }
