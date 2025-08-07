@@ -213,13 +213,6 @@ const EventData: EventDataType[] = [
 			description: 'Late Licence'
 		},
 		{
-			date: 23,
-			day: 'Saturday',
-			performers: [],
-			description: 'Late Licence',
-			price: 5,
-		},
-		{
 			date: 24,
 			day: 'Sunday',
 			performers: ['Beatroot', 'Two man Ting', 'Unknown DJ collective'],
