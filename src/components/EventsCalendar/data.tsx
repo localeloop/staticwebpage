@@ -188,7 +188,113 @@ const EventData: EventDataType[] = [
 				description: 'BOTB Final',
 			},
 		],
-	}
+	},
+	{
+	month: 'August',
+	performances: [
+		{
+			date: 10,
+			day: 'Sunday',
+			performers: ['Dahlia\'s Comet', 'Silverline', 'The Borough'],
+			description: 'shoegaze indie'
+		},
+		{
+			date: 17,
+			day: 'Sunday',
+			performers: ['A.D SCRUFFS', 'Cullan Flanagan', 'Eloise Kate'],
+			description: 'Folk'
+		},
+		{
+			date: 22,
+			day: 'Friday',
+			performers: ['Victorious', 'Sam Horton'],
+			description: 'Late Licence'
+		},
+		{
+			date: 23,
+			day: 'Saturday',
+			performers: [],
+			description: 'Late Licence'
+		},
+		{
+			date: 24,
+			day: 'Sunday',
+			performers: ['Beatroot', 'Two man Ting', 'Unknown DJ collective'],
+			description: 'Late Licence'
+		},
+		{
+			date: 31,
+			day: 'Sunday',
+			performers: ['Tegalu Cat', 'Brainface', 'Tooth'],
+			description: ''
+		}
+	]
+},
+{
+	month: 'September',
+	performances: [
+		{
+			date: 7,
+			day: 'Sunday',
+			performers: ['The Colour Blind Monks', 'Fanchon', 'Numskull'],
+			description: 'FRESHAS'
+		},
+		{
+			date: 14,
+			day: 'Sunday',
+			performers: ['India Arkin', 'Hoof', 'Charlotte Franklin'],
+			description: 'FRESHAS'
+		},
+		{
+			date: 21,
+			day: 'Sunday',
+			performers: ['Doops', 'Artroom', 'Baby Maker'],
+			description: 'FRESHAS'
+		},
+		{
+			date: 26,
+			day: 'Friday',
+			performers: ['Si Hitchenson'],
+			description: 'Late Licence'
+		},
+		{
+			date: 28,
+			day: 'Sunday',
+			performers: ['Basharan', 'Vermantics', 'Tribal Jury'],
+			description: 'FRESHAS'
+		}
+	]
+},
+{
+	month: 'October',
+	performances: [
+		{
+			date: 5,
+			day: 'Sunday',
+			performers: ['Skunkworm', 'Van Quan', 'Stonny the Donny'],
+			description: ''
+		},
+		{
+			date: 12,
+			day: 'Sunday',
+			performers: ['Sunlifter', 'Bones ate arfa', 'Claydoll'],
+			description: ''
+		},
+		{
+			date: 19,
+			day: 'Sunday',
+			performers: ['Grizzly', 'Frank from Blue Velvet', 'Hannah Lou Clark'],
+			description: ''
+		},
+		{
+			date: 26,
+			day: 'Sunday',
+			performers: ['Trevors Head', 'Bacchanal'],
+			description: ''
+		}
+	]
+}
+
 ];
 
 export default EventData;
