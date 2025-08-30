@@ -25,7 +25,7 @@ const Contact = ({ title, color, content, id, t }: ContactProps) => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // event.preventDefault;
+    event.preventDefault;
 
     const formData = {
       name: values.name,
@@ -44,16 +44,16 @@ const Contact = ({ title, color, content, id, t }: ContactProps) => {
 
       const result = await response.json();
       if (response.ok) {
-        console.log( 'Form submitted successfully', result );
+        console.log('Form submitted successfully', result);
       }
 
       else {
-        console.error( 'Form submission error: ', result.message )
+        console.error('Form submission error: ', result.message)
       }
     }
 
-    catch ( error ) {
-      console.error( 'Network error: ', error );
+    catch (error) {
+      console.error('Network error: ', error);
     }
   }
 
