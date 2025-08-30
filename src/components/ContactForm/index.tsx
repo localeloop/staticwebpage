@@ -25,7 +25,7 @@ const Contact = ({ title, color, content, id, t }: ContactProps) => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault;
+    event.preventDefault();
 
     const formData = {
       name: values.name,
