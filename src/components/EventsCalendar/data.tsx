@@ -295,8 +295,7 @@ const EventData: EventDataType[] = [
 				date: 25,
 				day: "Saturday",
 				performers: ["Blimus Charity Gig"],
-				description: "Late Licence",
-				price: 5
+				description: "Late Licence"
 			},
 			{
 				date: 26,
