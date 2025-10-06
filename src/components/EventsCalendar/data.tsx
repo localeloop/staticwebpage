@@ -190,116 +190,238 @@ const EventData: EventDataType[] = [
 		],
 	},
 	{
-	month: 'August',
-	performances: [
-		{
-			date: 10,
-			day: 'Sunday',
-			performers: ['Dahlia\'s Comet', 'Silverline', 'The Borough'],
-			description: 'shoegaze indie',
-			price: 5,
-		},
-		{
-			date: 17,
-			day: 'Sunday',
-			performers: ['A.D SCRUFFS', 'Cullan Flanagan', 'Eloise Kate'],
-			description: 'Folk',
-			price: 5,
-		},
-		{
-			date: 22,
-			day: 'Friday',
-			performers: ['Victorious', 'Sam Horton'],
-			description: 'Late Licence'
-		},
-		{
-			date: 24,
-			day: 'Sunday',
-			performers: ['Beatroot', 'Two man Ting', 'Unknown DJ collective'],
-			description: 'Late Licence',
-			price: 5,
-		},
-		{
-			date: 31,
-			day: 'Sunday',
-			performers: ['Tegalu Cat', 'Brainface', 'Tooth'],
-			description: '',
-			price: 5,
-		}
-	]
-},
-{
-	month: 'September',
-	performances: [
-		{
-			date: 7,
-			day: 'Sunday',
-			performers: ['The Colour Blind Monks', 'Fanchon', 'Numskull'],
-			description: 'FRESHAS',
-			price: 5,
-		},
-		{
-			date: 14,
-			day: 'Sunday',
-			performers: ['India Arkin', 'Hoof', 'Charlotte Franklin'],
-			description: 'FRESHAS',
-			price: 5,
-		},
-		{
-			date: 21,
-			day: 'Sunday',
-			performers: ['Doops', 'Artroom', 'Baby Maker'],
-			description: 'FRESHAS',
-			price: 5,
-		},
-		{
-			date: 26,
-			day: 'Friday',
-			performers: ['Si Hitchenson'],
-			description: 'Late Licence'
-		},
-		{
-			date: 28,
-			day: 'Sunday',
-			performers: ['Basharan', 'Vermantics', 'Tribal Jury'],
-			description: 'FRESHAS',
-			price: 5,
-		}
-	]
-},
-{
-	month: 'October',
-	performances: [
-		{
-			date: 5,
-			day: 'Sunday',
-			performers: ['Skunkworm', 'Van Quan', 'Stonny the Donny'],
-			description: '',
-			price: 5,
-		},
-		{
-			date: 12,
-			day: 'Sunday',
-			performers: ['Sunlifter', 'Bones ate arfa', 'Claydoll'],
-			description: '',
-			price: 5,
-		},
-		{
-			date: 19,
-			day: 'Sunday',
-			performers: ['Grizzly', 'Frank from Blue Velvet', 'Hannah Lou Clark'],
-			description: '',
-			price: 5,
-		},
-		{
-			date: 26,
-			day: 'Sunday',
-			performers: ['Trevors Head', 'Bacchanal'],
-			description: '',
-			price: 5,
-		}
-	]
-}
+		month: 'August',
+		performances: [
+			{
+				date: 10,
+				day: 'Sunday',
+				performers: ['Dahlia\'s Comet', 'Silverline', 'The Borough'],
+				description: 'shoegaze indie',
+				price: 5,
+			},
+			{
+				date: 17,
+				day: 'Sunday',
+				performers: ['A.D SCRUFFS', 'Cullan Flanagan', 'Eloise Kate'],
+				description: 'Folk',
+				price: 5,
+			},
+			{
+				date: 22,
+				day: 'Friday',
+				performers: ['Victorious', 'Sam Horton'],
+				description: 'Late Licence'
+			},
+			{
+				date: 24,
+				day: 'Sunday',
+				performers: ['Beatroot', 'Two man Ting', 'Unknown DJ collective'],
+				description: 'Late Licence',
+				price: 5,
+			},
+			{
+				date: 31,
+				day: 'Sunday',
+				performers: ['Tegalu Cat', 'Brainface', 'Tooth'],
+				description: '',
+				price: 5,
+			}
+		]
+	},
+	{
+		month: 'September',
+		performances: [
+			{
+				date: 7,
+				day: 'Sunday',
+				performers: ['The Colour Blind Monks', 'Fanchon', 'Numskull'],
+				description: 'FRESHAS',
+				price: 5,
+			},
+			{
+				date: 14,
+				day: 'Sunday',
+				performers: ['India Arkin', 'Hoof', 'Charlotte Franklin'],
+				description: 'FRESHAS',
+				price: 5,
+			},
+			{
+				date: 21,
+				day: 'Sunday',
+				performers: ['Doops', 'Artroom', 'Baby Maker'],
+				description: 'FRESHAS',
+				price: 5,
+			},
+			{
+				date: 26,
+				day: 'Friday',
+				performers: ['Si Hitchenson'],
+				description: 'Late Licence'
+			},
+			{
+				date: 28,
+				day: 'Sunday',
+				performers: ['Basharan', 'Vermantics', 'Tribal Jury'],
+				description: 'FRESHAS',
+				price: 5,
+			}
+		]
+	},
+	{
+		month: "October",
+		performances: [
+			{
+				date: 5,
+				day: "Sunday",
+				performers: ["Skunkworm", "Van Quan", "Stonny the Donny"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 12,
+				day: "Sunday",
+				performers: ["Sunlifter", "Bones ate arfa", "Claydoll"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 19,
+				day: "Sunday",
+				performers: ["Loanne", "Violet Faultline"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 25,
+				day: "Saturday",
+				performers: ["Blimus Charity Gig"],
+				description: "Late Licence",
+				price: 5
+			},
+			{
+				date: 26,
+				day: "Sunday",
+				performers: ["Trevors Head"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 31,
+				day: "Friday",
+				performers: ["Captain Flatcap"],
+				description: "Halloween Late Licence",
+			}
+		]
+	},
+	{
+		month: "November",
+		performances: [
+			{
+				date: 1,
+				day: "Saturday",
+				performers: ["Jungle Brew"],
+				description: "Halloween Party Late Licence",
+			},
+			{
+				date: 2,
+				day: "Sunday",
+				performers: ["Doops"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 9,
+				day: "Sunday",
+				performers: ["Emerson"],
+				description: "Remembrance Day",
+				price: 5
+			},
+			{
+				date: 16,
+				day: "Sunday",
+				performers: ["Lucca Mae"],
+				description: "Confirmed (60 mins)",
+				price: 5
+			},
+			{
+				date: 23,
+				day: "Sunday",
+				performers: ["Stonny the Donny"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 28,
+				day: "Friday",
+				performers: ["Si Hitchenson"],
+				description: "Late Licence",
+			},
+			{
+				date: 29,
+				day: "Saturday",
+				performers: ["Swarm"],
+				description: "Private Party Late Licence",
+			},
+			{
+				date: 30,
+				day: "Sunday",
+				performers: ["Ross Harding"],
+				description: "Album Launch",
+				price: 5
+			}
+		]
+	},
+	{
+		month: "December",
+		performances: [
+			{
+				date: 7,
+				day: "Sunday",
+				performers: ["Junkyard Choir"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 12,
+				day: "Friday",
+				performers: ["Sam Duffin & DJ Ladies"],
+				description: "Late Licence",
+			},
+			{
+				date: 13,
+				day: "Saturday",
+				performers: ["Grizzly"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 14,
+				day: "Sunday",
+				performers: ["Sam Ashton & The Instincts"],
+				description: "",
+				price: 5
+			},
+			{
+				date: 19,
+				day: "Friday",
+				performers: ["Unknown DJ Collective"],
+				description: "Late Licence",
+			},
+			{
+				date: 20,
+				day: "Saturday",
+				performers: ["Grizzly"],
+				description: "",
+			},
+			{
+				date: 21,
+				day: "Sunday",
+				performers: ["Captain Flatcap & MC"],
+				description: "Late Licence",
+				price: 5
+			}
+		]
+	}
 
 ];
 
