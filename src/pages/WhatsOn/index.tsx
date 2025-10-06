@@ -43,18 +43,18 @@ const WhatsOn = () => {
 
 	return (
 		<WhatsOnContainer className="whats on container">
-			<PyroElement>
+			{/* <PyroElement>
 				<div className="before"></div>
 				<div className="after"></div>
-			</PyroElement>
+			</PyroElement> */}
 			{/* <Carousel height="20vh" /> */}
 			<Container padding="">
 				<LineBreaker text="Coming up..." color="#cccccc" />
-				<ImageContainer>
+				{/* <ImageContainer>
 					<LazyImage src={getFullPath('images/live.webp')} alt="the queens head farnham last friday every month" />
-				</ImageContainer>
+				</ImageContainer> */}
 				<ImageContainer>
-					<LazyImage src={getFullPath('images/queens-late-summer-listing.webp')} alt="the queens head farnham last friday every month" />
+					<LazyImage src={getFullPath('images/qh-music-listing-end-of-year.webp')} alt="the queens head farnham last friday every month" />
 				</ImageContainer>
 			</Container>
 			<Container padding="0 2% 10% 2%">
