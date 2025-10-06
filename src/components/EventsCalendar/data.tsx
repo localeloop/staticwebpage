@@ -273,7 +273,7 @@ const EventData: EventDataType[] = [
 			{
 				date: 5,
 				day: "Sunday",
-				performers: ["Skunkworm", "Van Quan", "Stonny the Donny"],
+				performers: ["Skunkworm", "Van Quan", "Majuba"],
 				description: "",
 				price: 5
 			},
@@ -301,7 +301,7 @@ const EventData: EventDataType[] = [
 			{
 				date: 26,
 				day: "Sunday",
-				performers: ["Trevors Head"],
+				performers: ["Trevors Head", "Riot Weekend", "Bacchanal"],
 				description: "",
 				price: 5
 			},
@@ -319,34 +319,34 @@ const EventData: EventDataType[] = [
 			{
 				date: 1,
 				day: "Saturday",
-				performers: ["Jungle Brew"],
+				performers: ["Live Band TBA", "Unknown DJ Collective"],
 				description: "Halloween Party Late Licence",
 			},
 			{
 				date: 2,
 				day: "Sunday",
-				performers: ["Doops"],
+				performers: ["Doops", "Stereo Silence", "The Sans"],
 				description: "",
 				price: 5
 			},
 			{
 				date: 9,
 				day: "Sunday",
-				performers: ["Emerson"],
+				performers: ["Emerson", "Interstate", "Moose"],
 				description: "Remembrance Day",
 				price: 5
 			},
 			{
 				date: 16,
 				day: "Sunday",
-				performers: ["Lucca Mae"],
+				performers: ["Lucca Mae", "TBA"],
 				description: "Confirmed (60 mins)",
 				price: 5
 			},
 			{
 				date: 23,
 				day: "Sunday",
-				performers: ["Stonny the Donny"],
+				performers: ["Stonny the Donny", "The Dazed Minded", "Spirit Oil"],
 				description: "",
 				price: 5
 			},
@@ -365,7 +365,7 @@ const EventData: EventDataType[] = [
 			{
 				date: 30,
 				day: "Sunday",
-				performers: ["Ross Harding"],
+				performers: ["Ross Harding (Album Launch) Absuma"],
 				description: "Album Launch",
 				price: 5
 			}
