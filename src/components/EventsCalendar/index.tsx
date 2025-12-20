@@ -1,60 +1,70 @@
-import React, { useState } from 'react';
-import EventData from './data';
+import React, { useEffect, useState } from 'react';
 import { isBefore, startOfToday } from 'date-fns';
 import {
-    EventsContainer,
-    CarouselContainer,
-    CarouselInner,
-    CarouselItem,
-    EventContainer,
-    EventHeader,
-    EventHeaderTitle,
-    EventItem,
-    EventDate,
-    EventDateNumber,
-    EventDateDay,
-    EventItemContainer,
-    PerformersAndPriceContainer,
-    DateSuffix,
-    EventTitle,
-    PerformersList,
-    EntryPrice,
-    CarouselControl,
+  EventsContainer,
+  CarouselContainer,
+  CarouselInner,
+  CarouselItem,
+  EventContainer,
+  EventHeader,
+  EventHeaderTitle,
+  EventItem,
+  EventDate,
+  EventDateNumber,
+  EventDateDay,
+  EventItemContainer,
+  PerformersAndPriceContainer,
+  DateSuffix,
+  EventTitle,
+  PerformersList,
+  EntryPrice,
+  CarouselControl,
 } from './styles';
 
+import { fetchEventData } from './data';
 import { PerformanceType } from './types';
 
 const EventsCalendar: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [events, setEvents] = useState<{ month: string; performances: PerformanceType[] }[]>([]);
 
   const getMonthNumber = (monthName: string): number => {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     return months.indexOf(monthName);
   }
 
-  // filter dates
+  useEffect(() => {
+    fetchEventData()
+      .then(setEvents)
+      .catch((err) => console.error("Failed to load events:", err));
+  }, []);
+
   const currentDate = startOfToday();
-  const futureEvents = EventData.map( monthData => ({
-    ...monthData,
-    performances: monthData.performances?.filter((performance: PerformanceType) => {
-      console.log( performance );
-      const eventDate = new Date(new Date().getFullYear(), getMonthNumber(monthData.month), performance.date);
-      return !isBefore(eventDate, currentDate);
-    }) || []
-  })).filter(monthData => monthData.performances.length > 0 );
+
+  const futureEvents = events
+    .map(monthData => ({
+      ...monthData,
+      performances: (monthData.performances ?? []).filter((performance) => {
+        const eventDate = new Date(`${performance.isoDate}T00:00:00`);
+        return !isBefore(eventDate, currentDate);
+      }),
+    }))
+    .filter(monthData => monthData.performances.length > 0);
+
+  console.log(futureEvents);
 
   const handlePrevClick = () => {
     if (animating) return;
     setAnimating(true);
-    setActiveIndex(( prevIndex ) => ( prevIndex === 0 ? futureEvents.length - 1 : prevIndex - 1 ));
+    setActiveIndex((prevIndex) => (prevIndex === 0 ? futureEvents.length - 1 : prevIndex - 1));
     setTimeout(() => { setAnimating(false); }, 300);
   };
 
   const handleNextClick = () => {
     if (animating) return;
     setAnimating(true);
-    setActiveIndex(( prevIndex ) => ( prevIndex === futureEvents.length - 1 ? 0 : prevIndex + 1 ));
+    setActiveIndex((prevIndex) => (prevIndex === futureEvents.length - 1 ? 0 : prevIndex + 1));
     setTimeout(() => { setAnimating(false); }, 300);
   };
 
@@ -76,44 +86,44 @@ const EventsCalendar: React.FC = () => {
 
   return (
     <EventsContainer>
-        <h1>Live Music Calendar</h1>
-        <CarouselContainer>
-            <CarouselInner animating={animating} >
-                {futureEvents.map((eventData, index: number) => (
-                    <CarouselItem key={`${index}-carousel-item`} active={index === activeIndex} animating={animating}>
-                        <EventContainer>
-                            <EventHeader>
-                                <EventHeaderTitle>{eventData.month}</EventHeaderTitle>
-                            </EventHeader>
-                            {eventData.performances.map((performance: PerformanceType, performanceIndex: number) => (
-                                <EventItemContainer>
-                                    <EventItem key={`${index}-${performanceIndex}`}>
-                                        <EventDate>
-                                            <EventDateDay>{performance.day}</EventDateDay>
-                                            <EventDateNumber>
-                                                {performance.date}
-                                                <DateSuffix>{getDateSuffix(performance.date)}</DateSuffix>
-                                            </EventDateNumber>
-                                        </EventDate>
-                                        <PerformersAndPriceContainer>
-                                            <PerformersList>
-                                                {performance.performers.map((performer: string, i: number) => (
-                                                    <EventTitle key={`${performanceIndex}-${performer}`}>{performer}</EventTitle>
-                                                ))}
-                                            </PerformersList>
-                                        </PerformersAndPriceContainer>
-                                        { 'price' in performance ? <EntryPrice>Entry £{performance.price}</EntryPrice> : <EntryPrice>Free Entry</EntryPrice> }
-                                    </EventItem>
-                                </EventItemContainer>
-                            ))}
-                    </EventContainer>
-                    </CarouselItem>
+      <h1>Live Music Calendar</h1>
+      <CarouselContainer>
+        <CarouselInner animating={animating} >
+          {futureEvents.map((eventData, index: number) => (
+            <CarouselItem key={`${index}-carousel-item`} active={index === activeIndex} animating={animating}>
+              <EventContainer>
+                <EventHeader>
+                  <EventHeaderTitle>{eventData.month}</EventHeaderTitle>
+                </EventHeader>
+                {eventData.performances.map((performance: PerformanceType, performanceIndex: number) => (
+                  <EventItemContainer key={`${index}-${performanceIndex}`}>
+                    <EventItem>
+                      <EventDate>
+                        <EventDateDay>{performance.day}</EventDateDay>
+                        <EventDateNumber>
+                          {performance.date}
+                          <DateSuffix>{getDateSuffix(performance.date)}</DateSuffix>
+                        </EventDateNumber>
+                      </EventDate>
+                      <PerformersAndPriceContainer>
+                        <PerformersList>
+                          {performance.performers.map((performer: string, i: number) => (
+                            <EventTitle key={`${performanceIndex}-${performer}`}>{performer}</EventTitle>
+                          ))}
+                        </PerformersList>
+                      </PerformersAndPriceContainer>
+                      {'price' in performance ? <EntryPrice>Entry £{performance.price}</EntryPrice> : <EntryPrice>Free Entry</EntryPrice>}
+                    </EventItem>
+                  </EventItemContainer>
                 ))}
-            </CarouselInner>
-          <CarouselControl direction="prev" onClick={handlePrevClick} />
-          <CarouselControl direction="next" onClick={handleNextClick} />
-        </CarouselContainer>
-    </EventsContainer>
+              </EventContainer>
+            </CarouselItem>
+          ))}
+        </CarouselInner>
+        <CarouselControl direction="prev" onClick={handlePrevClick} />
+        <CarouselControl direction="next" onClick={handleNextClick} />
+      </CarouselContainer>
+    </EventsContainer >
   );
 };
 

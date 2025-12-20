@@ -4,6 +4,7 @@ export interface PerformanceType {
     performers: string[];
     price?: number;
     description?: string;
+    isoDate: string;
 }
 
 export interface EventDataType {
