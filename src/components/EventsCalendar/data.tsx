@@ -43,6 +43,8 @@ export async function fetchEventData() {
 
 	const json = (await res.json()) as ApiResponse;
 
+	console.log(json);
+
 	// key = "YYYY-MM" so different years don't collide
 	const byMonth = new Map<string, PerformanceType[]>();
 

@@ -1,13 +1,25 @@
 // src/pages/WhatsOn/data.ts
 
+export type ComingUpImage = {
+    src: string;
+    alt: string;
+    srcSet?: string;
+    sizes?: string;
+};
+
 export type ComingUpData = {
-    heading: string; // for LineBreaker
-    image: {
+    heading: string;
+    images: ComingUpImage[];
+};
+
+export type ComingUpState = {
+    heading: string;
+    images: {
         src: string;
         alt: string;
-        srcSet?: string; // responsive
-        sizes?: string;  // responsive
-    } | null;
+        srcSet?: string;
+        sizes?: string;
+    }[];
 };
 
 type StrapiImageFormat = {
@@ -54,7 +66,6 @@ function buildSrcSet(formats?: StrapiPoster["formats"]) {
 
     if (!candidates.length) return undefined;
 
-    // e.g. "https://.../small.png 353w, https://.../medium.png 530w"
     return candidates.map(c => `${c.url} ${c.w}w`).join(", ");
 }
 
@@ -64,8 +75,30 @@ export async function fetchComingUpFromWeeklyPosters(): Promise<ComingUpData> {
 
     if (!baseUrl) throw new Error("Missing REACT_APP_API_URL");
 
-    // Sort newest first so you always get the latest entry
-    const url = `${baseUrl}weekly-events-posters?populate=*&sort=publishedAt:desc`;
+    const now = new Date();
+
+    const startOfMonth = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        1
+    ).toISOString();
+
+    const endOfMonth = new Date(
+        now.getFullYear(),
+        now.getMonth() + 1,
+        0,
+        23,
+        59,
+        59
+    ).toISOString();
+
+    const url =
+        `${baseUrl}weekly-events-posters?` +
+        `populate=*&` +
+        `filters[publishedAt][$gte]=${startOfMonth}&` +
+        `filters[publishedAt][$lte]=${endOfMonth}&` +
+        `sort=publishedAt:asc`;
+
 
     const res = await fetch(url, {
         headers: token ? { Authorization: `Bearer ${token}` } : undefined,
@@ -77,28 +110,25 @@ export async function fetchComingUpFromWeeklyPosters(): Promise<ComingUpData> {
     }
 
     const json = (await res.json()) as WeeklyEventsPostersResponse;
-    const firstEntry = pickFirst(json.data);
 
-    // Heading: use Header if present, else default
-    const heading = (firstEntry?.Header?.trim() || "Coming up...");
+    console.log(json);
 
-    const poster = pickFirst(firstEntry?.Poster ?? null);
+    const images: ComingUpImage[] = json.data.flatMap((entry) =>
+        (entry.Poster ?? [])
+            .filter((p): p is StrapiPoster => Boolean(p?.url))
+            .map((poster) => ({
+                src: poster.url,
+                alt: (poster.alternativeText ?? poster.name ?? "Coming up poster").trim(),
+                srcSet: buildSrcSet(poster.formats),
+                sizes: "(max-width: 600px) 95vw, (max-width: 1024px) 80vw, 60vw",
+            }))
+    );
 
-    if (!poster?.url) {
-        return { heading, image: null };
-    }
-
-    const src = poster.url; // already absolute in your response
-    const alt = (poster.alternativeText ?? poster.name ?? "Coming up poster").trim();
-
-    const srcSet = buildSrcSet(poster.formats);
-
-    // This tells the browser how big the image will render; tweak to your layout.
-    // Example: on mobile, full width; on desktop, roughly 60vw.
-    const sizes = "(max-width: 600px) 95vw, (max-width: 1024px) 80vw, 60vw";
+    const heading =
+        now.toLocaleString("en-GB", { month: "long" }) + " events";
 
     return {
         heading,
-        image: { src, alt, srcSet, sizes },
+        images,
     };
 }

@@ -4,7 +4,7 @@ import { Slide } from "react-awesome-reveal";
 import Spinner from "../../common/Spinner";
 import LineBreaker from "../../common/LineBreaker";
 import getFullPath from "../../common/utils/imageUtils";
-import { fetchComingUpFromWeeklyPosters } from "./data";
+import { fetchComingUpFromWeeklyPosters, ComingUpState } from "./data";
 
 const Container = lazy(() => import("../../common/Container"));
 const LazyImage = lazy(() => import("../../common/LazyImage"));
@@ -13,11 +13,6 @@ interface WhatsOnImage {
 	src: string;
 	alt: string;
 }
-
-type ComingUpState = {
-	heading: string;
-	image: { src: string; alt: string; srcSet?: string; sizes?: string } | null;
-};
 
 const WhatsOn = () => {
 	// hardcoded "Every Week" stays as-is
@@ -45,7 +40,7 @@ const WhatsOn = () => {
 
 	const [comingUp, setComingUp] = useState<ComingUpState>({
 		heading: "Coming up...",
-		image: null,
+		images: [],
 	});
 	const [loadingComingUp, setLoadingComingUp] = useState(true);
 
@@ -66,6 +61,8 @@ const WhatsOn = () => {
 		};
 	}, []);
 
+	const { heading, images } = comingUp;
+
 	return (
 		<WhatsOnContainer className="whats on container">
 			<Container padding="">
@@ -74,18 +71,25 @@ const WhatsOn = () => {
 				<ImageContainer>
 					{loadingComingUp ? (
 						<Spinner />
-					) : comingUp.image ? (
-						// Responsive image (browser chooses from srcSet)
-						<img
-							src={comingUp.image.src}
-							srcSet={comingUp.image.srcSet}
-							sizes={comingUp.image.sizes}
-							alt={comingUp.image.alt}
-							style={{ width: "100%", height: "auto", display: "block" }}
-							loading="lazy"
-						/>
+					) : comingUp.images.length > 0 ? (
+						comingUp.images.map((image, index) => (
+							<Slide key={index} direction="up" triggerOnce>
+								<img
+									src={image.src}
+									srcSet={image.srcSet}
+									sizes={image.sizes}
+									alt={image.alt}
+									style={{
+										width: "100%",
+										height: "auto",
+										display: "block",
+										marginBottom: "2rem",
+									}}
+									loading="lazy"
+								/>
+							</Slide>
+						))
 					) : (
-						// fallback if API has no poster
 						<LazyImage
 							src={getFullPath("images/qh-music-listing-end-of-year.webp")}
 							alt="the queens head farnham last friday every month"
