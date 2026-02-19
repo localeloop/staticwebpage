@@ -20,7 +20,6 @@ interface SocialLinkProps {
 }
 
 const Footer = ({ t }: any) => {
-  
   const SocialLink = ({ href, src, alt }: SocialLinkProps) => {
     return (
       <a
@@ -59,12 +58,18 @@ const Footer = ({ t }: any) => {
             </Col>
             <Col lg={10} md={10} sm={12} xs={12}>
               <Language>{t("Opening Hours")}</Language>
-                <Col lg={10} md={8} sm={12} xs={12}>
-                  <Para>Mon - Wed: 10:00 - 23:00</Para>
-                  <Para>Thursday: 10:00 - 00:00</Para>
-                  <Para>Fri - Sat: 10:00 - 00:30</Para>
-                  <Para>Sunday: 10:00 - 23:30</Para>
-                </Col>
+              <Col lg={10} md={8} sm={12} xs={12}>
+                <Para>Mon - Wed: 10:00 - 23:00</Para>
+                <Para>Thursday: 10:00 - 00:00</Para>
+                <Para>Fri - Sat: 10:00 - 00:30</Para>
+                <Para>Sunday: 10:00 - 23:30</Para>
+
+                <Para style={{ marginTop: "0.75rem" }}>
+                  <strong>Kitchen open:</strong>
+                </Para>
+                <Para>Monday - Friday: 12–9.30pm</Para>
+                <Para>Saturday & Sunday: 10am–9.30pm</Para>
+              </Col>
             </Col>
           </Row>
         </Container>
@@ -91,12 +96,12 @@ const Footer = ({ t }: any) => {
                   href="https://www.instagram.com/the_queens_head_/"
                   alt="Queens head Instagram"
                   src="/img/svg/instagram.svg"
-                  />
+                />
                 <SocialLink
                   href="https://www.facebook.com/TheQueensHeadFarnham"
                   alt="Queens head facebook"
                   src="/img/svg/facebook.svg"
-                  />
+                />
               </FooterContainer>
             </Col>
           </Row>
