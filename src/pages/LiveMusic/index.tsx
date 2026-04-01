@@ -1,15 +1,15 @@
 import React, { Suspense } from 'react';
 
 // Styles
-import { 
-    MainBody, 
+import {
+    MainBody,
     StyledBird1,
     StyledBird2,
     BirdContainer,
     StyledSnake,
     SnakeImageContainer,
     StyledCandle,
- } from './styles';
+} from './styles';
 
 import { ReactComponent as Bird1 } from './images/bird1.svg';
 import { ReactComponent as Snake } from './images/snake.svg';
@@ -57,32 +57,29 @@ const LiveMusic = () => {
             </Flower1Container> */}
             <BirdContainer>
                 <StyledBird1>
-                    <Bird1 aria-label="Traditional Tattoo Flash Art of a Swallow"/>
+                    <Bird1 aria-label="Traditional Tattoo Flash Art of a Swallow" />
                 </StyledBird1>
                 <StyledBird2>
-                    <Bird1 aria-label="Traditional Tattoo Flash Art of a Swallow"/>
+                    <Bird1 aria-label="Traditional Tattoo Flash Art of a Swallow" />
                 </StyledBird2>
             </BirdContainer>
-            <Suspense fallback={<Spinner/>}>
+            <Suspense fallback={<Spinner />}>
                 <Container>
                     <EventsCalendar />
-                    <StyledCandle>
-                        <Candle aria-label="Traditional Tattoo Flash Art of a Candle Burning at Both Ends"/>
-                    </StyledCandle>
                 </Container>
-                <ImageMarquee 
+                <ImageMarquee
                     images={images}
-                    />
+                />
                 <SnakeImageContainer>
                     <StyledSnake>
-                        <Snake aria-label="Traditional Tattoo Flash Art of a Snake"/>
+                        <Snake aria-label="Traditional Tattoo Flash Art of a Snake" />
                     </StyledSnake>
                     <Container>
 
-                    <ContactForm 
-                        title="Are you a band?"
-                        content="We'd love to hear from you!"
-                        color="#fff"
+                        <ContactForm
+                            title="Are you a band?"
+                            content="We'd love to hear from you!"
+                            color="#fff"
                         />
                     </Container>
                 </SnakeImageContainer>

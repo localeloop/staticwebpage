@@ -27,7 +27,7 @@ const WhatsOn = () => {
 				alt: "Every Tuesday Queen's Head Hosts an Open Mic night for upcoming talent!",
 			},
 			{
-				src: "https://assets.thequeensheadfarnham.co.uk/images/whatson-quiz-karaoke.png",
+				src: "https://assets.thequeensheadfarnham.co.uk/images/whatson-quiz-karaoke.pdng",
 				alt: "The Queens Head Karaoke Evening is on Thursdays from 9:30",
 			},
 			{
