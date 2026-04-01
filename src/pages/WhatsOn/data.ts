@@ -75,30 +75,10 @@ export async function fetchComingUpFromWeeklyPosters(): Promise<ComingUpData> {
 
     if (!baseUrl) throw new Error("Missing REACT_APP_API_URL");
 
-    const now = new Date();
-
-    const startOfMonth = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        1
-    ).toISOString();
-
-    const endOfMonth = new Date(
-        now.getFullYear(),
-        now.getMonth() + 1,
-        0,
-        23,
-        59,
-        59
-    ).toISOString();
-
     const url =
         `${baseUrl}weekly-events-posters?` +
         `populate=*&` +
-        `filters[publishedAt][$gte]=${startOfMonth}&` +
-        `filters[publishedAt][$lte]=${endOfMonth}&` +
-        `sort=publishedAt:asc`;
-
+        `sort=publishedAt:desc`;
 
     const res = await fetch(url, {
         headers: token ? { Authorization: `Bearer ${token}` } : undefined,
@@ -111,18 +91,25 @@ export async function fetchComingUpFromWeeklyPosters(): Promise<ComingUpData> {
 
     const json = (await res.json()) as WeeklyEventsPostersResponse;
 
-    console.log(json);
 
-    const images: ComingUpImage[] = json.data.flatMap((entry) =>
-        (entry.Poster ?? [])
-            .filter((p): p is StrapiPoster => Boolean(p?.url))
-            .map((poster) => ({
-                src: poster.url,
-                alt: (poster.alternativeText ?? poster.name ?? "Coming up poster").trim(),
-                srcSet: buildSrcSet(poster.formats),
-                sizes: "(max-width: 600px) 95vw, (max-width: 1024px) 80vw, 60vw",
-            }))
-    );
+    const now = new Date();
+    const validPoster = json.data
+        .filter(p => p.publishedAt && new Date(p.publishedAt) <= now)
+        .sort((a, b) => {
+            return (
+                new Date(b.publishedAt!).getTime() -
+                new Date(a.publishedAt!).getTime()
+            );
+        })[0];
+
+    const images: ComingUpImage[] = validPoster?.Poster
+        ? validPoster.Poster.map((poster) => ({
+            src: poster.url,
+            alt: (poster.alternativeText ?? poster.name ?? "Coming up poster").trim(),
+            srcSet: buildSrcSet(poster.formats),
+            sizes: "(max-width: 600px) 95vw, (max-width: 1024px) 80vw, 60vw",
+        }))
+        : [];
 
     const heading =
         now.toLocaleString("en-GB", { month: "long" }) + " events";
