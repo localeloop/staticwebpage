@@ -180,8 +180,6 @@ const EventsCalendar: React.FC = () => {
     .filter(e => !isBefore(new Date(e.date), today))
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-  console.log(filteredEvents);
-
   return (
     <Container>
       {filteredEvents.map((event, i) => {
@@ -198,7 +196,6 @@ const EventsCalendar: React.FC = () => {
             ? event.bands[0].description
             : undefined;
 
-        console.log(event);
 
         return (
           <Card key={i}>
@@ -208,7 +205,10 @@ const EventsCalendar: React.FC = () => {
               <Price>{price}</Price>
             </CardHeader>
             <ImageWrapper onClick={() => toggleCard(i)}>
-              <FullWidthImage src={"/img/images/piano-background.jpg"} alt="" />
+              <FullWidthImage
+                src={event?.image || "/img/images/piano-background.jpg"}
+                alt=""
+              />
 
               {!isExpanded && (
                 <HoverOverlay className="overlay">

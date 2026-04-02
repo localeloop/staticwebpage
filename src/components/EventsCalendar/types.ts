@@ -17,19 +17,6 @@ export interface EventBand {
     description?: string;
 }
 
-export interface EventCardType {
-    date: string;
-    time: string;
-    entryPrice?: number;
-
-    description?: string; // 👈 event-level description
-    isLateLicense?: boolean; // 👈 useful UI flag
-
-    bands: {
-        image: string;
-        description?: string;
-    }[];
-}
 
 export interface ApiPerformer {
     id: number;
@@ -47,4 +34,19 @@ export interface ApiItem {
 
 export interface ApiResponse {
     data: ApiItem[];
+}
+
+
+export interface EventCardType {
+    date: string;
+    time: string;
+    entryPrice?: number;
+
+    description?: string; // 👈 event-level description
+    isLateLicense?: boolean; // 👈 useful UI flag
+    image?: string;
+
+    bands: {
+        description?: string;
+    }[];
 }

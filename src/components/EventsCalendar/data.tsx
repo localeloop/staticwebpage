@@ -1,16 +1,17 @@
-import type { EventCardType, PerformanceType } from "./types";
+import { EventCardType } from "./types";
+
 export interface ApiPerformer {
 	id: number;
 	Name: string;
 }
-
 export interface ApiPickPerformer {
 	Date: string;
 	DayOfWeek: string;
 	Description?: string | null;
 	IsLateLicense?: boolean | null;
 	Price?: number | null;
-	Performers?: ApiPerformer[];
+	Information?: ApiPerformer[];
+	Image?: { url: string }[];
 }
 
 export interface ApiItem {
@@ -31,45 +32,43 @@ export async function fetchEventData(): Promise<EventCardType[]> {
 	if (!baseUrl) throw new Error("Missing REACT_APP_API_URL");
 
 	const url =
-		`${baseUrl}calendar-live-musics?` +
-		`populate[PickPerformers][populate][Performers][populate]=*`;
+		`${baseUrl}calendar-live-musics?` + `populate[PickPerformers][populate]=*`;
 
 	const res = await fetch(url, {
-		headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+		headers: token ? { Authorization: `Bearer ${token} ` } : undefined,
 	});
 
 	if (!res.ok) {
 		const text = await res.text();
-		throw new Error(`Strapi request failed: ${res.status} ${text}`);
+		throw new Error(`Strapi request failed: ${res.status} \n\n ${text} `);
 	}
 	const json = (await res.json()) as ApiResponse;
 
 	const events: EventCardType[] = [];
 	for (const item of json.data ?? []) {
-		for (const p of item.PickPerformers ?? []) {
+		if (!item.PickPerformers?.length) continue;
+
+		for (const p of item.PickPerformers) {
 			if (!p.Date) continue;
 
 			const d = new Date(`${p.Date}T00:00:00`);
 			if (Number.isNaN(d.getTime())) continue;
+
+			const imageUrl =
+				p.Image?.[0]?.url
+					? `${p.Image[0].url}`
+					: "";
 
 			events.push({
 				date: p.Date,
 				time: p.DayOfWeek ?? "",
 				entryPrice: p.Price ?? undefined,
 				description: p.Description ?? undefined,
-				isLateLicense: p.IsLateLicense ?? undefined,
+				image: imageUrl, // 👈 shared image per event
 
-				bands: (p.Performers ?? [])
-					.map((x: ApiPerformer) => ({
-						image: "",
-						description: x.Name ?? "",
-					}))
-					.filter(
-						(b: { image: string; description: string }): b is {
-							image: string;
-							description: string;
-						} => !!b.description
-					)
+				bands: (p.Information ?? []).map((x) => ({
+					description: x.Name ?? "",
+				})),
 			});
 		}
 	}
