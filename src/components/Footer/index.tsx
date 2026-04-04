@@ -67,8 +67,8 @@ const Footer = ({ t }: any) => {
                 <Para style={{ marginTop: "0.75rem" }}>
                   <strong>Kitchen open:</strong>
                 </Para>
-                <Para>Monday - Friday: 12–9.30pm</Para>
-                <Para>Saturday & Sunday: 10am–9.30pm</Para>
+                <Para>Monday - Saturday: 12–9.30pm</Para>
+                <Para>Sunday: 12–9pm</Para>
               </Col>
             </Col>
           </Row>
