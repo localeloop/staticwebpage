@@ -91,25 +91,18 @@ export async function fetchComingUpFromWeeklyPosters(): Promise<ComingUpData> {
 
     const json = (await res.json()) as WeeklyEventsPostersResponse;
 
+    console.log(json);
 
     const now = new Date();
-    const validPoster = json.data
-        .filter(p => p.publishedAt && new Date(p.publishedAt) <= now)
-        .sort((a, b) => {
-            return (
-                new Date(b.publishedAt!).getTime() -
-                new Date(a.publishedAt!).getTime()
-            );
-        })[0];
 
-    const images: ComingUpImage[] = validPoster?.Poster
-        ? validPoster.Poster.map((poster) => ({
+    const images: ComingUpImage[] = json.data.flatMap((item) =>
+        (item.Poster ?? []).map((poster) => ({
             src: poster.url,
             alt: (poster.alternativeText ?? poster.name ?? "Coming up poster").trim(),
             srcSet: buildSrcSet(poster.formats),
             sizes: "(max-width: 600px) 95vw, (max-width: 1024px) 80vw, 60vw",
         }))
-        : [];
+    );
 
     const heading =
         now.toLocaleString("en-GB", { month: "long" }) + " events";

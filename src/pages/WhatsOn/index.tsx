@@ -61,7 +61,7 @@ const WhatsOn = () => {
 		};
 	}, []);
 
-	const { heading, images } = comingUp;
+	console.log(comingUp);
 
 	return (
 		<WhatsOnContainer className="whats on container">
