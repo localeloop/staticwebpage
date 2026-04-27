@@ -82,6 +82,7 @@ export async function fetchFoodPageData(): Promise<FoodPageData> {
 
     const json = (await res.json()) as FoodResponse;
     const entry = pickFirst(json.data);
+    console.log(entry);
 
     const title = (entry?.Title ?? "Food").trim();
     const body = (entry?.Body ?? "").trim();

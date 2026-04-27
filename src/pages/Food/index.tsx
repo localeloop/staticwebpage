@@ -1,4 +1,4 @@
-import { lazy, useEffect, useMemo, useState } from "react";
+import { lazy, useState } from "react";
 import Carousel from "../../components/Carousel";
 import ImageContainer, {
     CenteredContent,
@@ -13,7 +13,6 @@ import { Row, Col } from "antd";
 import LineBreaker from "../../common/LineBreaker";
 import FoodContent from "../../content/FoodContent.json";
 import { FoodDeliveryLinks, StyledLogoContainer, StyledLink } from "../Home/styles";
-import { fetchFoodPageData } from "./data";
 
 const LazyImage = lazy(() => import("../../common/LazyImage"));
 const Container = lazy(() => import("../../common/Container"));
@@ -24,23 +23,18 @@ const ImageMarquee = lazy(() => import("../../common/ImageMarquee"));
 const fallbackCards = [
     {
         label: "Main Menu",
-        pdfUrl: "https://assets.thequeensheadfarnham.co.uk/pdf/qh-main-menu.pdf",
-        image: { src: "https://assets.thequeensheadfarnham.co.uk/images/qh-main-menu.webp", alt: "main menu the queens head farnham" },
+        pdfUrl: "https://assets.thequeensheadfarnham.co.uk/MAIN_MENU_2026_April_FINAL_08b7ae684a.pdf",
+        image: { src: "https://assets.thequeensheadfarnham.co.uk/qh-main-menu-1.png", alt: "main menu the queens head farnham" },
     },
     {
-        label: "Burgers",
+        label: "Main Menu 2",
         pdfUrl: "https://assets.thequeensheadfarnham.co.uk/pdf/qh-main-menu.pdf",
-        image: { src: "https://assets.thequeensheadfarnham.co.uk/images/qh-main-menu-2.webp", alt: "burgers menu the queens head farnham" },
+        image: { src: "https://assets.thequeensheadfarnham.co.uk/qh-main-menu-1-1.png", alt: "burgers menu the queens head farnham" },
     },
     {
-        label: "Breakfast",
+        label: "Bar Menu",
         pdfUrl: "https://assets.thequeensheadfarnham.co.uk/pdf/breakfast-menu.pdf",
-        image: { src: "https://assets.thequeensheadfarnham.co.uk/images/breakfast-menu.webp", alt: "breakfast menu the queens head farnham" },
-    },
-    {
-        label: "Kids Menu",
-        pdfUrl: "https://assets.thequeensheadfarnham.co.uk/pdf/kids-menu.pdf",
-        image: { src: "https://assets.thequeensheadfarnham.co.uk/images/kids-menu.webp", alt: "kids menu the queens head farnham" },
+        image: { src: "https://assets.thequeensheadfarnham.co.uk/BAR_MENU_APRIL_2026_FINAL_1f7cfd8bf4.png", alt: "breakfast menu the queens head farnham" },
     },
 ];
 
@@ -64,54 +58,17 @@ const images = [
 
 const Food = () => {
     const [isFlipped, setIsFlipped] = useState(false);
-
-    const [pageTitle, setPageTitle] = useState("Believe it or Not");
-    const [bodyText, setBodyText] = useState(FoodContent.text);
-    const [flipText, setFlipText] = useState(FoodContent.flip);
-    const [cards, setCards] = useState(fallbackCards);
-    const [carouselImages, setCarouselImages] = useState<string[] | null>(null);
-
     const handleFlip = () => setIsFlipped((v) => !v);
 
-    useEffect(() => {
-        let mounted = true;
-
-        fetchFoodPageData()
-            .then((data) => {
-                if (!mounted) return;
-
-                setPageTitle(data.title || "Believe it or Not");
-                setBodyText(data.body || FoodContent.text);
-                setFlipText(data.flip || FoodContent.flip);
-
-                // If Strapi returns replacement cards with images, use them;
-                // otherwise keep fallbacks.
-                const apiCards = data.cards
-                    .map((c) => ({
-                        label: c.label,
-                        pdfUrl: c.pdfUrl,
-                        image: c.image ?? null,
-                    }))
-                    .filter((c) => c.pdfUrl && c.image?.src);
-
-                if (apiCards.length) setCards(apiCards as any);
-
-                if (data.carouselImages?.length) setCarouselImages(data.carouselImages);
-            })
-            .catch((e) => console.error("Failed to load food page content:", e));
-
-        return () => {
-            mounted = false;
-        };
-    }, []);
-
-    // Only replace carousel images if Strapi provides them
-    const marqueeImages = useMemo(() => {
-        return carouselImages?.length ? carouselImages : images;
-    }, [carouselImages]);
+    // Hardcoded to use local content and fallbackCards only
+    const pageTitle = "Believe it or Not";
+    const bodyText = FoodContent.text;
+    const flipText = FoodContent.flip;
+    const cards = fallbackCards;
 
     return (
         <div>
+            <ScrollToTop />
             <Carousel height="100vh">
                 <Container>
                     <CenteredContent>
@@ -150,57 +107,28 @@ const Food = () => {
                 </StyledLogoContainer>
             </FoodDeliveryLinks>
 
-            <ImageMarquee images={marqueeImages} />
+            <ImageMarquee images={images} />
 
             <Container maxWidth="1700px">
-                <ScrollToTop />
                 <ImageContainer>
                     <Row gutter={[16, 16]} justify="space-between" align="middle">
-                        {cards.slice(0, 2).map((card, i) => (
-                            <Col key={card.label} xs={24} sm={24} md={12} lg={12} xl={12}>
-                                <LineBreaker text={card.label} />
-                                {card.pdfUrl ? (
+                        {cards.map((card, i) => (
+                            <Col key={`${card.label}-${i}`} xs={24} sm={24} md={12} lg={12} xl={12}>
+                                <div style={{ marginBottom: i < 2 ? "0" : "5%" }}>
+                                    <LineBreaker text={card.label} />
                                     <a href={card.pdfUrl} target="_blank" rel="noopener noreferrer">
-                                        {/* Use <img> for responsive formats; fallback to LazyImage if you prefer */}
                                         <img
                                             src={card.image.src}
-                                            srcSet={(card.image as any).srcSet}
-                                            sizes={(card.image as any).sizes}
                                             style={{ width: "100%", height: "auto", display: "block" }}
                                             alt={card.image.alt}
                                             loading="lazy"
                                         />
                                     </a>
-                                ) : (
-                                    <LazyImage src={card.image.src} style={{ width: "100%" }} alt={card.image.alt} />
-                                )}
-                            </Col>
-                        ))}
-                    </Row>
-
-                    <Row gutter={[16, 16]} justify="space-between" align="middle">
-                        {cards.slice(2, 4).map((card) => (
-                            <Col key={card.label} xs={24} sm={24} md={12} lg={12} xl={12}>
-                                <LineBreaker text={card.label} />
-                                {card.pdfUrl ? (
-                                    <a href={card.pdfUrl} target="_blank" rel="noopener noreferrer">
-                                        <img
-                                            src={card.image.src}
-                                            srcSet={(card.image as any).srcSet}
-                                            sizes={(card.image as any).sizes}
-                                            style={{ marginTop: "5%", width: "100%", height: "auto", display: "block" }}
-                                            alt={card.image.alt}
-                                            loading="lazy"
-                                        />
-                                    </a>
-                                ) : (
-                                    <LazyImage src={card.image.src} style={{ marginTop: "5%", width: "100%" }} alt={card.image.alt} />
-                                )}
+                                </div>
                             </Col>
                         ))}
                     </Row>
                 </ImageContainer>
-
                 <LineBreaker />
             </Container>
         </div>
